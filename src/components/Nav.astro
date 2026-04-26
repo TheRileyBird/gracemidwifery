@@ -1,0 +1,97 @@
+---
+const navLinks = [
+  { href: '/', label: 'HOME' },
+  { href: '/midwifery-care', label: 'MIDWIFERY CARE' },
+  { href: '/doula-support', label: 'DOULA SUPPORT' },
+  { href: '/education', label: 'EDUCATION' },
+  { href: '/faq', label: 'FAQ' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  x-data="{ open: false }"
+  class="bg-white border-b border-gray-100 sticky top-0 z-50"
+>
+  <nav class="max-w-7xl mx-auto px-6 flex items-center justify-between h-[72px]">
+    <!-- Logo -->
+    <a href="/" class="flex-shrink-0">
+      <img
+        src="/images/logo-only.png"
+        alt="Grace Midwifery Collective"
+        class="h-14 w-auto"
+      />
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden lg:flex items-center gap-7">
+      <ul class="flex items-center gap-7">
+        {navLinks.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                'text-[11px] font-semibold tracking-widest transition-colors duration-200',
+                currentPath === href
+                  ? 'text-accent-dark'
+                  : 'text-contrast-2 hover:text-accent-dark',
+              ]}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a
+        href="/contact"
+        class="text-[11px] font-semibold tracking-widest text-white bg-accent-dark px-5 py-2 rounded-full hover:bg-opacity-90 transition-colors"
+      >
+        CONTACT
+      </a>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button
+      @click="open = !open"
+      class="lg:hidden p-2 text-contrast-2"
+      aria-label="Toggle menu"
+    >
+      <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-cloak>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div
+    x-show="open"
+    x-transition
+    class="lg:hidden bg-white border-t border-gray-100 px-6 pb-6"
+    x-cloak
+  >
+    <ul class="flex flex-col pt-4">
+      {navLinks.map(({ href, label }) => (
+        <li>
+          <a
+            href={href}
+            class="block py-3 text-[11px] font-semibold tracking-widest text-contrast-2 hover:text-accent-dark border-b border-gray-50 transition-colors"
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+      <li class="pt-4">
+        <a
+          href="/contact"
+          class="inline-block text-[11px] font-semibold tracking-widest text-white bg-accent-dark px-5 py-2 rounded-full"
+        >
+          CONTACT
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>

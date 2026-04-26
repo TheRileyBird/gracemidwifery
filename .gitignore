@@ -1,4 +1,31 @@
+# Build outputs
+dist/
+.astro/
 
-# Dolt database files (added by bd init)
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Gas Town runtime (local agent workspaces, not source)
+crew/
+.runtime/
+
+# Claude Code local overrides (project settings.json is tracked)
+.claude/settings.local.json
+
+# Dolt / Beads runtime files
 .dolt/
 *.db
+.beads/dolt-server.activity

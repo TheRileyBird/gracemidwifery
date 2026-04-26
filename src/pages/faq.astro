@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import ContactBar from '../components/ContactBar.astro';
+import Footer from '../components/Footer.astro';
+
+const whatToExpect = [
+  { heading: 'Respectful Treatment', items: ['Gentle, nurturing care that respects you, your family, and your beliefs', 'Respect for your informed decisions about medical tests, recommendations, and interventions', 'Willingness to support your birth plan, including any family members and friends you may want present', 'Freedom to move, eat, bathe — to do what helps you during labor and birth', 'Respect for the birth process as it unfolds uniquely each time'] },
+  { heading: 'Personal Attention', items: ['Prenatal visits that allow plenty of time for questions and answers — 45–60 minutes each', 'Meaningful discussions addressing your fears and concerns', 'Caring attention to develop a trusting, nurturing relationship with you and your family'] },
+  { heading: 'Evidence, Perspective & Resources', items: ['Full information about pregnancy, birth, newborn care, and breastfeeding', 'Suggestions tailored to your cultural and lifestyle needs', 'Encouragement and practical suggestions for good nutrition and healthy lifestyle choices', 'Full information about any recommended tests, procedures, or treatments'] },
+  { heading: 'Appropriate Monitoring', items: ['Regular and thorough check-ups throughout your pregnancy, during labor, and after birth', 'Recommendations for diagnostic technology when appropriate', 'Planning with you for the unexpected and for rare emergencies', 'Referrals to other health care specialists or a different birth setting if needed'] },
+  { heading: 'Expertise in Normal Birth', items: ['Because they are experts in normal pregnancy and birth, midwives are experienced in the variations of normal birth', 'Midwives recognize early signs of conditions that are not normal', 'Ability to identify medical conditions or complications requiring transfer'] },
+  { heading: 'Confidence in Your Body', items: ['Help discovering your own body\'s ability to give birth in its own way and in its own time', 'No routine treatments or arbitrary timetables that interfere with your body\'s healthy process', 'Truly individualized care, privacy, and natural childbirth', 'Support for doing the work of giving birth — you are empowered'] },
+  { heading: 'Natural Comfort Techniques', items: ['Encouragement, massage, relaxation, laboring in water, and position changes', 'Encouraging the progress of labor and helping you give birth gently and lovingly', 'Helping you avoid risks associated with many standard medical techniques'] },
+  { heading: 'A Provider Who Stays with You', items: ['Attentive, sensitive care and emotional support throughout labor', 'Research shows a compassionate companion reduces the chance of complications', 'The midwife stays with you and "mothers the mother"', 'After birth, the midwife stays until breastfeeding is established'] },
+];
+
+const faqs = [
+  { q: 'What is a CPM?', a: 'A Certified Professional Midwife (CPM) is a knowledgeable, skilled, and professional primary maternity care provider who offers expert care, education, counseling, and support during pregnancy, birth, and the postpartum period. In Louisiana, CPMs must be licensed by the state board, allowing them to carry and administer medication and integrate into the standing healthcare system.' },
+  { q: 'Do I still need an OB?', a: 'Yes and no. In Louisiana, clients must see an OB for an initial risk assessment — including health history, initial lab work, ultrasound, and/or physical exam — to identify you as low risk and healthy. After this clearance, you no longer need OB care unless your risk status changes.' },
+  { q: 'Am I eligible for home birth or birth center birth?', a: 'Low-risk, healthy birthing people are candidates for out-of-hospital birth. We invite you to contact us about your individual situation — every pregnancy is unique and we\'re happy to discuss yours.' },
+  { q: 'How much does it cost?', a: 'The investment for Grace Midwifery Collective care is $3,500–$6,500. We understand that midwifery care is an investment and we do not want anyone\'s birthing experience to be determined by their ability to pay out of pocket. Contact us to discuss options.' },
+  { q: 'Do you take insurance?', a: 'Yes! We are able to bill as out-of-network providers. We offer a complimentary verification of benefits to help you explore coverage, out-of-pocket costs, and reimbursement timelines. Our Provider Code is 340. Cost-share/healthcare companies usually pay 100% of our fee.' },
+  { q: 'How often do I see Grace?', a: 'Visit frequency increases as your due date approaches: every 4 weeks to 28 weeks, every 2 weeks from 28–36 weeks, weekly from 36–41 weeks, and every 2–3 days from 41–42 weeks. Each visit lasts 45–60 minutes. See the Midwifery Care page for a full overview.' },
+  { q: 'What happens if there is an emergency?', a: "During labor, midwives monitor your baby's heartbeat frequently and discreetly while maintaining your hydration, nutrition, and rest. We have a midwife and trained birth assistant at every birth following carefully researched protocols. We carry pitocin, IV fluids, oxygen, and resuscitation equipment, and are certified in Neonatal Resuscitation and CPR. We have relationships with community hospitals and facilitate smooth transfers in the rare cases where they're needed." },
+  { q: 'Do you offer TOLAC / VBAC?', a: 'We are unable to offer TOLAC/VBAC birthing care in Louisiana due to state law. Please contact us to discuss your options.' },
+  { q: 'Do you recommend hiring a doula?', a: 'Absolutely! Doulas offer continuous 1:1 emotional and physical support during labor and perfectly complement midwifery care. We especially recommend a doula for any person birthing outside of the hospital for the first time.' },
+  { q: 'What labs and testing are available?', a: 'All standard maternity labs are offered and available with Grace Midwifery Collective — the same tests you\'d receive in a physician\'s office.' },
+  { q: 'What do midwives bring, and what do I need to buy?', a: 'Birthing at home is like bringing the birth center to you. Midwives bring all necessary equipment to monitor vitals, assess wellbeing, and manage complications — including a professional birthing tub. Near the end of pregnancy, you\'ll be instructed to purchase a birth kit (~$115) for disposable items.' },
+  { q: 'Who can I have at my birth?', a: "We believe it is your right to have whomever you desire at your birth. We highly recommend these people be there as support, not spectators. If attendees don't share the same values about the safety of home birth, we recommend reconsidering their attendance." },
+  { q: 'Do you offer delayed cord clamping?', a: 'Yes — we believe in physiological third stage. We "wait for white," until the cord stops pulsing, or until you request it. We only intervene in the case of a true emergency.' },
+  { q: 'Do you file the birth certificate?', a: 'Yes, our team files the birth certificate within the state-required timeframe.' },
+  { q: 'How do you help me cope during birth?', a: 'One of the greatest benefits of having a midwife for your unmedicated birth is that we have helped hundreds of people do this. We have trust in you, your body, and your baby — and the skills to help. We know you can cope with the discomfort of normal labor. We request that all first-time home birthers take a childbirth education class and/or hire a doula.' },
+  { q: 'Do you offer water birth?', a: 'Yes! We love water birth and offer birthing tubs in your home at no additional fee. Our team is trained in the nuance of waterbirth and is supportive of both water immersion for labor and for birth.' },
+  { q: 'What does postpartum care include?', a: 'Follow-up visits for you and your baby are arranged through 6 weeks. These visits review nutrition, baby wearing, sibling and family adjustment, emotions, physical changes, feeding, and more!' },
+];
+---
+
+<BaseLayout title="FAQ | Grace Midwifery Collective" description="Answers to your most common questions about home birth midwifery care.">
+  <Nav />
+
+  <!-- Page header -->
+  <section class="py-16 text-center" style="background-color: #E5F2EF;">
+    <div class="max-w-2xl mx-auto px-6">
+      <h6 class="mb-4">Got Questions?</h6>
+      <h1 class="text-4xl font-semibold" style="color: #a75c4a;">Frequently Asked Questions</h1>
+    </div>
+  </section>
+
+  <!-- What To Expect grid -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-2xl font-semibold mb-10" style="color: #a75c4a;">What To Expect from Midwifery Care</h2>
+      <div class="grid sm:grid-cols-2 gap-5">
+        {whatToExpect.map(({ heading, items }) => (
+          <div class="bg-gray-50 rounded-xl p-6">
+            <h3 class="font-semibold mb-3" style="color: #121111; font-size: 0.9rem;">{heading}</h3>
+            <ul class="space-y-2">
+              {items.map(item => (
+                <li class="flex items-start gap-2 text-sm leading-relaxed">
+                  <span class="flex-shrink-0 mt-0.5" style="color: #DCB393;">✦</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section style="background-color: #E5F2EF;" class="py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl font-semibold text-center mb-10" style="color: #a75c4a;">Common Questions</h2>
+      <div x-data="{ open: null }" class="space-y-3">
+        {faqs.map(({ q, a }, i) => (
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+            <button @click={`open = open === ${i} ? null : ${i}`} class="w-full flex items-center justify-between px-6 py-5 text-left">
+              <span class="font-medium text-sm pr-4" style="color: #121111;">{q}</span>
+              <svg :class={`open === ${i} ? 'rotate-180' : ''`} class="h-4 w-4 flex-shrink-0 transition-transform duration-300" style="color: #a75c4a;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show={`open === ${i}`} x-transition class="px-6 pb-6" x-cloak>
+              <p class="text-sm leading-relaxed">{a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-white text-center">
+    <div class="max-w-xl mx-auto px-6">
+      <h2 class="text-2xl font-semibold mb-4" style="color: #a75c4a;">Still have questions?</h2>
+      <p class="leading-relaxed mb-8">We're always happy to chat. Reach out and let's find the answers together.</p>
+      <a href="/contact" class="inline-block text-[11px] font-semibold tracking-widest uppercase text-white px-8 py-3 rounded-full" style="background-color: #a75c4a;">Contact Us</a>
+    </div>
+  </section>
+
+  <ContactBar />
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import ContactBar from '../components/ContactBar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Doula Support | Grace Midwifery Collective" description="Compassionate postpartum doula support in Louisiana and Mississippi.">
+  <Nav />
+
+  <!-- Intro: full-width two-column, text left / image right fills full height -->
+  <section class="bg-white overflow-hidden">
+    <div class="grid md:grid-cols-2" style="min-height: 70vh;">
+      <div class="flex flex-col justify-center px-10 md:px-16 lg:px-24 py-20">
+        <h6 class="mb-4">Information &amp; Support</h6>
+        <h1 class="text-5xl font-semibold mb-6 leading-tight" style="color: #a75c4a;">Postpartum Doula</h1>
+        <p class="leading-relaxed mb-4">Welcoming a new baby into the world is a profound transition—one that brings joy, exhaustion, and a landscape of new experiences and responsibilities. For many families, the support of a postpartum doula offers a compassionate bridge between newborn arrival and confident parenthood. But what does a postpartum doula care plan truly look like?</p>
+        <p class="leading-relaxed">Contact us for package options that best fit your needs.</p>
+      </div>
+      <div class="relative min-h-72 md:min-h-0">
+        <img src="/images/doula.jpeg" alt="Postpartum doula support" class="absolute inset-0 w-full h-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Postpartum Care Plan -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h6 class="mb-3">What to Expect</h6>
+        <h2 class="text-4xl font-semibold mb-8" style="color: #a75c4a;">Postpartum Care Plan</h2>
+        <p class="leading-relaxed text-left">A postpartum doula care plan is a personalized roadmap, created in collaboration with the parents, that outlines goals, preferences, and the scope of support. While every family's needs are unique, most care plans share core components. Below we explore these elements in depth.</p>
+      </div>
+
+      <div class="space-y-7">
+        {[
+          {
+            title: 'Initial Assessment and Collaboration.',
+            desc: 'Immediately following birth—sometimes even before, in the final weeks of pregnancy—the doula meets with the family to discuss hopes, expectations, and specific concerns. This initial assessment often covers:',
+            items: [
+              'Parent preferences regarding rest, feeding, and infant care',
+              'Family structure, including siblings and other caregivers',
+              'Any medical or emotional concerns',
+              'Household routines and priorities',
+            ],
+          },
+          {
+            title: 'Emotional Support and Reassurance.',
+            desc: 'One of the most vital roles of a postpartum doula is providing emotional support. The postpartum period can be overwhelming—marked by fluctuating hormones, sleep deprivation, and new responsibilities. A doula care plan will prioritize:',
+            items: [
+              'Nonjudgmental presence—someone to listen, validate, and encourage',
+              'Strategies for coping with stress, anxiety, or postpartum mood disorders',
+              'Guidance on communicating needs to partners and family members',
+              'Referrals to professional support if necessary (e.g., therapists, support groups)',
+            ],
+          },
+          {
+            title: 'Physical Recovery and Comfort.',
+            desc: "Supporting the birthing parent's physical recovery is another significant part of the care plan. While postpartum doulas do not provide medical care, their knowledge of post-birth healing allows them to offer:",
+            items: [
+              'Practical tips for managing discomfort, pain, and fatigue',
+              'Assistance with arranging comfortable resting areas',
+              'Gentle reminders about hydration, nutrition, and self-care',
+              'Suggestions for activities that promote healing (such as walking, stretching, or relaxation techniques)',
+            ],
+          },
+          {
+            title: 'Infant Care Guidance.',
+            desc: 'For new parents, caring for a fragile newborn can be daunting. The postpartum doula care plan will include:',
+            items: [
+              'Hands-on support for bathing, diapering, soothing, and swaddling the baby',
+              'Education on newborn cues, sleep patterns, and development',
+              'Demonstrations of safe sleep practices',
+              'Assistance with establishing routines and confidence in infant care',
+            ],
+          },
+          {
+            title: 'Feeding Support.',
+            desc: 'Whether the parents choose breastfeeding, bottle-feeding, or a combination, feeding support is central to the care plan. Postpartum doulas provide:',
+            items: [
+              'Assistance with latch and positioning for breastfeeding',
+              'Guidance on formula preparation and bottle hygiene',
+              'Recognizing signs of effective feeding and infant satisfaction',
+              'Troubleshooting common feeding issues, and referrals to lactation consultants if needed',
+            ],
+          },
+          {
+            title: 'Household Organization and Practical Help.',
+            desc: 'The postpartum period is not only about caring for the baby—it\'s also about maintaining a functional and nurturing home environment. Our "Full Postpartum Recovery" plan includes practical help such as:',
+            items: [
+              'Light housekeeping—laundry, dishes, tidying common areas',
+              'Running small errands, as agreed upon',
+              'Organizing baby supplies and nursery spaces',
+            ],
+          },
+          {
+            title: 'Education and Resource Referrals.',
+            desc: 'Postpartum doulas empower parents through education. The care plan will often include:',
+            items: [
+              'Answers to common questions about baby care, postpartum recovery, and parenting',
+              'Evidence-based information on infant health, development, and sleep',
+              'Guidance on recognizing signs of concern, such as feeding issues or postpartum mood changes',
+              'Referrals to other professionals—pediatricians, lactation consultants, physical therapists, mental health providers—as needed',
+            ],
+          },
+        ].map(({ title, desc, items }) => (
+          <div>
+            <p class="text-sm leading-relaxed mb-2">
+              <strong style="color: #121111;">{title}</strong>{' '}{desc}
+            </p>
+            <ul class="space-y-1 pl-5 list-disc">
+              {items.map(item => (
+                <li class="text-sm leading-relaxed">{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <!-- Photo gallery -->
+      <div class="grid grid-cols-3 gap-3 mt-14">
+        <img src="/images/img0223.jpg"       alt="" class="w-full object-cover rounded" style="aspect-ratio: 4/3;" />
+        <img src="/images/img6328.jpeg"      alt="" class="w-full object-cover rounded" style="aspect-ratio: 4/3;" />
+        <img src="/images/homebirth-team.jpeg" alt="" class="w-full object-cover rounded" style="aspect-ratio: 4/3;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-white text-center">
+    <div class="max-w-2xl mx-auto px-6">
+      <h6 class="mb-4">We're Here to Help</h6>
+      <h2 class="text-4xl font-semibold mb-6" style="color: #a75c4a;">Still Have Questions?</h2>
+      <p class="leading-relaxed mb-8">Have questions or need support? Our team is ready to help—just get in touch, and we'll make sure you get the personalized care you need. If there's anything you need or you're looking for more information, don't hesitate to reach out. We're here to provide the support and guidance you deserve.</p>
+      <a href="/contact" class="inline-block text-[11px] font-semibold tracking-widest uppercase text-white px-8 py-3 rounded-full" style="background-color: #a75c4a;">
+        Contact Us Today
+      </a>
+    </div>
+  </section>
+
+  <ContactBar />
+  <Footer />
+</BaseLayout>
