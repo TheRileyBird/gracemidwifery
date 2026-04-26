@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "server",
+  "dolt_database": "gracemidwifery",
+  "project_id": "6f139d32-cfc6-4b71-9cec-1232af60b2be"
+}
