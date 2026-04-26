@@ -3,6 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import ContactBar from '../components/ContactBar.astro';
 import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+
+import download1 from '../assets/images/download-1.jpg';
 ---
 
 <BaseLayout title="Childbirth Education | Grace Midwifery Collective" description="Evidence-based childbirth education classes in Madisonville, LA with Adele Willman BSN RN CCBE.">
@@ -10,7 +13,7 @@ import Footer from '../components/Footer.astro';
 
   <!-- Hero image -->
   <div class="mx-5">
-    <img src="/images/download-1.jpg" alt="Childbirth Education" class="w-full block object-cover" style="max-height: 50vh; object-position: center;" />
+    <Image src={download1} alt="Childbirth Education" class="w-full block object-cover object-center" style="max-height: 50vh;" />
   </div>
 
   <!-- Instructor -->
@@ -18,15 +21,15 @@ import Footer from '../components/Footer.astro';
     <div class="max-w-5xl mx-auto px-6">
       <div class="grid md:grid-cols-2 gap-14 items-center">
         <div>
-          <h6 class="mb-4">Childbirth Education</h6>
+          <h6>Childbirth Education</h6>
           <h1 class="text-4xl font-semibold mb-2" style="color: #a75c4a;">Evidenced Based and Fun</h1>
-          <p class="text-base font-semibold mb-6" style="color: #494F5E;">Adele Willman BSN RN CCBE</p>
+          <p class="font-semibold mb-6" style="color: #494F5E;">Adele Willman BSN RN CCBE</p>
           <p class="leading-relaxed mb-4">My passion is to empower expectant moms through education. When you know what to anticipate, you can approach birth with confidence, clarity, and calm. Adele brings 15+ years of experience in hospital labor &amp; delivery and community education to every class.</p>
           <p class="leading-relaxed">A mother of four and grandmother of seven, Adele's teaching is grounded in both professional expertise and lived experience. Classes are small, interactive, and genuinely enjoyable.</p>
         </div>
         <div class="flex justify-center">
           <div class="w-64 h-64 rounded-full overflow-hidden flex-shrink-0" style="border: 8px solid #DCB393;">
-            <img src="/images/download-1.jpg" alt="Adele Willman" class="w-full h-full object-cover" />
+            <Image src={download1} alt="Adele Willman" class="w-full h-full object-cover" />
           </div>
         </div>
       </div>
@@ -37,7 +40,7 @@ import Footer from '../components/Footer.astro';
   <section style="background-color: #E5F2EF;" class="py-20">
     <div class="max-w-5xl mx-auto px-6">
       <div class="text-center mb-12">
-        <h6 class="mb-3">Four 2-Hour Sessions · 6:00–8:00 PM</h6>
+        <h6>Four 2-Hour Sessions · 6:00–8:00 PM</h6>
         <h2 class="text-3xl font-semibold" style="color: #a75c4a;">Preparing for Birth</h2>
       </div>
       <div class="grid sm:grid-cols-2 gap-5">
@@ -51,7 +54,7 @@ import Footer from '../components/Footer.astro';
             <h3 class="font-semibold mb-4" style="color: #a75c4a;">{session}</h3>
             <ul class="space-y-2">
               {topics.map(t => (
-                <li class="flex items-start gap-2 text-sm leading-relaxed">
+                <li class="flex items-start gap-2 text-base leading-relaxed">
                   <span class="flex-shrink-0 font-bold mt-0.5" style="color: #DCB393;">✦</span>
                   <span>{t}</span>
                 </li>
@@ -68,12 +71,12 @@ import Footer from '../components/Footer.astro';
     <div class="max-w-5xl mx-auto px-6">
       <div class="grid md:grid-cols-2 gap-12 items-start">
         <div>
-          <h6 class="mb-3">Bonus Inclusion</h6>
+          <h6>Bonus Inclusion</h6>
           <h2 class="text-3xl font-semibold mb-4" style="color: #a75c4a;">Prepared Feeding<br />Online Course</h2>
           <p class="leading-relaxed mb-5">Taught by Amanda Devereux RN, IBCLC, this online course is included with your registration and covers everything you need to feel confident feeding your baby.</p>
           <ul class="space-y-2">
             {['Latch technique', 'Troubleshooting common issues', 'Pumping', 'Bottle introduction', 'Weaning'].map(t => (
-              <li class="flex items-start gap-3 text-sm leading-relaxed">
+              <li class="flex items-start gap-3 text-base leading-relaxed">
                 <span class="flex-shrink-0 font-bold mt-0.5" style="color: #a75c4a;">✓</span>
                 <span>{t}</span>
               </li>
@@ -84,7 +87,7 @@ import Footer from '../components/Footer.astro';
           <h3 class="font-semibold text-lg mb-5" style="color: #121111;">What's Included</h3>
           <ul class="space-y-3 mb-6">
             {['Four 2-hour in-person sessions', 'Two participants included in price', 'Course journal', 'Prepared Feeding online course (Amanda Devereux RN, IBCLC)'].map(item => (
-              <li class="flex items-start gap-3 text-sm">
+              <li class="flex items-start gap-3 text-base">
                 <span class="flex-shrink-0 font-bold mt-0.5" style="color: #a75c4a;">✓</span>
                 <span>{item}</span>
               </li>
@@ -92,7 +95,7 @@ import Footer from '../components/Footer.astro';
           </ul>
           <div class="border-t border-gray-200 pt-5">
             <p class="text-3xl font-semibold" style="color: #a75c4a;">$250</p>
-            <p class="text-sm mt-1">per couple / family unit</p>
+            <p class="mt-1">per couple / family unit</p>
           </div>
         </div>
       </div>
@@ -103,9 +106,9 @@ import Footer from '../components/Footer.astro';
   <section style="background-color: #E5F2EF;" class="py-20">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-12">
-        <h6 class="mb-3">Madisonville, LA</h6>
+        <h6>Madisonville, LA</h6>
         <h2 class="text-3xl font-semibold mb-2" style="color: #a75c4a;">2026–2027 Class Schedule</h2>
-        <p class="text-sm">Four Tuesday evenings per session · 6:00 PM – 8:00 PM</p>
+        <p class="">Four Tuesday evenings per session · 6:00 PM – 8:00 PM</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
         {[
@@ -115,8 +118,8 @@ import Footer from '../components/Footer.astro';
           { term: 'January 2027', dates: ['January 5', 'January 12', 'January 19', 'January 26'] },
         ].map(({ term, dates }) => (
           <div class="bg-white rounded-xl p-5 shadow-sm text-center">
-            <h3 class="font-semibold text-sm mb-3" style="color: #a75c4a;">{term}</h3>
-            <ul class="space-y-1.5 text-sm">
+            <h3 class="font-semibold text-base mb-3" style="color: #a75c4a;">{term}</h3>
+            <ul class="space-y-1.5 text-base">
               {dates.map(d => <li>{d}</li>)}
             </ul>
           </div>
@@ -126,7 +129,7 @@ import Footer from '../components/Footer.astro';
         <h3 class="font-semibold text-lg mb-3" style="color: #121111;">Register Now</h3>
         <p class="leading-relaxed mb-5">To register or ask questions, contact Adele directly:</p>
         <a href="tel:9858889355" class="text-2xl font-semibold block mb-2" style="color: #a75c4a;">985.888.9355</a>
-        <p class="text-sm">Text or call Adele Willman BSN RN CCBE</p>
+        <p class="">Text or call Adele Willman BSN RN CCBE</p>
       </div>
     </div>
   </section>

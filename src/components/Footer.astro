@@ -1,4 +1,8 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/text-large.png';
+import bgImage from '../assets/images/img6328.jpeg';
+
 const navLinks = [
   { href: '/', label: 'HOME' },
   { href: '/midwifery-care', label: 'MIDWIFERY CARE' },
@@ -39,17 +43,15 @@ const socials = [
 <!-- Dark footer -->
 <footer class="relative overflow-hidden" style="background-color: #a75c4a;">
   <!-- Ghost image watermark -->
-  <div
-    class="absolute inset-0"
-    style="background-image: url('/images/img6328.jpeg'); background-size: cover; background-position: center; opacity: 0.12;"
-    aria-hidden="true"
-  ></div>
+  <div class="absolute inset-0" aria-hidden="true">
+    <Image src={bgImage} alt="" class="w-full h-full object-cover opacity-[0.12]" />
+  </div>
 
   <!-- Content -->
   <div class="relative z-10 max-w-4xl mx-auto px-6 py-14 text-center">
     <!-- Full text logo -->
-    <img
-      src="/images/text-large.png"
+    <Image
+      src={logo}
       alt="Grace Midwifery Collective"
       class="mx-auto mb-8"
       style="max-height: 80px; width: auto; filter: brightness(0) invert(1); opacity: 0.9;"
@@ -60,7 +62,7 @@ const socials = [
       {navLinks.map(({ href, label }) => (
         <a
           href={href}
-          class="text-[10px] font-semibold tracking-widest text-white/60 hover:text-white transition-colors"
+          class="text-base font-semibold tracking-widest text-white/60 hover:text-white transition-colors"
         >
           {label}
         </a>

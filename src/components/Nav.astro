@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/text-large.png';
+
 const navLinks = [
   { href: '/', label: 'HOME' },
   { href: '/midwifery-care', label: 'MIDWIFERY CARE' },
@@ -11,16 +14,19 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header
-  x-data="{ open: false }"
-  class="bg-white border-b border-gray-100 sticky top-0 z-50"
+  x-data="{ open: false, scrolled: false }"
+  @scroll.window="scrolled = window.scrollY > 24"
+  :class="scrolled ? 'h-[60px] shadow-md' : 'h-[88px]'"
+  class="bg-white w-full sticky top-0 z-50 transition-all duration-300 ease-in-out"
 >
-  <nav class="max-w-7xl mx-auto px-6 flex items-center justify-between h-[72px]">
+  <nav class="w-full px-8 flex items-center justify-between h-full">
     <!-- Logo -->
     <a href="/" class="flex-shrink-0">
-      <img
-        src="/images/logo-only.png"
+      <Image
+        src={logo}
         alt="Grace Midwifery Collective"
-        class="h-14 w-auto"
+        :class="scrolled ? 'h-9' : 'h-14'"
+        class="w-auto transition-all duration-300 ease-in-out"
       />
     </a>
 
@@ -31,12 +37,8 @@ const currentPath = Astro.url.pathname;
           <li>
             <a
               href={href}
-              class:list={[
-                'text-[11px] font-semibold tracking-widest transition-colors duration-200',
-                currentPath === href
-                  ? 'text-accent-dark'
-                  : 'text-contrast-2 hover:text-accent-dark',
-              ]}
+              class="font-semibold tracking-widest transition-colors duration-200"
+              style={currentPath === href ? 'color: #a75c4a;' : 'color: #494f5e;'}
             >
               {label}
             </a>
@@ -45,7 +47,8 @@ const currentPath = Astro.url.pathname;
       </ul>
       <a
         href="/contact"
-        class="text-[11px] font-semibold tracking-widest text-white bg-accent-dark px-5 py-2 rounded-full hover:bg-opacity-90 transition-colors"
+        class="font-semibold tracking-widest text-white px-5 py-2 rounded-full transition-opacity hover:opacity-90"
+        style="background-color: #a75c4a;"
       >
         CONTACT
       </a>
@@ -70,7 +73,7 @@ const currentPath = Astro.url.pathname;
   <div
     x-show="open"
     x-transition
-    class="lg:hidden bg-white border-t border-gray-100 px-6 pb-6"
+    class="lg:hidden bg-white border-t border-gray-100 px-8 pb-6"
     x-cloak
   >
     <ul class="flex flex-col pt-4">
@@ -78,7 +81,7 @@ const currentPath = Astro.url.pathname;
         <li>
           <a
             href={href}
-            class="block py-3 text-[11px] font-semibold tracking-widest text-contrast-2 hover:text-accent-dark border-b border-gray-50 transition-colors"
+            class="block py-3 font-semibold tracking-widest text-contrast-2 hover:text-accent-dark border-b border-gray-50 transition-colors"
           >
             {label}
           </a>
@@ -87,7 +90,8 @@ const currentPath = Astro.url.pathname;
       <li class="pt-4">
         <a
           href="/contact"
-          class="inline-block text-[11px] font-semibold tracking-widest text-white bg-accent-dark px-5 py-2 rounded-full"
+          class="inline-block font-semibold tracking-widest text-white px-5 py-2 rounded-full"
+          style="background-color: #a75c4a;"
         >
           CONTACT
         </a>

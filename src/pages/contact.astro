@@ -11,7 +11,7 @@ import Footer from '../components/Footer.astro';
   <!-- Page header -->
   <section class="py-16 text-center" style="background-color: #E5F2EF;">
     <div class="max-w-2xl mx-auto px-6">
-      <h6 class="mb-4">We'd Love to Hear from You</h6>
+      <h6>We'd Love to Hear from You</h6>
       <h1 class="text-4xl font-semibold" style="color: #a75c4a;">Schedule a Consultation</h1>
     </div>
   </section>
@@ -26,24 +26,24 @@ import Footer from '../components/Footer.astro';
           <h2 class="text-xl font-semibold mb-6" style="color: #a75c4a;">Get in Touch</h2>
           <div class="space-y-7">
             <div>
-              <p class="text-[10px] font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Phone</p>
-              <a href="tel:9857730449" class="text-sm hover:underline" style="color: #494F5E;">(985) 773-0449</a>
+              <p class="font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Phone</p>
+              <a href="tel:9857730449" class="text-base hover:underline" style="color: #494F5E;">(985) 773-0449</a>
             </div>
             <div>
-              <p class="text-[10px] font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Email</p>
-              <a href="mailto:grace@midwifegrace.com" class="text-sm hover:underline" style="color: #494F5E;">grace@midwifegrace.com</a>
+              <p class="font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Email</p>
+              <a href="mailto:grace@midwifegrace.com" class="text-base hover:underline" style="color: #494F5E;">grace@midwifegrace.com</a>
             </div>
             <div>
-              <p class="text-[10px] font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Hours</p>
-              <ul class="space-y-1 text-sm" style="color: #494F5E;">
+              <p class="font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Hours</p>
+              <ul class="space-y-1 text-base" style="color: #494F5E;">
                 {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].map(day => (
                   <li class="flex justify-between gap-4"><span>{day}</span><span>9:00 AM – 5:00 PM</span></li>
                 ))}
               </ul>
             </div>
             <div>
-              <p class="text-[10px] font-bold tracking-widest uppercase mb-3" style="color: #DCB393;">Locations</p>
-              <ul class="space-y-3 text-sm" style="color: #494F5E;">
+              <p class="font-bold tracking-widest uppercase mb-3" style="color: #DCB393;">Locations</p>
+              <ul class="space-y-3 text-base" style="color: #494F5E;">
                 <li>340 Brakefield Street<br />Slidell, LA 70458</li>
                 <li>407 Main Street<br />Madisonville, LA 70447</li>
                 <li>223 N. Rendon<br />New Orleans, LA 70119</li>
@@ -60,12 +60,12 @@ import Footer from '../components/Footer.astro';
 
             <!-- Services -->
             <fieldset>
-              <legend class="text-[10px] font-bold tracking-widest uppercase mb-3" style="color: #DCB393;">Services Interested In</legend>
+              <legend class="text-base font-bold tracking-widest uppercase mb-3" style="color: #DCB393;">Services Interested In</legend>
               <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {['Midwifery Care', 'Doula Support', 'Postpartum Services', 'Childbirth Education', 'Other'].map(service => (
                   <label class="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" name="services" value={service} class="w-4 h-4 rounded border-gray-300" style="accent-color: #a75c4a;" />
-                    <span class="text-sm" style="color: #494F5E;">{service}</span>
+                    <span class="text-base" style="color: #494F5E;">{service}</span>
                   </label>
                 ))}
               </div>
@@ -74,45 +74,45 @@ import Footer from '../components/Footer.astro';
             <!-- Name + Phone -->
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
-                <label class="block text-[10px] font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Name</label>
-                <input type="text" name="name" required class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors" style="color: #494F5E;" />
+                <label class="block text-base font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Name</label>
+                <input type="text" name="name" required class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none transition-colors" style="color: #494F5E;" />
               </div>
               <div>
-                <label class="block text-[10px] font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Cell Phone</label>
-                <input type="tel" name="phone" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors" style="color: #494F5E;" />
+                <label class="block text-base font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Cell Phone</label>
+                <input type="tel" name="phone" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none transition-colors" style="color: #494F5E;" />
               </div>
             </div>
 
             <!-- Email + Due Date -->
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
-                <label class="block text-[10px] font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Email</label>
-                <input type="email" name="email" required class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors" style="color: #494F5E;" />
+                <label class="block text-base font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Email</label>
+                <input type="email" name="email" required class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none transition-colors" style="color: #494F5E;" />
               </div>
               <div>
-                <label class="block text-[10px] font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Estimated Due Date</label>
-                <input type="date" name="due_date" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors" style="color: #494F5E;" />
+                <label class="block text-base font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Estimated Due Date</label>
+                <input type="date" name="due_date" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none transition-colors" style="color: #494F5E;" />
               </div>
             </div>
 
             <!-- Address -->
             <div>
-              <label class="block text-[10px] font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Street Address</label>
-              <input type="text" name="street" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm mb-3 focus:outline-none transition-colors" style="color: #494F5E;" />
+              <label class="block text-base font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">Street Address</label>
+              <input type="text" name="street" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base mb-3 focus:outline-none transition-colors" style="color: #494F5E;" />
               <div class="grid grid-cols-3 gap-3">
-                <input type="text" name="city" placeholder="City" class="border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none" style="color: #494F5E;" />
-                <input type="text" name="state" placeholder="State" class="border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none" style="color: #494F5E;" />
-                <input type="text" name="zip" placeholder="ZIP" class="border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none" style="color: #494F5E;" />
+                <input type="text" name="city" placeholder="City" class="border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none" style="color: #494F5E;" />
+                <input type="text" name="state" placeholder="State" class="border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none" style="color: #494F5E;" />
+                <input type="text" name="zip" placeholder="ZIP" class="border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none" style="color: #494F5E;" />
               </div>
             </div>
 
             <!-- Message -->
             <div>
-              <label class="block text-[10px] font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">What has led you to seek our services?</label>
-              <textarea name="message" rows="5" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none resize-none" style="color: #494F5E;"></textarea>
+              <label class="block text-base font-bold tracking-widest uppercase mb-2" style="color: #DCB393;">What has led you to seek our services?</label>
+              <textarea name="message" rows="5" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none resize-none" style="color: #494F5E;"></textarea>
             </div>
 
-            <button type="submit" class="w-full text-[11px] font-semibold tracking-widest uppercase text-white py-4 rounded-full hover:opacity-90 transition-opacity" style="background-color: #a75c4a;">
+            <button type="submit" class="w-full text-base font-semibold tracking-widest uppercase text-white py-4 rounded-full hover:opacity-90 transition-opacity" style="background-color: #a75c4a;">
               Send Message
             </button>
           </form>

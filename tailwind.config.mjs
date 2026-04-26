@@ -18,6 +18,7 @@ export default {
       },
       fontFamily: {
         sans: ['Poppins', 'system-ui', 'sans-serif'],
+        serif: ['Libre Baskerville', 'Georgia', 'serif'],
       },
     },
   },

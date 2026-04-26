@@ -42,7 +42,7 @@ const faqs = [
   <!-- Page header -->
   <section class="py-16 text-center" style="background-color: #E5F2EF;">
     <div class="max-w-2xl mx-auto px-6">
-      <h6 class="mb-4">Got Questions?</h6>
+      <h6>Got Questions?</h6>
       <h1 class="text-4xl font-semibold" style="color: #a75c4a;">Frequently Asked Questions</h1>
     </div>
   </section>
@@ -54,10 +54,10 @@ const faqs = [
       <div class="grid sm:grid-cols-2 gap-5">
         {whatToExpect.map(({ heading, items }) => (
           <div class="bg-gray-50 rounded-xl p-6">
-            <h3 class="font-semibold mb-3" style="color: #121111; font-size: 0.9rem;">{heading}</h3>
+            <h3 class="font-semibold mb-3" style="color: #121111; font-size: 1rem;">{heading}</h3>
             <ul class="space-y-2">
               {items.map(item => (
-                <li class="flex items-start gap-2 text-sm leading-relaxed">
+                <li class="flex items-start gap-2 text-base leading-relaxed">
                   <span class="flex-shrink-0 mt-0.5" style="color: #DCB393;">✦</span>
                   <span>{item}</span>
                 </li>
@@ -77,13 +77,13 @@ const faqs = [
         {faqs.map(({ q, a }, i) => (
           <div class="bg-white rounded-xl overflow-hidden shadow-sm">
             <button @click={`open = open === ${i} ? null : ${i}`} class="w-full flex items-center justify-between px-6 py-5 text-left">
-              <span class="font-medium text-sm pr-4" style="color: #121111;">{q}</span>
+              <span class="font-medium text-base pr-4" style="color: #121111;">{q}</span>
               <svg :class={`open === ${i} ? 'rotate-180' : ''`} class="h-4 w-4 flex-shrink-0 transition-transform duration-300" style="color: #a75c4a;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             <div x-show={`open === ${i}`} x-transition class="px-6 pb-6" x-cloak>
-              <p class="text-sm leading-relaxed">{a}</p>
+              <p class="leading-relaxed">{a}</p>
             </div>
           </div>
         ))}
@@ -96,7 +96,7 @@ const faqs = [
     <div class="max-w-xl mx-auto px-6">
       <h2 class="text-2xl font-semibold mb-4" style="color: #a75c4a;">Still have questions?</h2>
       <p class="leading-relaxed mb-8">We're always happy to chat. Reach out and let's find the answers together.</p>
-      <a href="/contact" class="inline-block text-[11px] font-semibold tracking-widest uppercase text-white px-8 py-3 rounded-full" style="background-color: #a75c4a;">Contact Us</a>
+      <a href="/contact" class="inline-block text-base font-semibold tracking-widest uppercase text-white px-8 py-3 rounded-full" style="background-color: #a75c4a;">Contact Us</a>
     </div>
   </section>
 
