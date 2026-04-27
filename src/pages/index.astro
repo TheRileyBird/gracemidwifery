@@ -17,9 +17,9 @@ import flowers from '../assets/images/flowers-2.png';
 
 const testimonials = [
   { quote: 'With her excellence in practice and delightful charm, I would welcome anyone to invite her into your story.', author: 'Rachel E' },
-  { quote: 'I am so thankful for the midwives at Grace Midwifery Collective. I love how my son and daughters were included in my prenatal care, and having them at my birth was everything I had hoped for. The midwives answered their questions and made everyone feel safe and comfortable.', author: 'Client' },
-  { quote: 'I could never say enough good things about Grace & the practice she has put together. All of the women I come across in her birth studio are all so kind and loving. You can truly tell they all love their work.', author: 'Client' },
-  { quote: 'I wish every woman had the opportunity to experience the beauty of home birth with a team of women like Grace Midwifery Collective.', author: 'Client' },
+  { quote: 'I am so thankful for the midwives at Grace Midwifery Collective. I love how my son and daughters were included in my prenatal care, and having them at my birth was everything I had hoped for. The midwives answered their questions and made everyone feel safe and comfortable.', author: 'Cheri C' },
+  { quote: 'I could never say enough good things about Grace & the practice she has put together. All of the women I come across in her birth studio are all so kind and loving. You can truly tell they all love their work.', author: 'Brittany T' },
+  { quote: 'I wish every woman had the opportunity to experience the beauty of home birth with a team of women like Grace Midwifery Collective.', author: 'Luisa H' },
 ];
 
 const borderColors = ['#DCB393', '#a75c4a', '#E5F2EF', '#FEF2F4'];
@@ -223,34 +223,63 @@ const services = [
   </section>
 
   <!-- ── TESTIMONIALS ── -->
-  <section class="py-24" style="background-color: #fff4f3;">
+  <section class="py-24" style="background-color: #fff4f32b;">
     <div class="w-full px-8">
       <div class="text-center mb-16">
-        <div class="inline-flex items-center gap-2 mb-4 justify-center">
-          <span class="block h-px w-8" style="background-color: #DCB393;"></span>
-          <span class="tracking-widest uppercase font-medium" style="color: #DCB393;">From Our Families</span>
-          <span class="block h-px w-8" style="background-color: #DCB393;"></span>
-        </div>
-        <h2 class="text-4xl lg:text-5xl font-semibold" style="color: #121111;">Stories from the families we've served</h2>
+        <h6 class="justify-center mb-4">From Our Families</h6>
+        <h2 class="text-4xl text-brand-primary lg:text-5xl font-semibold">Stories from the families we've served</h2>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-        {testimonials.map(({ quote, author }, i) => (
-            <div
-                x-data="{ visible: false }"
-                x-intersect.once="visible = true"
-                :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
-                class="transition-all duration-700 ease-out"
-                style={`transition-delay: ${i * 150}ms`}
+      <div x-data={`{ active: 0, count: ${testimonials.length} }`} class="max-w-3xl mx-auto">
+
+        <!-- All cards stacked in the same grid cell — height locks to tallest -->
+        <div class="grid">
+          {testimonials.map(({ quote, author }, i) => (
+            <figure
+              class="[grid-area:1/1] bg-white rounded-2xl p-10 shadow-sm flex flex-col items-center justify-center text-center transition-opacity duration-500"
+              :class={`active === ${i} ? 'opacity-100' : 'opacity-0 pointer-events-none'`}
             >
-              <figure class="bg-white rounded-2xl p-8 shadow-sm h-full flex flex-col">
-                <blockquote class="leading-relaxed italic mb-8 flex-1" style="color: #121111;">
-                  "{quote}"
-                </blockquote>
-                <figcaption class="font-semibold text-brand-primary">— {author}</figcaption>
-              </figure>
-            </div>
-        ))}
+              <blockquote class="mb-6" style="color: #121111; font-size: 1.5rem; line-height: 1.6;">
+                "{quote}"
+              </blockquote>
+              <figcaption class="font-semibold text-brand-primary">— {author}</figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <!-- Prev · dots · Next -->
+        <div class="flex items-center justify-center gap-4 mt-8">
+          <button
+            @click="active = (active - 1 + count) % count"
+            class="w-8 h-8 rounded-full border flex items-center justify-center transition-colors hover:bg-brand-primary hover:text-white"
+            style="border-color: #DCB393; color: #DCB393;"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <div class="flex items-center gap-2">
+            {testimonials.map((_, i) => (
+              <button
+                @click={`active = ${i}`}
+                class="h-2 rounded-full transition-all duration-300"
+                :style={`active === ${i} ? 'background-color:#a75c4a;width:1.5rem' : 'background-color:#DCB393;width:0.5rem'`}
+              />
+            ))}
+          </div>
+
+          <button
+            @click="active = (active + 1) % count"
+            class="w-8 h-8 rounded-full border flex items-center justify-center transition-colors hover:bg-brand-primary hover:text-white"
+            style="border-color: #DCB393; color: #DCB393;"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
       </div>
     </div>
   </section>
