@@ -24,14 +24,14 @@ import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
 
   <!-- Postpartum Care Plan -->
   <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6">
+    <div class="max-w-5xl mx-auto px-6">
       <div class="text-center mb-10">
         <h6 class="justify-center">What to Expect</h6>
         <h2 class="text-4xl font-semibold mb-8 text-brand-primary">Postpartum Care Plan</h2>
-        <p class="leading-relaxed text-left">A postpartum doula care plan is a personalized roadmap, created in collaboration with the parents, that outlines goals, preferences, and the scope of support. While every family's needs are unique, most care plans share core components. Below we explore these elements in depth.</p>
+        <p class="leading-relaxed max-w-3xl mx-auto">A postpartum doula care plan is a personalized roadmap, created in collaboration with the parents, that outlines goals, preferences, and the scope of support. While every family's needs are unique, most care plans share core components.</p>
       </div>
 
-      <div class="space-y-7">
+      <div x-data="{ open: null }" class="space-y-3">
         {[
           {
             title: 'Initial Assessment and Collaboration.',
@@ -103,24 +103,106 @@ import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
             ],
           },
         ].map(({ title, desc, items }) => (
-          <div>
-            <p class="leading-relaxed mb-2">
-              <strong style="color: #121111;">{title}</strong>{' '}{desc}
-            </p>
-            <ul class="space-y-1 pl-5 list-disc">
+          <div class="bg-brand-light rounded-xl overflow-hidden shadow-sm">
+            <button @click={`open = open === '${title}' ? null : '${title}'`} class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left transition-colors">
+              <div>
+                <h3 class="font-semibold mb-2 text-brand-primary" style="font-size: 22px;">{title}</h3>
+                <p class="m-0">{desc}</p>
+              </div>
+              <svg :class={`open === '${title}' ? 'rotate-180' : ''`} class="h-4 w-4 flex-shrink-0 transition-transform duration-300 text-brand-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show={`open === '${title}'`} x-transition class="px-6 pb-6" x-cloak>
+              <ul class="space-y-2">
+                {items.map(item => (
+                  <li class="flex items-start gap-3 leading-relaxed">
+                    <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
+                    <p class="m-0">{item}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <SplitPanel image={img6328} bg="#E5F2EF" imageAlt="Postpartum doula care" minHeight="70vh" justify="center" imageLeft={true}>
+    <h6>Meet Your Doula</h6>
+    <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Adele Willman BSN RN</h2>
+    <p class="leading-relaxed mb-4">With over 30 years of experience as a dedicated maternal/child registered nurse, Adele brings deep clinical knowledge and steady, compassionate care to postpartum support.</p>
+    <p class="leading-relaxed mb-4">Her focus is helping new families feel confident, nurtured, and supported through comprehensive wellness assessments for both mother and baby, feeding guidance, and practical newborn support.</p>
+    <p class="leading-relaxed">Contact Adele directly at <a href="mailto:adele@midwifegrace.com" class="text-brand-primary hover:underline">adele@midwifegrace.com</a> or <a href="tel:9858889355" class="text-brand-primary hover:underline">985-888-9355</a>.</p>
+  </SplitPanel>
+
+  <section class="py-24 bg-gradient-to-b from-brand-light to-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <h6 class="justify-center">Postpartum Packages</h6>
+        <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Support Options for the Early Days</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        {[
+          {
+            title: 'Mother/Baby Wellness',
+            detail: 'One, 2-hour visit',
+            price: '$150',
+            items: ['Vital sign check', 'Basic health assessment', 'Newborn weight', 'Feeding support', 'Light education'],
+          },
+          {
+            title: 'Early Days Support',
+            detail: '12 hours over 2 weeks',
+            price: '$650',
+            items: ['Full wellness assessment', 'Feeding support', 'Newborn care basics', 'Emotional support', 'Resource guidance'],
+          },
+          {
+            title: 'Full Postpartum Recovery',
+            detail: '20 hours over 4 weeks',
+            price: '$1250',
+            items: ['Full wellness assessment', 'Feeding support', 'Newborn care basics', 'Emotional support', 'Light housekeeping and organization'],
+          },
+        ].map(({ title, detail, price, items }) => (
+          <div class="bg-white rounded-2xl p-6 shadow-card h-full">
+            <h3 class="font-serif text-xl text-sage-900 mb-2">{title}</h3>
+            <p class="text-sm text-warm-500 mb-4">{detail}</p>
+            <ul class="space-y-2 mb-6">
               {items.map(item => (
-                <li class="text-base leading-relaxed">{item}</li>
+                <li class="flex items-start gap-2 text-sm leading-relaxed">
+                  <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
+                  <span>{item}</span>
+                </li>
               ))}
             </ul>
+            <p class="font-semibold text-3xl text-brand-primary m-0">{price}</p>
           </div>
         ))}
       </div>
 
-      <!-- Photo gallery -->
-      <div class="grid grid-cols-3 gap-3 mt-14">
-        <Image src={img0223}          alt="" class="w-full object-cover rounded" style="aspect-ratio: 4/3;" />
-        <Image src={img6328}          alt="" class="w-full object-cover rounded" style="aspect-ratio: 4/3;" />
-        <Image src={homebirthTeamImg} alt="" class="w-full object-cover rounded" style="aspect-ratio: 4/3;" />
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white/80 rounded-2xl p-6 shadow-sm">
+          <h3 class="font-semibold mb-3 text-brand-primary">Add-ons</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start gap-2 leading-relaxed">
+              <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">•</span>
+              <span>Placenta Encapsulation: $250</span>
+            </li>
+            <li class="flex items-start gap-2 leading-relaxed">
+              <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">•</span>
+              <span>Lactation focused visit: $150</span>
+            </li>
+            <li class="flex items-start gap-2 leading-relaxed">
+              <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">•</span>
+              <span>Extra hours: $55</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white/80 rounded-2xl p-6 shadow-sm md:col-span-2">
+          <h3 class="font-semibold mb-3 text-brand-primary">Gift Certificates</h3>
+          <p class="leading-relaxed m-0">Postpartum doula care makes an excellent gift for an expecting family and offers practical support exactly when it is needed most.</p>
+        </div>
       </div>
     </div>
   </section>

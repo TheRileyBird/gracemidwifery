@@ -14,6 +14,7 @@ import doulaImg from '../assets/images/Hannah.jpg';
 import hannahImg from '../assets/images/Hannah.jpg';
 import lekeishaImg from '../assets/images/Lekeisha.png';
 import thereseImg from '../assets/images/Therese.jpg';
+import flowers from "../assets/images/flowers-5.png";
 
 
 const supportCards = [
@@ -279,7 +280,14 @@ const doulas = [
     <p class="m-0 leading-relaxed">This matching process is designed to make support feel relational, not transactional, so your doula is not just available, but genuinely suited to your needs, communication style, and birth vision.</p>
   </SplitPanel>
 
-  <section class="py-24 bg-brand-primary">
+  <section class="py-24 bg-brand-primary relative">
+    <Image
+        src={flowers}
+        alt=""
+        aria-hidden="true"
+        class="absolute -bottom-10 right-5 w-80 md:w-96 pointer-events-none select-none"
+        style="filter: brightness(0) invert(1); opacity: 0.1;"
+    />
     <div class="max-w-5xl mx-auto px-6">
       <div class="text-center mb-14">
         <h6 class="justify-center text-white before:bg-white/40 after:bg-white/40">Doula Packages</h6>
