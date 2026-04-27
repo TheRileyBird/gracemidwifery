@@ -6,7 +6,13 @@ import logo from '../assets/images/text-large.png';
 const navLinks = [
   { href: '/', label: 'HOME' },
   { href: '/midwifery-care', label: 'MIDWIFERY CARE' },
-  { href: '/doula-support', label: 'DOULA SUPPORT' },
+  {
+    label: 'DOULA',
+    children: [
+      { href: '/birth-doula', label: 'BIRTH DOULA' },
+      { href: '/doula-support', label: 'POSTPARTUM DOULA' },
+    ],
+  },
   { href: '/education', label: 'EDUCATION' },
   { href: '/faq', label: 'FAQ' },
 ];
@@ -15,7 +21,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header
-  x-data="{ open: false, scrolled: false }"
+  x-data="{ open: false, scrolled: false, doulaOpen: false, mobileDoulaOpen: false }"
   @scroll.window="scrolled = window.scrollY > 24"
   :class="scrolled ? 'h-[60px] shadow-md' : 'h-[88px]'"
   class="bg-white w-full sticky top-0 z-50 transition-all duration-300 ease-in-out h-[88px]"
@@ -46,15 +52,51 @@ const currentPath = Astro.url.pathname;
     <!-- Desktop nav -->
     <div class="hidden lg:flex items-center gap-7">
       <ul class="flex items-center gap-7">
-        {navLinks.map(({ href, label }) => (
-          <li>
-            <a
-              href={href}
-              class="font-semibold tracking-widest transition-colors duration-200"
-              style={currentPath === href ? 'color: #a75c4a;' : 'color: #494f5e;'}
-            >
-              {label}
-            </a>
+        {navLinks.map(link => (
+          <li class="relative">
+            {link.children ? (
+              <div
+                class="relative"
+                @mouseenter="doulaOpen = true"
+                @mouseleave="doulaOpen = false"
+              >
+                <button
+                  type="button"
+                  class="flex items-center gap-2 font-semibold tracking-widest transition-colors duration-200"
+                  style={link.children.some(({ href }) => currentPath === href) ? 'color: #a75c4a;' : 'color: #494f5e;'}
+                  @click="doulaOpen = !doulaOpen"
+                >
+                  {link.label}
+                  <svg class="h-3.5 w-3.5 transition-transform duration-200" :class="doulaOpen ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div
+                  x-show="doulaOpen"
+                  x-transition
+                  x-cloak
+                  class="absolute left-0 top-full mt-3 min-w-[240px] rounded-2xl border border-gray-100 bg-white p-3 shadow-lg"
+                >
+                  {link.children.map(({ href, label }) => (
+                    <a
+                      href={href}
+                      class="block rounded-xl px-4 py-3 text-sm font-semibold tracking-widest transition-colors duration-200 hover:bg-brand-light"
+                      style={currentPath === href ? 'color: #a75c4a;' : 'color: #494f5e;'}
+                    >
+                      {label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a
+                href={link.href}
+                class="font-semibold tracking-widest transition-colors duration-200"
+                style={currentPath === link.href ? 'color: #a75c4a;' : 'color: #494f5e;'}
+              >
+                {link.label}
+              </a>
+            )}
           </li>
         ))}
       </ul>
@@ -89,14 +131,40 @@ const currentPath = Astro.url.pathname;
     x-cloak
   >
     <ul class="flex flex-col pt-4">
-      {navLinks.map(({ href, label }) => (
-        <li>
-          <a
-            href={href}
-            class="block py-3 font-semibold tracking-widest text-contrast-2 hover:text-accent-dark border-b border-gray-50 transition-colors"
-          >
-            {label}
-          </a>
+      {navLinks.map(link => (
+        <li class="border-b border-gray-50">
+          {link.children ? (
+            <div class="py-1">
+              <button
+                type="button"
+                @click="mobileDoulaOpen = !mobileDoulaOpen"
+                class="flex w-full items-center justify-between py-3 font-semibold tracking-widest text-contrast-2 transition-colors"
+              >
+                <span>{link.label}</span>
+                <svg class="h-4 w-4 transition-transform duration-200" :class="mobileDoulaOpen ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div x-show="mobileDoulaOpen" x-transition x-cloak class="pb-3 pl-4">
+                {link.children.map(({ href, label }) => (
+                  <a
+                    href={href}
+                    class="block py-2 text-sm font-semibold tracking-widest transition-colors"
+                    style={currentPath === href ? 'color: #a75c4a;' : 'color: #494f5e;'}
+                  >
+                    {label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a
+              href={link.href}
+              class="block py-3 font-semibold tracking-widest text-contrast-2 hover:text-accent-dark transition-colors"
+            >
+              {link.label}
+            </a>
+          )}
         </li>
       ))}
       <li class="pt-4">

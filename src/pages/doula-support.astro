@@ -6,8 +6,8 @@ import Footer from '../components/Footer.astro';
 import SplitPanel from '../components/SplitPanel.astro';
 import { Image } from 'astro:assets';
 
-import doulaImg from '../assets/images/doula.jpeg';
-import img0223 from '../assets/images/img0223.jpg';
+import doulaImg from '../assets/images/postpartum.jpg';
+import img0223 from '../assets/images/doula.jpeg';
 import img6328 from '../assets/images/img6328.jpeg';
 import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
 ---
@@ -15,7 +15,7 @@ import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
 <BaseLayout title="Doula Support | Grace Midwifery Collective" description="Compassionate postpartum doula support in Louisiana and Mississippi.">
   <Nav />
 
-  <SplitPanel image={doulaImg} imageAlt="Postpartum doula support" minHeight="70vh" justify="center">
+  <SplitPanel image={doulaImg} bg="#E5F2EF" imageAlt="Postpartum doula support" minHeight="70vh" justify="center">
     <h6>Information &amp; Support</h6>
     <h1 class="text-5xl font-semibold mb-6 leading-tight text-brand-primary">Postpartum Doula</h1>
     <p class="leading-relaxed mb-4">Welcoming a new baby into the world is a profound transition—one that brings joy, exhaustion, and a landscape of new experiences and responsibilities. For many families, the support of a postpartum doula offers a compassionate bridge between newborn arrival and confident parenthood. But what does a postpartum doula care plan truly look like?</p>
@@ -26,7 +26,7 @@ import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
   <section class="py-20 bg-white">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-10">
-        <h6>What to Expect</h6>
+        <h6 class="justify-center">What to Expect</h6>
         <h2 class="text-4xl font-semibold mb-8 text-brand-primary">Postpartum Care Plan</h2>
         <p class="leading-relaxed text-left">A postpartum doula care plan is a personalized roadmap, created in collaboration with the parents, that outlines goals, preferences, and the scope of support. While every family's needs are unique, most care plans share core components. Below we explore these elements in depth.</p>
       </div>
@@ -128,7 +128,7 @@ import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
   <!-- CTA -->
   <section class="py-20 bg-white text-center">
     <div class="max-w-2xl mx-auto px-6">
-      <h6>We're Here to Help</h6>
+      <h6 class="justify-center">We're Here to Help</h6>
       <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Still Have Questions?</h2>
       <p class="leading-relaxed mb-8">Have questions or need support? Our team is ready to help—just get in touch, and we'll make sure you get the personalized care you need. If there's anything you need or you're looking for more information, don't hesitate to reach out. We're here to provide the support and guidance you deserve.</p>
       <a href="/contact" class="inline-block text-base font-semibold tracking-widest uppercase text-white px-8 py-3 rounded-full bg-brand-primary">

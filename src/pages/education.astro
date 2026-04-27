@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import ContactBar from '../components/ContactBar.astro';
 import Footer from '../components/Footer.astro';
+import SplitPanel from '../components/SplitPanel.astro';
 import { Image } from 'astro:assets';
 
 import download1 from '../assets/images/download-1.jpg';
@@ -11,37 +12,20 @@ import download1 from '../assets/images/download-1.jpg';
 <BaseLayout title="Childbirth Education | Grace Midwifery Collective" description="Evidence-based childbirth education classes in Madisonville, LA with Adele Willman BSN RN CCBE.">
   <Nav />
 
-  <!-- Hero image -->
-  <div class="mx-5">
-    <Image src={download1} alt="Childbirth Education" class="w-full block object-cover object-center" style="max-height: 50vh;" />
-  </div>
-
-  <!-- Instructor -->
-  <section class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-14 items-center">
-        <div>
-          <h6>Childbirth Education</h6>
-          <h1 class="text-4xl font-semibold mb-2 text-brand-primary">Evidenced Based and Fun</h1>
-          <p class="font-semibold mb-6" style="color: #494F5E;">Adele Willman BSN RN CCBE</p>
-          <p class="leading-relaxed mb-4">My passion is to empower expectant moms through education. When you know what to anticipate, you can approach birth with confidence, clarity, and calm. Adele brings 15+ years of experience in hospital labor &amp; delivery and community education to every class.</p>
-          <p class="leading-relaxed">A mother of four and grandmother of seven, Adele's teaching is grounded in both professional expertise and lived experience. Classes are small, interactive, and genuinely enjoyable.</p>
-        </div>
-        <div class="flex justify-center">
-          <div class="w-64 h-64 rounded-full overflow-hidden flex-shrink-0" style="border: 8px solid #DCB393;">
-            <Image src={download1} alt="Adele Willman" class="w-full h-full object-cover" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <SplitPanel image={download1} bg="#E5F2EF" imageAlt="Childbirth Education" minHeight="70vh" justify="center">
+    <h6>Childbirth Education</h6>
+    <h1 class="text-5xl font-semibold mb-6 leading-tight text-brand-primary">Evidenced Based and Fun</h1>
+    <p class="font-semibold mb-6" style="color: #494F5E;">Adele Willman BSN RN CCBE</p>
+    <p class="leading-relaxed mb-4">My passion is to empower expectant moms through education. When you know what to anticipate, you can approach birth with confidence, clarity, and calm. Adele brings 15+ years of experience in hospital labor &amp; delivery and community education to every class.</p>
+    <p class="leading-relaxed">A mother of four and grandmother of seven, Adele's teaching is grounded in both professional expertise and lived experience. Classes are small, interactive, and genuinely enjoyable.</p>
+  </SplitPanel>
 
   <!-- Syllabus -->
-  <section style="background-color: #E5F2EF;" class="py-20">
+  <section class="py-20 bg-brand-primary">
     <div class="max-w-5xl mx-auto px-6">
       <div class="text-center mb-12">
-        <h6>Four 2-Hour Sessions · 6:00–8:00 PM</h6>
-        <h2 class="text-3xl font-semibold text-brand-primary">Preparing for Birth</h2>
+        <h6 class="justify-center">Preparing for Birth</h6>
+        <h2 class="text-3xl font-semibold text-brand-light">Four 2-Hour Sessions · 6:00–8:00 PM</h2>
       </div>
       <div class="grid sm:grid-cols-2 gap-5">
         {[
@@ -103,10 +87,10 @@ import download1 from '../assets/images/download-1.jpg';
   </section>
 
   <!-- Schedule -->
-  <section style="background-color: #E5F2EF;" class="py-20">
+  <section class="py-20 bg-gradient-to-b from-brand-light to-white">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-12">
-        <h6>Madisonville, LA</h6>
+        <h6 class="justify-center">Madisonville, LA</h6>
         <h2 class="text-3xl font-semibold mb-2 text-brand-primary">2026–2027 Class Schedule</h2>
         <p class="">Four Tuesday evenings per session · 6:00 PM – 8:00 PM</p>
       </div>

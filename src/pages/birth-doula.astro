@@ -1,0 +1,220 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import SplitPanel from '../components/SplitPanel.astro';
+import { Image } from 'astro:assets';
+
+import img0223 from '../assets/images/momma.jpg';
+import img6328 from '../assets/images/img6328.jpeg';
+import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
+
+import doulaImg from '../assets/images/Hannah.jpg';
+
+import hannahImg from '../assets/images/Hannah.jpg';
+import lekeishaImg from '../assets/images/Lekeisha.png';
+import thereseImg from '../assets/images/Therese.jpg';
+
+
+const supportCards = [
+  {
+    img: homebirthTeamImg,
+    title: 'Continuous Labor Support',
+    description: 'Steady emotional and physical support through labor, birth, and those first immediate postpartum moments.',
+  },
+  {
+    img: img0223,
+    title: 'Evidence-Based Preparation',
+    description: 'Clear information, thoughtful guidance, and practical preparation that helps families feel informed and grounded.',
+  },
+  {
+    img: img6328,
+    title: 'Partner-Centered Care',
+    description: 'Hands-on encouragement and guidance so partners feel confident, connected, and useful throughout the experience.',
+  },
+];
+
+const doulas = [
+  {
+    name: 'Hannah Hollis',
+    image: hannahImg,
+    teaser: 'Mother of five and dedicated birth doula serving families along the Gulf Coast with empowering, evidence-based support.',
+    body: [
+      'Hi, I’m Hannah—a mom to five wonderful tiny humans and a dedicated birth doula serving families along the Gulf Coast.',
+      'For the past three years, I’ve had the honor of walking alongside parents through pregnancy, labor, and those first tender postpartum moments. My own experiences as a mother—of joy, challenges, strength, and everything in between—deeply shaped my passion for this work. I know firsthand how transformative it is to feel truly seen, heard, and supported during birth.',
+      'My goal as your doula is simple yet powerful: to help you step into labor feeling empowered, fully informed, and completely supported. I’ll work hand-in-hand with you, your partner, and your birth team to bring your vision for your birth to life, whether that’s a calm home birth, an unmedicated journey, or anything in between that aligns with your home birth plans.',
+      'Pregnancy, labor, and birth don’t have to feel scary or overwhelming. With evidence-based information, comforting techniques, and unwavering presence, I want to help you discover your own strength and confidence.',
+      'I’d love to hear your story and explore how we can create the supportive birth experience you deserve!',
+    ],
+  },
+  {
+    name: 'Lekeisha Neitzel',
+    image: lekeishaImg,
+    teaser: 'Birth doula support grounded in evidence-based education, hands-on comfort measures, and preparation for both the desired and unexpected.',
+    body: [
+      'Embrace birth and wellness, support families throughout pregnancy, labor, birth and early parenthood.',
+      'Providing you with evidence based information to help you achieve an informed and empowered birth is central to my work.',
+      'As your birth doula, my goal is to assist you in having the birth you desire while also preparing for the unexpected.',
+      'I provide continuous support during your labor and birth which include basic massage, relaxation techniques, emotional support, encouragement, positioning suggestions, help with breastfeeding and guiding your partner through your birthing experience.',
+      'I am available for hospital, home and virtual care.',
+    ],
+  },
+  {
+    name: 'Therese Fread',
+    image: thereseImg,
+    teaser: 'A traditional birthworker and doula with more than three decades of experience in pregnancy, birth, newborn care, lactation, and postpartum healing.',
+    body: [
+      'Therese Fread has been providing pregnancy, birth, newborn care, and lactation services to women and families across the United States and internationally for over three decades. A traditional birthworker since 1987 and a doula since 1993, Therese brings a rare depth of experience rooted in cultural immersion, hands-on care, and lifelong devotion to birth work.',
+      'Native to Louisiana, Therese spent her early childhood in Folsom, Louisiana, before traveling throughout the United States and Mexico with her parents and siblings while engaged in humanitarian and missions work. During her young adulthood, she spent significant time in India and Mongolia, with a brief stay in China—experiences that profoundly shaped her understanding of birth, family, and community across cultures. She later settled in Minnesota, where she married and raised six children. Her personal birth history includes three hospital births, three home births, and several miscarriages.',
+      'Over the years, Therese has served families in many capacities, including as a birth assistant, monitrice, placenta encapsulation specialist, incorporating massage therapy and aromatherapy, certified nursing assistant, and hospice and end-of-life care. She is Spinning Babies Certified, trained in Advanced Neonatal Resuscitation, and certified in Adult, Child, and Infant CPR and First Aid. She is also trained in basic American Sign Language with a desire to serve the Deaf community.',
+      'Therese is the founder of Mother Ease Tea Company and the Mother Ease Postpartum Herbal Healing Package, thoughtfully designed to support postpartum recovery through traditional herbal remedies, nourishment, and gentle, restorative care during the fourth trimester. Through her own lived experiences of birth, loss, and healing, Therese brings deep compassion and practical wisdom to every family. She believes that recovery is a sacred transition—one that deserves time, care, and respect—laying the foundation for long-term maternal health.',
+      'In 2020, following her husband’s retirement from the military, Therese and her family returned to her hometown area in Louisiana. They are currently building a small blueberry farm in Ponchatoula, Louisiana. In 2024, Therese joined the local midwifery community as a student midwife, and in 2025 she entered a formal apprenticeship with highly respected local midwives, receiving her official Louisiana State Approved Midwife Apprenticeship License.',
+      'Therese’s work is grounded in faith, family, tradition, and service. Her interests include religious history, military life, homeschooling, sustainable living, gardening, foraging, natural healing, herbalism, homeopathy, essential oils, fermentation, cooking, baking, fiber arts, jewelry making, Deaf culture, American Sign Language, foreign languages, and lifelong learning.',
+    ],
+  },
+];
+---
+
+<BaseLayout title="Birth Doula | Grace Midwifery Collective" description="Supportive, evidence-based birth doula care in Louisiana and Mississippi.">
+  <Nav />
+
+  <SplitPanel image={doulaImg} bg="#E5F2EF" imageAlt="Birth doula support" minHeight="70vh" justify="center">
+    <h6>Your Birth, Supported</h6>
+    <h1 class="text-5xl font-semibold mb-6 leading-tight text-brand-primary">Birth Doula</h1>
+    <p class="leading-relaxed mb-4">Birth doula care offers steady support through pregnancy, labor, and the first moments after birth. The goal is not to replace your provider or your partner, but to add grounded presence, clear information, and practical comfort throughout the experience.</p>
+    <p class="leading-relaxed mb-8">Whether you are planning a home birth, hospital birth, or want virtual support, our doulas help families feel informed, encouraged, and deeply supported.</p>
+    <a href="/contact" class="inline-block font-semibold tracking-widest uppercase text-white px-7 py-3 rounded-full self-start bg-brand-primary">Book Now</a>
+  </SplitPanel>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <h6 class="justify-center">What Doula Support Can Look Like</h6>
+        <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Calm Guidance, Practical Comfort, Trusted Presence</h2>
+        <p class="leading-relaxed max-w-3xl mx-auto">
+          Birth doula care is designed to help families feel more prepared before labor and more supported during it. This page is structured for easy reading now, and can take brochure-specific package details as soon as they are provided.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        {supportCards.map(({ img, title, description }) => (
+          <div class="group block bg-white rounded-2xl overflow-hidden shadow-card h-full">
+            <div class="overflow-hidden h-48">
+              <Image
+                src={img}
+                alt={title}
+                width={600}
+                height={400}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-xl text-sage-900 mb-3">{title}</h3>
+              <p class="text-sm text-warm-500 leading-relaxed">{description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section x-data="{ activeDoula: null }" class="py-24 relative overflow-hidden" style="background-color: #fef4f3;">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <h6 class="justify-center">Meet Our Doulas</h6>
+        <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Experienced Support With Distinct Strengths</h2>
+        <p class="leading-relaxed max-w-3xl mx-auto">
+          Each doula brings her own experience, training, and presence to birth work. Read more to get a fuller sense of each provider.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {doulas.map((doula, i) => (
+          <div class="group block bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 h-full">
+            <div class="overflow-hidden h-56">
+              <Image
+                src={doula.image}
+                alt={doula.name}
+                width={600}
+                height={500}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+              <h3 class="font-serif text-xl text-sage-900 mb-3">{doula.name}</h3>
+              <p class="text-sm text-warm-500 leading-relaxed mb-5">{doula.teaser}</p>
+              <button
+                type="button"
+                @click={`activeDoula = ${i}`}
+                class="mt-auto inline-flex items-center gap-1 text-sm text-brand-primary font-medium group-hover:gap-2 transition-all"
+              >
+                Read more
+                <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div
+      x-show="activeDoula !== null"
+      x-transition.opacity
+      x-cloak
+      class="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 px-4 py-6"
+      @click.self="activeDoula = null"
+      @keydown.escape.window="activeDoula = null"
+    >
+      <div class="relative w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-3xl bg-white shadow-2xl">
+        <button
+          type="button"
+          class="absolute right-4 top-4 z-10 rounded-full bg-white/90 p-2 text-brand-primary shadow"
+          @click="activeDoula = null"
+          aria-label="Close biography"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        {doulas.map((doula, i) => (
+          <div x-show={`activeDoula === ${i}`} x-transition class="grid md:grid-cols-12 max-h-[90vh]" x-cloak>
+            <div class="md:col-span-5 bg-brand-light min-h-72 md:min-h-[90vh]">
+              <Image
+                src={doula.image}
+                alt={doula.name}
+                width={900}
+                height={1200}
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="md:col-span-7 overflow-y-auto px-8 py-10 md:px-10 md:py-12">
+              <h6>{doula.name}</h6>
+              <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-brand-primary">Birth Doula Biography</h2>
+              <div class="space-y-4">
+                {doula.body.map(paragraph => (
+                  <p class="leading-relaxed">{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white text-center">
+    <div class="max-w-2xl mx-auto px-6">
+      <h6 class="justify-center">Next Steps</h6>
+      <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Want to Talk Through Birth Doula Support?</h2>
+      <p class="leading-relaxed mb-8">Reach out to learn more about current doula availability, support options, and which doula may be the best fit for your family.</p>
+      <a href="/contact" class="inline-block text-base font-semibold tracking-widest uppercase text-white px-8 py-3 rounded-full bg-brand-primary">
+        Contact Us Today
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
