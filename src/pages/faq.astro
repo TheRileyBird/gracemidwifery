@@ -43,14 +43,14 @@ const faqs = [
   <section class="py-16 text-center" style="background-color: #E5F2EF;">
     <div class="max-w-2xl mx-auto px-6">
       <h6>Got Questions?</h6>
-      <h1 class="text-4xl font-semibold" style="color: #a75c4a;">Frequently Asked Questions</h1>
+      <h1 class="text-4xl font-semibold text-brand-primary">Frequently Asked Questions</h1>
     </div>
   </section>
 
   <!-- What To Expect grid -->
   <section class="py-20 bg-white">
     <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-2xl font-semibold mb-10" style="color: #a75c4a;">What To Expect from Midwifery Care</h2>
+      <h2 class="text-2xl font-semibold mb-10 text-brand-primary">What To Expect from Midwifery Care</h2>
       <div class="grid sm:grid-cols-2 gap-5">
         {whatToExpect.map(({ heading, items }) => (
           <div class="bg-gray-50 rounded-xl p-6">
@@ -72,13 +72,13 @@ const faqs = [
   <!-- FAQ Accordion -->
   <section style="background-color: #E5F2EF;" class="py-20">
     <div class="max-w-3xl mx-auto px-6">
-      <h2 class="text-2xl font-semibold text-center mb-10" style="color: #a75c4a;">Common Questions</h2>
+      <h2 class="text-2xl font-semibold text-center mb-10 text-brand-primary">Common Questions</h2>
       <div x-data="{ open: null }" class="space-y-3">
         {faqs.map(({ q, a }, i) => (
           <div class="bg-white rounded-xl overflow-hidden shadow-sm">
             <button @click={`open = open === ${i} ? null : ${i}`} class="w-full flex items-center justify-between px-6 py-5 text-left">
               <span class="font-medium text-base pr-4" style="color: #121111;">{q}</span>
-              <svg :class={`open === ${i} ? 'rotate-180' : ''`} class="h-4 w-4 flex-shrink-0 transition-transform duration-300" style="color: #a75c4a;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg :class={`open === ${i} ? 'rotate-180' : ''`} class="h-4 w-4 flex-shrink-0 transition-transform duration-300 text-brand-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
@@ -94,9 +94,9 @@ const faqs = [
   <!-- CTA -->
   <section class="py-16 bg-white text-center">
     <div class="max-w-xl mx-auto px-6">
-      <h2 class="text-2xl font-semibold mb-4" style="color: #a75c4a;">Still have questions?</h2>
+      <h2 class="text-2xl font-semibold mb-4 text-brand-primary">Still have questions?</h2>
       <p class="leading-relaxed mb-8">We're always happy to chat. Reach out and let's find the answers together.</p>
-      <a href="/contact" class="inline-block text-base font-semibold tracking-widest uppercase text-white px-8 py-3 rounded-full" style="background-color: #a75c4a;">Contact Us</a>
+      <a href="/contact" class="inline-block text-base font-semibold tracking-widest uppercase text-white px-8 py-3 rounded-full bg-brand-primary">Contact Us</a>
     </div>
   </section>
 

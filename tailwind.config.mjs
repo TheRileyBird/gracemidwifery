@@ -11,10 +11,10 @@ export default {
         'contrast-3': '#c4bdbd',
         accent: '#dcb393',
         'accent-dark': '#a75c4a',
+        'brand-primary': '#a75c4a',
         'accent-green': '#aab79b',
         'accent-light': '#fff4f3',
         'accent-teal': '#e5f2ef',
-        navy: '#13182f',
       },
       fontFamily: {
         sans: ['Poppins', 'system-ui', 'sans-serif'],

@@ -13,6 +13,7 @@ import doulaImg from '../assets/images/doula.jpeg';
 import download1 from '../assets/images/download-1.jpg';
 import placentaImg from '../assets/images/placenta.jpg';
 import img6328 from '../assets/images/img6328.jpeg';
+import flowers from '../assets/images/flowers-2.png';
 
 const testimonials = [
   { quote: 'With her excellence in practice and delightful charm, I would welcome anyone to invite her into your story.', author: 'Rachel E' },
@@ -50,7 +51,7 @@ const services = [
   </div>
 
   <!-- ── TRUST BAR ── -->
-  <section class="py-5 text-white" style="background-color: #a75c4a;">
+  <section class="py-5 text-white bg-brand-primary">
     <div class="w-full px-8">
       <div class="flex flex-wrap justify-center gap-x-10 gap-y-3 text-white/80">
         {['Licensed CPM, LM in Louisiana', '7+ Years of Home Births', 'Three Office Locations', '24/7 On-Call Support', 'Insurance Accepted'].map(item => (
@@ -63,16 +64,23 @@ const services = [
   </section>
 
   <!-- ── OUR MISSION ── -->
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h6>Welcome to Grace Midwifery Collective</h6>
-      <h2 class="text-4xl md:text-5xl font-semibold mb-8" style="color: #a75c4a;">
+  <section class="py-32 bg-white relative overflow-hidden">
+    <Image
+      src={flowers}
+      alt=""
+      aria-hidden="true"
+      class="absolute -bottom-10 -right-10 w-96 pointer-events-none select-none"
+      style="opacity: 0.2;"
+    />
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <h6 class="justify-center">Welcome to Grace Midwifery Collective</h6>
+      <h2 class="text-4xl md:text-5xl font-semibold mb-8 text-brand-primary">
         Our Mission
       </h2>
       <p class="leading-relaxed mb-6">
         We are on a mission to reshape the landscape of maternal health in Louisiana and Mississippi. We believe that when a mother is given <strong class="font-semibold" style="color: #121111;">evidence-based information</strong> and <strong class="font-semibold" style="color: #121111;">the autonomy</strong> to lead her own care, the entire family thrives. At Grace, your appointments aren't rushed—they are opportunities to build a relationship rooted in trust and respect.
       </p>
-      <p class="font-semibold" style="color: #a75c4a;">
+      <p class="font-semibold text-brand-primary">
         Your Birth. Your body. Your choice.
       </p>
       <p class="leading-relaxed">
@@ -82,9 +90,10 @@ const services = [
   </section>
 
   <!-- ── ABOUT GRACE ── -->
-  <SplitPanel bg="#E5F2EF" image={homebirthTeamImg} imageAlt="Grace Midwifery team at a home birth">
+
+  <SplitPanel bg="#e5f2ef2b" image={homebirthTeamImg} imageAlt="Grace Midwifery team at a home birth">
     <h6>about me and my vision</h6>
-    <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-8" style="color: #a75c4a;">
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-8 text-brand-primary">
       Grace Jackson CPM, LM
     </h2>
     <p class="leading-relaxed mb-5">
@@ -97,8 +106,8 @@ const services = [
 
   <!-- ── SERVING YOUR COMMUNITY + MAP + TESTIMONIALS ── -->
   <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-semibold mb-6" style="color: #a75c4a;">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-brand-primary">
         Serving Your Community
       </h2>
       <p class="leading-relaxed max-w-2xl mx-auto mb-12">
@@ -123,57 +132,20 @@ const services = [
     </div>
   </section>
 
-  <!-- ── TESTIMONIALS ── -->
-  <section class="py-24" style="background-color: #fff4f3;">
-    <div class="w-full px-8">
-      <div class="text-center mb-16">
-        <div class="inline-flex items-center gap-2 mb-4 justify-center">
-          <span class="block h-px w-8" style="background-color: #DCB393;"></span>
-          <span class="tracking-widest uppercase font-medium" style="color: #DCB393;">From Our Families</span>
-          <span class="block h-px w-8" style="background-color: #DCB393;"></span>
-        </div>
-        <h2 class="text-4xl lg:text-5xl font-semibold" style="color: #121111;">Stories from the families we've served</h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-        {testimonials.map(({ quote, author }, i) => (
-          <div
-            x-data="{ visible: false }"
-            x-intersect.once="visible = true"
-            :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
-            class="transition-all duration-700 ease-out"
-            style={`transition-delay: ${i * 150}ms`}
-          >
-            <figure class="bg-white rounded-2xl p-8 shadow-sm h-full flex flex-col">
-              <blockquote class="leading-relaxed italic mb-8 flex-1" style="color: #121111;">
-                "{quote}"
-              </blockquote>
-              <figcaption class="font-semibold" style="color: #a75c4a;">— {author}</figcaption>
-            </figure>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- ── SERVICES ── -->
-  <section class="py-24 lg:py-32 bg-sage-50 relative overflow-hidden">
-    <!-- Subtle background pattern -->
-    <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 2px 2px, #638352 1px, transparent 0); background-size: 40px 40px;"></div>
+  <section class="py-24 lg:py-32 relative overflow-hidden" style="background-color: #e5f2ef2b;">
 
     <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-16">
         <div class="inline-flex items-center gap-2 mb-4 justify-center">
-          <span class="block h-px w-8 bg-blush-400"></span>
-          <span class="text-blush-500 text-sm tracking-widest uppercase font-medium">What We Offer</span>
-          <span class="block h-px w-8 bg-blush-400"></span>
+          <h6>What We Offer</h6>
         </div>
-        <h2 class="font-serif text-4xl lg:text-5xl text-sage-900 max-w-2xl mx-auto leading-tight">
+        <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-brand-primary">
           Comprehensive care for every stage of your journey
         </h2>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {[
           {
             img: '/images/midwifery.jpg',
@@ -183,7 +155,7 @@ const services = [
             accent: 'border-sage-400',
           },
           {
-            img: '/images/img0223.jpeg',
+            img: '/images/img0223.jpg',
             title: 'Lactation',
             description: 'Lactation assistance is included in our midwifery package. An International Board Certified Lactation Counselor visits your home at the 3 day visit to assist with a successful start to your breast feeding journey.',
             href: '/doula-support',
@@ -204,14 +176,14 @@ const services = [
             accent: 'border-cream-500',
           },
           {
-            img: '/images/placentaImg.jpg',
+            img: '/images/placenta.jpg',
             title: 'Placenta Encapsulation',
             description: 'Placenta encapsulation is a traditional postpartum practice chosen by some families to support recovery after birth. Many parents report benefits such as; improved energy, mood support, and a gentler postpartum transition. For this service text 985-773-0449',
             href: '/contact',
             accent: 'border-cream-500',
           },
           {
-            img: '/images/img6328.jpg',
+            img: '/images/img6328.jpeg',
             title: 'Postpartum Care',
             description: 'In-home postpartum care provides quiet, attentive support in the comfort of your home. Scheduled visit check your recovery, weigh and assess your baby, support feeding and offer gentle, holistic guidance. Available for mothers and their newborn regardless of where you birthed.',
             href: '/contact',
@@ -236,7 +208,7 @@ const services = [
                 <div class="p-6">
                   <h3 class="font-serif text-xl text-sage-900 mb-3">{title}</h3>
                   <p class="text-sm text-warm-500 leading-relaxed mb-4">{description}</p>
-                  <span class="inline-flex items-center gap-1 text-sm text-sage-600 font-medium group-hover:gap-2 transition-all">
+                  <span class="inline-flex items-center gap-1 text-sm text-brand-primary font-medium group-hover:gap-2 transition-all">
                   Learn more
                   <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -250,35 +222,41 @@ const services = [
     </div>
   </section>
 
-  <!-- ── OUR SERVICES ── -->
-  <section class="relative pt-14 pb-24">
-    <div class="absolute bottom-0 left-0 right-0 h-1/2" style="background-color: #a75c4a;"></div>
-    <div class="relative z-10 max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-semibold text-center mb-14" style="color: #a75c4a;">
-        Our Services
-      </h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
-        {services.map(({ img, title, description, href }, i) => (
-          <div class="flex flex-col items-center text-center bg-white rounded-xl p-6 shadow-sm">
+  <!-- ── TESTIMONIALS ── -->
+  <section class="py-24" style="background-color: #fff4f3;">
+    <div class="w-full px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 mb-4 justify-center">
+          <span class="block h-px w-8" style="background-color: #DCB393;"></span>
+          <span class="tracking-widest uppercase font-medium" style="color: #DCB393;">From Our Families</span>
+          <span class="block h-px w-8" style="background-color: #DCB393;"></span>
+        </div>
+        <h2 class="text-4xl lg:text-5xl font-semibold" style="color: #121111;">Stories from the families we've served</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        {testimonials.map(({ quote, author }, i) => (
             <div
-              class="rounded-full overflow-hidden mb-5 flex-shrink-0"
-              style={`width: 176px; height: 176px; border: 8px solid ${borderColors[i % 4]};`}
+                x-data="{ visible: false }"
+                x-intersect.once="visible = true"
+                :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+                class="transition-all duration-700 ease-out"
+                style={`transition-delay: ${i * 150}ms`}
             >
-              <Image src={img} alt={title} class="w-full h-full object-cover" />
+              <figure class="bg-white rounded-2xl p-8 shadow-sm h-full flex flex-col">
+                <blockquote class="leading-relaxed italic mb-8 flex-1" style="color: #121111;">
+                  "{quote}"
+                </blockquote>
+                <figcaption class="font-semibold text-brand-primary">— {author}</figcaption>
+              </figure>
             </div>
-            <h3 class="font-semibold mb-3" style="color: #121111; font-size: 1.1rem;">{title}</h3>
-            <p class="leading-relaxed mb-5 flex-1">{description}</p>
-            <a href={href} class="font-semibold tracking-widest uppercase text-white px-6 py-2 rounded-full" style="background-color: #a75c4a;">
-              LEARN MORE
-            </a>
-          </div>
         ))}
       </div>
     </div>
   </section>
 
   <!-- ── CONTACT / LOCATIONS / HOURS ── -->
-  <section style="background-color: #a75c4a;" class="py-16">
+  <section class="bg-brand-primary py-16">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid md:grid-cols-3 gap-10 text-white">
 
