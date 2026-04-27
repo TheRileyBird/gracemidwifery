@@ -10,6 +10,8 @@ import midwiferyImg from '../assets/images/grace.png';
 import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
 import img0223 from '../assets/images/img0223.jpg';
 import img6328 from '../assets/images/img6328.jpeg';
+import babyImg from '../assets/images/baby.png';
+import flowers from '../assets/images/flowers-1.png';
 ---
 
 <BaseLayout title="Midwifery Care | Grace Midwifery Collective" description="Personalized, evidence-based home birth midwifery care in Louisiana and Mississippi.">
@@ -25,14 +27,18 @@ import img6328 from '../assets/images/img6328.jpeg';
   </SplitPanel>
 
   <!-- Comfort of Home -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-white relative overflow-hidden">
+    <Image
+        src={flowers}
+        alt=""
+        aria-hidden="true"
+        class="absolute bottom-5 right-5 w-80 md:w-96 pointer-events-none select-none"
+        style="opacity: 0.1;"
+    />
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h6 class="justify-center">Comfort of Home</h6>
-      <blockquote class="text-2xl font-light italic mb-10 leading-relaxed text-brand-primary">
-        "Birth is sacred, powerful, and deeply personal. My role is to protect your space, support your instincts, and walk beside you as you bring new life into the world — calmly, safely, and with intention."
-      </blockquote>
       <p class="leading-relaxed mb-4 text-left">We bring all necessary supplies to your home. We leave your home how we found it (if not better) and depart with a new family tucked into bed.</p>
-      <ul class="text-left space-y-2 mb-8">
+      <ul class="text-left mb-8 md:columns-2 md:gap-8">
         {[
           'Medications for hemorrhage',
           'Oxygen',
@@ -43,12 +49,40 @@ import img6328 from '../assets/images/img6328.jpeg';
           'Routine monitoring for birther and baby (intermittent fetal doppler, etc.)',
           'Cleaning supplies',
         ].map(item => (
-          <li class="flex items-start gap-2 leading-relaxed">
+          <li class="flex items-start gap-2 leading-relaxed mb-2 break-inside-avoid">
             <span class="flex-shrink-0 mt-0.5 text-brand-primary">•</span>
             <span>{item}</span>
           </li>
         ))}
       </ul>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden py-24 md:py-32">
+    <Image
+      src={babyImg}
+      alt="Swaddled newborn resting in supportive hands"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/95 via-brand-primary/80 to-black/60"></div>
+    <div class="relative z-10 mx-auto max-w-5xl px-6">
+      <div class="max-w-3xl text-white text-center mx-auto">
+        <blockquote class="text-3xl md:text-4xl font-semibold leading-tight">
+          Birth is sacred, powerful, and deeply personal. My role is to protect your space, support your instincts, and walk beside you as you bring new life into the world calmly, safely, and with intention.
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 relative overflow-hidden" style="background-color: #fef4f3;">
+    <div class="max-w-5xl mx-auto px-6 relative z-10">
+      <div class="max-w-3xl mb-12">
+        <h6>Rooted in Relationship</h6>
+        <h2 class="text-3xl md:text-4xl font-semibold mb-5 text-brand-primary">The Midwifery Model of Care</h2>
+        <p class="leading-relaxed">
+          Midwifery care centers the whole person, supporting birth as a normal life event while staying attentive to changing needs with skilled, individualized care.
+        </p>
+      </div>
       <div class="grid sm:grid-cols-2 gap-4 text-left mb-10">
         {[
           'Monitoring the physical, psychological, and social well-being of the birther and baby',
@@ -62,10 +96,10 @@ import img6328 from '../assets/images/img6328.jpeg';
           </div>
         ))}
       </div>
-      <p class="italic mb-8">
+      <p class="italic mb-8 max-w-3xl">
         "The application of this model of care has been proven to reduce the incidence of birth injury, trauma, and cesarean section."
       </p>
-      <blockquote class="text-xl font-light italic text-brand-primary">
+      <blockquote class="text-xl font-light italic text-brand-primary max-w-3xl">
         "The first intervention in birth is leaving your own front door." — Michel Odent
       </blockquote>
     </div>
