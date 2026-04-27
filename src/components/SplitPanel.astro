@@ -10,6 +10,7 @@ interface Props {
   minHeight?: string;
   imagePosition?: string;
   justify?: 'start' | 'center';
+  sticky?: boolean;
 }
 
 const {
@@ -20,32 +21,33 @@ const {
   minHeight = '420px',
   imagePosition = 'center',
   justify = 'start',
+  sticky = false,
 } = Astro.props;
 
 const textColClass = [
-  'px-10 lg:px-16 py-32 w-full',
+  sticky ? 'px-10 lg:px-16 py-20 w-full' : 'px-10 lg:px-16 py-32 w-full',
   justify === 'center' ? 'flex flex-col justify-center' : '',
   imageLeft ? 'md:order-last' : '',
 ].filter(Boolean).join(' ');
 
-const imageColClass = imageLeft ? 'md:order-first' : '';
+const imageColClass = [
+  imageLeft ? 'md:order-first' : '',
+  sticky ? 'hidden md:block md:sticky md:top-0 md:h-screen' : 'relative',
+].filter(Boolean).join(' ');
 ---
 
 <section class="overflow-hidden" style={`background-color: ${bg};`}>
-  <div class="grid md:grid-cols-2">
+  <div class={`grid md:grid-cols-2 ${sticky ? 'items-start' : ''}`}>
     <div class={textColClass}>
       <div class="max-w-2xl mx-auto">
         <slot />
       </div>
     </div>
-    <div
-      class={`relative ${imageColClass}`}
-      style={`min-height: ${minHeight};`}
-    >
+    <div class={imageColClass} style={sticky ? '' : `min-height: ${minHeight};`}>
       <Image
         src={image}
         alt={imageAlt}
-        class="absolute inset-0 w-full h-full object-cover"
+        class={sticky ? 'w-full h-full object-cover' : 'absolute inset-0 w-full h-full object-cover'}
         style={`object-position: ${imagePosition};`}
         aria-hidden={imageAlt ? undefined : 'true'}
       />

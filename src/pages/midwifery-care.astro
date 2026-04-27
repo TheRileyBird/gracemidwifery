@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import SplitPanel from '../components/SplitPanel.astro';
 import { Image } from 'astro:assets';
 
-import midwiferyImg from '../assets/images/midwifery.jpg';
+import midwiferyImg from '../assets/images/grace.png';
 import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
 import img0223 from '../assets/images/img0223.jpg';
 import img6328 from '../assets/images/img6328.jpeg';
@@ -21,13 +21,13 @@ import img6328 from '../assets/images/img6328.jpeg';
     <p class="leading-relaxed mb-4">Choosing a home birth with a Certified Professional Midwife (CPM) offers a safe, personalized, and empowering experience. CPMs provide individualized care, continuous support, and attentive presence, allowing families to birth in the comfort and familiarity of their own home — free from unnecessary interventions and rushed decision making.</p>
     <p class="leading-relaxed mb-4">Research shows that planned home births for low-risk pregnancies are safe under the care of skilled midwives. The practice blends time-honored natural approaches with modern medical knowledge and essential tools to ensure both safety and peace of mind.</p>
     <p class="leading-relaxed mb-8">Services include comprehensive prenatal care, unhurried birth support, and gentle postpartum follow-up, with a goal of helping clients feel seen, supported, and confident every step of the way.</p>
-    <a href="/contact" class="inline-block text-base font-semibold tracking-widest uppercase text-white px-7 py-3 rounded-full self-start bg-brand-primary">Book Now</a>
+    <a href="/contact" class="inline-block font-semibold tracking-widest uppercase text-white px-7 py-3 rounded-full self-start bg-brand-primary">Book Now</a>
   </SplitPanel>
 
   <!-- Comfort of Home -->
-  <section style="background-color: #E5F2EF;" class="py-20">
+  <section class="py-20 bg-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h6>Comfort of Home</h6>
+      <h6 class="justify-center">Comfort of Home</h6>
       <blockquote class="text-2xl font-light italic mb-10 leading-relaxed text-brand-primary">
         "Birth is sacred, powerful, and deeply personal. My role is to protect your space, support your instincts, and walk beside you as you bring new life into the world — calmly, safely, and with intention."
       </blockquote>
@@ -43,7 +43,7 @@ import img6328 from '../assets/images/img6328.jpeg';
           'Routine monitoring for birther and baby (intermittent fetal doppler, etc.)',
           'Cleaning supplies',
         ].map(item => (
-          <li class="flex items-start gap-2 text-base leading-relaxed">
+          <li class="flex items-start gap-2 leading-relaxed">
             <span class="flex-shrink-0 mt-0.5 text-brand-primary">•</span>
             <span>{item}</span>
           </li>
@@ -56,7 +56,7 @@ import img6328 from '../assets/images/img6328.jpeg';
           'Minimizing technological interventions',
           'Identifying and referring women who require obstetrical attention when needed',
         ].map(item => (
-          <div class="flex items-start gap-3 bg-white rounded-lg p-4 shadow-sm">
+          <div class="flex items-start gap-3 bg-surface rounded-lg p-4 shadow-sm">
             <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
             <p class="leading-relaxed m-0">{item}</p>
           </div>
@@ -71,90 +71,139 @@ import img6328 from '../assets/images/img6328.jpeg';
     </div>
   </section>
 
-  <!-- Three circles: Prenatal / Birth / Postpartum -->
-  <section class="py-20 bg-white">
+  <!-- Three cards: Prenatal / Birth / Postpartum -->
+  <section class="py-20 bg-surface">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
         {[
           {
             img: img0223,
             label: 'Prenatal',
             desc: 'Visits at three convenient office locations. 45–60 minute appointments covering genetic screening, nutritional counseling, and more — every 4 weeks to 28 weeks, then more frequently as your due date approaches.',
-            border: '#a75c4a',
           },
           {
             img: homebirthTeamImg,
             label: 'Birth',
             desc: 'Grace arrives in active labor and stays through the immediate postpartum period. Typically 8–16+ hours of attentive, hands-on care — with a birth assistant, emergency equipment, and a professional birth pool.',
-            border: '#DCB393',
           },
           {
             img: img6328,
             label: 'Postpartum',
             desc: 'Home visits at 24 hours, 3 days, and 1 week. Clinic visits at 2–3 weeks and 6 weeks. Complete well-child care for birthing person and newborn through the childbearing year.',
-            border: '#a75c4a',
           },
-        ].map(({ img, label, desc, border }) => (
-          <div class="flex flex-col items-center">
-            <div class="w-56 h-56 rounded-full overflow-hidden flex-shrink-0 mb-6" style={`border: 8px solid ${border};`}>
-              <Image src={img} alt={label} class="w-full h-full object-cover" />
+        ].map(({ img, label, desc }) => (
+          <a href="/contact" class="group block bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="h-48 overflow-hidden">
+              <Image src={img} alt={label} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
-            <h3 class="font-semibold text-base tracking-widest uppercase mb-3" style="color: #121111;">{label}</h3>
-            <p class="leading-relaxed mb-5">{desc}</p>
-            <a href="/contact" class="text-base font-semibold tracking-widest uppercase text-white px-6 py-2.5 rounded-full bg-brand-primary">Book Now</a>
-          </div>
+            <div class="p-6">
+              <h3 class="font-semibold text-lg tracking-widest uppercase mb-3 text-contrast">{label}</h3>
+              <p class="leading-relaxed mb-5">{desc}</p>
+              <span class="inline-flex items-center gap-1 font-semibold text-brand-primary group-hover:gap-2 transition-all">
+                Book Now
+                <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </a>
         ))}
       </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[
+        {
+          img: '/images/midwifery.jpg',
+          title: 'Midwifery Care',
+          description: 'The Midwifery model of care is built on the understanding that pregnancy and birth are normal life events, not medical emergencies. Care is individualized and centered on informed choice, safety and trust.',
+          href: '/midwifery-care',
+          accent: 'border-sage-400',
+        },
+        {
+          img: '/images/img0223.jpg',
+          title: 'Lactation',
+          description: 'Lactation assistance is included in our midwifery package. An International Board Certified Lactation Counselor visits your home at the 3 day visit to assist with a successful start to your breast feeding journey.',
+          href: '/doula-support',
+          accent: 'border-blush-400',
+        },
+        {
+          img: '/images/doula.jpeg',
+          title: 'Doula Support',
+          description: 'Doulas are an integral part of birth support. We are excited to announce a special opportunity to offer doulas as part of the Grace Midwifery Collective.',
+          href: '/doula-support',
+          accent: 'border-blush-400',
+        },
+      ].map(({ img, title, description, href, accent }, i) => (
+          <div
+              x-data="{ visible: false }"
+              x-intersect.once="visible = true"
+              :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+              class="transition-all duration-700 ease-out"
+              style={`transition-delay: ${i * 100}ms`}
+          >
+            <a href={href} class="group block bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 h-full">
+              <div class="overflow-hidden h-48">
+                <img
+                    src={img}
+                    alt={title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="font-serif text-xl text-sage-900 mb-3">{title}</h3>
+                <p class="text-sm text-warm-500 leading-relaxed mb-4">{description}</p>
+                <span class="inline-flex items-center gap-1 text-sm text-brand-primary font-medium group-hover:gap-2 transition-all">
+                  Learn more
+                  <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
+      ))}
+    </div>
     </div>
   </section>
 
   <!-- Midwife Attended Birth At Home -->
-  <section class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-12 items-start">
-        <div class="sticky top-24">
-          <Image src={homebirthTeamImg} alt="Midwife attended birth" class="w-full rounded-xl object-cover" style="max-height: 560px;" />
-        </div>
-        <div>
-          <h6>From Start to Finish</h6>
-          <h2 class="text-2xl font-semibold mb-6 text-brand-primary">Midwife Attended Birth At Home</h2>
-          <ul class="space-y-3">
-            {[
-              'Approximately 10–13 prenatal visits, 45 minutes each. All hands-on care and assessments are done by the midwives.',
-              'Birth attended at your home by the same midwife/midwife team who provided prenatal care. Two midwives and possibly a student attend each birth. Face-to-face time during labor, birth, and immediate postpartum is typically 8–16 hours or longer as needed.',
-              'Freedom to move, eat, and rest as you wish. Labor and birth in any position, in any area of your home. Deep water labor tub and water birth available at no extra cost.',
-              'If a transfer of care to hospital is needed, midwife provides detailed records, facilitates the transfer, accompanies the parent(s), and acts as an advisor and support person throughout the remainder of labor and birth when possible.',
-              'Four postpartum and newborn care visits, including lactation counseling — 60–90 minutes each, including two that occur at home. Birthing person and baby are seen as linked and cared for in relationship to each other at every visit.',
-              'Both birthing person and baby are evaluated and supported at each visit for clinical factors as well as mental and emotional health. Newborn care through six weeks is part of midwifery scope of practice.',
-              'There is no need for new parents and babies to leave the house in the first days and weeks to access care — reducing stress, speeding recovery, enhancing breastfeeding, and reducing exposure to pathogens.',
-              'Continuity of care with the same 1–2 midwives throughout the childbearing year.',
-              '24/7 direct access to midwife during due date window and early postpartum period.',
-              'Individualized care based on birthing person\'s values, desires, and choices. In-depth informed consent and collaborative decision-making is ongoing. Client autonomy is central. Minimal intervention is the norm.',
-              'Care is subject to some legal restrictions (Licensed Midwives in LA are legally prohibited from attending multiples and known breeches at home, and can only attend home births between 37 and 42 weeks gestation).',
-              'Independent providers can be very agile in updating practices and recommendations based on new evidence, research, and client preferences.',
-              'Cost of midwife care is fixed and known up front. No surprise charges. Midwife fee does not increase if additional visits are needed or care becomes more complicated.',
-              'No facility or hospital fees.',
-              'Payments can be planned and budgeted in advance. No payments to make after the birth.',
-              'Insurance coverage is not guaranteed, and LMs are out-of-network providers for all plans. However, even if insurance does not cover midwife care, out-of-pocket fees to the midwife are capped at the predetermined retainer amount.',
-              'If a transfer from home to hospital is needed, client is responsible for additional costs — and in most cases this is where insurance coverage applies.',
-              'Total time spent face-to-face with the midwife/midwife team: approximately 28–40 hours, or longer as needed. No time limit.',
-            ].map(item => (
-              <li class="flex items-start gap-3 text-base leading-relaxed">
-                <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+  <SplitPanel sticky={true} imageLeft={true} image={homebirthTeamImg} imageAlt="Midwife attended birth" bg="#ffffff">
+    <h6>From Start to Finish</h6>
+    <h2 class="text-2xl font-semibold mb-6 text-brand-primary">Midwife Attended Birth At Home</h2>
+    <ul class="space-y-3">
+      {[
+        'Approximately 10–13 prenatal visits, 45 minutes each. All hands-on care and assessments are done by the midwives.',
+        'Birth attended at your home by the same midwife/midwife team who provided prenatal care. Two midwives and possibly a student attend each birth. Face-to-face time during labor, birth, and immediate postpartum is typically 8–16 hours or longer as needed.',
+        'Freedom to move, eat, and rest as you wish. Labor and birth in any position, in any area of your home. Deep water labor tub and water birth available at no extra cost.',
+        'If a transfer of care to hospital is needed, midwife provides detailed records, facilitates the transfer, accompanies the parent(s), and acts as an advisor and support person throughout the remainder of labor and birth when possible.',
+        'Four postpartum and newborn care visits, including lactation counseling — 60–90 minutes each, including two that occur at home. Birthing person and baby are seen as linked and cared for in relationship to each other at every visit.',
+        'Both birthing person and baby are evaluated and supported at each visit for clinical factors as well as mental and emotional health. Newborn care through six weeks is part of midwifery scope of practice.',
+        'There is no need for new parents and babies to leave the house in the first days and weeks to access care — reducing stress, speeding recovery, enhancing breastfeeding, and reducing exposure to pathogens.',
+        'Continuity of care with the same 1–2 midwives throughout the childbearing year.',
+        '24/7 direct access to midwife during due date window and early postpartum period.',
+        'Individualized care based on birthing person\'s values, desires, and choices. In-depth informed consent and collaborative decision-making is ongoing. Client autonomy is central. Minimal intervention is the norm.',
+        'Care is subject to some legal restrictions (Licensed Midwives in LA are legally prohibited from attending multiples and known breeches at home, and can only attend home births between 37 and 42 weeks gestation).',
+        'Independent providers can be very agile in updating practices and recommendations based on new evidence, research, and client preferences.',
+        'Cost of midwife care is fixed and known up front. No surprise charges. Midwife fee does not increase if additional visits are needed or care becomes more complicated.',
+        'No facility or hospital fees.',
+        'Payments can be planned and budgeted in advance. No payments to make after the birth.',
+        'Insurance coverage is not guaranteed, and LMs are out-of-network providers for all plans. However, even if insurance does not cover midwife care, out-of-pocket fees to the midwife are capped at the predetermined retainer amount.',
+        'If a transfer from home to hospital is needed, client is responsible for additional costs — and in most cases this is where insurance coverage applies.',
+        'Total time spent face-to-face with the midwife/midwife team: approximately 28–40 hours, or longer as needed. No time limit.',
+      ].map(item => (
+        <li class="flex items-start gap-3 leading-relaxed">
+          <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  </SplitPanel>
 
   <!-- Cost of Care -->
   <section style="background-color: #E5F2EF;" class="py-20">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-12">
-        <h6>Transparent Pricing</h6>
+        <h6 class="justify-center">Transparent Pricing</h6>
         <h2 class="text-3xl font-semibold mb-8 text-brand-primary">Cost of Care</h2>
         <div class="space-y-4 text-left">
           <p class="leading-relaxed">Midwife-led care and home birth have much lower costs overall compared to hospital birth, as well as increased client satisfaction, and clearly proven healthy outcomes for mothers and their babies. However, out-of-hospital births represent only a tiny fraction of all births in the U.S., and the American health insurance system is not set up to recognize and reimburse this model of care appropriately.</p>
@@ -171,7 +220,7 @@ import img6328 from '../assets/images/img6328.jpeg';
         ].map(({ q, a }, i) => (
           <div class="bg-white rounded-xl overflow-hidden shadow-sm">
             <button @click={`open = open === ${i} ? null : ${i}`} class="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition-colors">
-              <span class="font-medium text-base" style="color: #121111;">{q}</span>
+              <span class="font-medium" style="color: #121111;">{q}</span>
               <svg :class={`open === ${i} ? 'rotate-180' : ''`} class="h-4 w-4 flex-shrink-0 transition-transform duration-300 text-brand-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
@@ -188,7 +237,7 @@ import img6328 from '../assets/images/img6328.jpeg';
   <!-- Licensed Midwives -->
   <section class="py-20 bg-white">
     <div class="max-w-3xl mx-auto px-6 text-center">
-      <h6>Licensed &amp; Regulated</h6>
+      <h6 class="justify-center">Licensed &amp; Regulated</h6>
       <h2 class="text-3xl font-semibold mb-6 text-brand-primary">Licensed Midwives</h2>
       <p class="leading-relaxed mb-5">In the state of Louisiana, midwives carry a license from the state board of medical examiners. This allows midwives to carry and administer medication, process birth certificates, and more. It also means there are rules and regulations that must be followed — including required testing, risk assessments, and procedures for care.</p>
       <p class="leading-relaxed mb-10">In the state of Mississippi, the CPM credential is recognized and there is not currently any regulation in effect.</p>

@@ -21,17 +21,6 @@ const testimonials = [
   { quote: 'I could never say enough good things about Grace & the practice she has put together. All of the women I come across in her birth studio are all so kind and loving. You can truly tell they all love their work.', author: 'Brittany T' },
   { quote: 'I wish every woman had the opportunity to experience the beauty of home birth with a team of women like Grace Midwifery Collective.', author: 'Luisa H' },
 ];
-
-const borderColors = ['#DCB393', '#a75c4a', '#E5F2EF', '#FEF2F4'];
-
-const services = [
-  { img: midwiferyImg,  title: 'Midwifery',             href: '/midwifery-care',  description: 'The Midwifery model of care is built on the understanding that pregnancy and birth are normal life events, not medical emergencies. Care is individualized and centered on informed choice, safety and trust.' },
-  { img: img0223,       title: 'Lactation',             href: '/midwifery-care',  description: 'Lactation assistance is included in our midwifery package. An International Board Certified Lactation Counselor visits your home at the 3 day visit to assist with a successful start to your breast feeding journey.' },
-  { img: doulaImg,      title: 'Doula',                 href: '/doula-support',   description: 'Doulas are an integral part of birth support. We are excited to announce a special opportunity to offer doulas as part of the Grace Midwifery Collective.' },
-  { img: download1,     title: 'Childbirth Education',  href: '/education',       description: 'Preparing for birth through education is an important part of your parenting journey. Comprehensive and evidence-based classes offered several times per year.' },
-  { img: placentaImg,   title: 'Placenta Encapsulation',href: '/contact',         description: 'Placenta encapsulation is a traditional postpartum practice chosen by some families to support recovery after birth. Many parents report benefits such as; improved energy, mood support, and a gentler postpartum transition. For this service text 985-773-0449' },
-  { img: img6328,       title: 'Postpartum Care',       href: '/doula-support',   description: 'In-home postpartum care provides quiet, attentive support in the comfort of your home. Scheduled visit check your recovery, weigh and assess your baby, support feeding and offer gentle, holistic guidance. Available for mothers and their newborn regardless of where you birthed.' },
-];
 ---
 
 <BaseLayout
@@ -148,48 +137,42 @@ const services = [
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {[
           {
-            img: '/images/midwifery.jpg',
+            img: midwiferyImg,
             title: 'Midwifery Care',
             description: 'The Midwifery model of care is built on the understanding that pregnancy and birth are normal life events, not medical emergencies. Care is individualized and centered on informed choice, safety and trust.',
             href: '/midwifery-care',
-            accent: 'border-sage-400',
           },
           {
-            img: '/images/img0223.jpg',
+            img: img0223,
             title: 'Lactation',
             description: 'Lactation assistance is included in our midwifery package. An International Board Certified Lactation Counselor visits your home at the 3 day visit to assist with a successful start to your breast feeding journey.',
             href: '/doula-support',
-            accent: 'border-blush-400',
           },
           {
-            img: '/images/doula.jpeg',
+            img: doulaImg,
             title: 'Doula Support',
             description: 'Doulas are an integral part of birth support. We are excited to announce a special opportunity to offer doulas as part of the Grace Midwifery Collective.',
             href: '/doula-support',
-            accent: 'border-blush-400',
           },
           {
-            img: '/images/download-1.jpg',
+            img: download1,
             title: 'Childbirth Education',
             description: 'Preparing for birth through education is an important part of your parenting journey. Comprehensive and evidence-based classes offered several times per year.',
             href: '/education',
-            accent: 'border-cream-500',
           },
           {
-            img: '/images/placenta.jpg',
+            img: placentaImg,
             title: 'Placenta Encapsulation',
             description: 'Placenta encapsulation is a traditional postpartum practice chosen by some families to support recovery after birth. Many parents report benefits such as; improved energy, mood support, and a gentler postpartum transition. For this service text 985-773-0449',
             href: '/contact',
-            accent: 'border-cream-500',
           },
           {
-            img: '/images/img6328.jpeg',
+            img: img6328,
             title: 'Postpartum Care',
             description: 'In-home postpartum care provides quiet, attentive support in the comfort of your home. Scheduled visit check your recovery, weigh and assess your baby, support feeding and offer gentle, holistic guidance. Available for mothers and their newborn regardless of where you birthed.',
             href: '/contact',
-            accent: 'border-warm-400',
           },
-        ].map(({ img, title, description, href, accent }, i) => (
+        ].map(({ img, title, description, href }, i) => (
             <div
                 x-data="{ visible: false }"
                 x-intersect.once="visible = true"
@@ -199,10 +182,12 @@ const services = [
             >
               <a href={href} class="group block bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 h-full">
                 <div class="overflow-hidden h-48">
-                  <img
-                      src={img}
-                      alt={title}
-                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  <Image
+                    src={img}
+                    alt={title}
+                    width={600}
+                    height={400}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div class="p-6">
