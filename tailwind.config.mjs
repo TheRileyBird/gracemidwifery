@@ -13,6 +13,7 @@ export default {
         'accent-dark': '#a75c4a',
         'brand-primary': '#a75c4a',
         'brand-light': '#fef4f3',
+        'brand-green': '#E5F2EF',
         'accent-green': '#aab79b',
         'accent-light': '#fff4f3',
         'accent-teal': '#e5f2ef',

@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import ContactBar from '../components/ContactBar.astro';
 import Footer from '../components/Footer.astro';
+import SplitPanel from '../components/SplitPanel.astro';
+import postImg from '../assets/images/post.jpg';
 
 const whatToExpect = [
   { heading: 'Respectful Treatment', items: ['Gentle, nurturing care that respects you, your family, and your beliefs', 'Respect for your informed decisions about medical tests, recommendations, and interventions', 'Willingness to support your birth plan, including any family members and friends you may want present', 'Freedom to move, eat, bathe — to do what helps you during labor and birth', 'Respect for the birth process as it unfolds uniquely each time'] },
@@ -39,26 +41,32 @@ const faqs = [
 <BaseLayout title="FAQ | Grace Midwifery Collective" description="Answers to your most common questions about home birth midwifery care.">
   <Nav />
 
-  <!-- Page header -->
-  <section class="py-16 text-center" style="background-color: #E5F2EF;">
-    <div class="max-w-2xl mx-auto px-6">
-      <h6>Got Questions?</h6>
-      <h1 class="text-4xl font-semibold text-brand-primary">Frequently Asked Questions</h1>
-    </div>
-  </section>
+  <SplitPanel image={postImg} bg="#E5F2EF" imageAlt="Parent and baby resting together" minHeight="70vh" justify="center">
+    <h6>Got Questions?</h6>
+    <h1 class="text-5xl font-semibold mb-6 leading-tight text-brand-primary">Frequently Asked Questions</h1>
+    <p class="leading-relaxed mb-4">Answers to the questions families most often ask about home birth midwifery care, safety, logistics, postpartum support, and what care with Grace Midwifery Collective actually looks like.</p>
+    <p class="leading-relaxed">If you do not see your question here, reach out. We are happy to talk through your individual situation.</p>
+  </SplitPanel>
 
   <!-- What To Expect grid -->
-  <section class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-2xl font-semibold mb-10 text-brand-primary">What To Expect from Midwifery Care</h2>
-      <div class="grid sm:grid-cols-2 gap-5">
-        {whatToExpect.map(({ heading, items }) => (
-          <div class="bg-gray-50 rounded-xl p-6">
-            <h3 class="font-semibold mb-3" style="color: #121111; font-size: 1rem;">{heading}</h3>
-            <ul class="space-y-2">
+  <section class="py-24 bg-gradient-to-b from-white to-brand-light/40">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center mb-14">
+        <h6 class="justify-center">Care in Practice</h6>
+        <h2 class="text-4xl font-semibold mb-6 text-brand-primary">What To Expect from Midwifery Care</h2>
+        <p class="leading-relaxed">Midwifery care is not just a list of appointments. It is a relationship-centered model built around time, trust, informed choice, and attentive support for both parent and baby.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6">
+        {whatToExpect.map(({ heading, items }, i) => (
+          <div class="relative overflow-hidden rounded-2xl border border-brand-primary/10 bg-white p-7 shadow-sm">
+            <span class="absolute right-4 top-3 text-7xl font-semibold leading-none text-brand-light opacity-60" aria-hidden="true">
+              {i + 1}
+            </span>
+            <h3 class="relative text-[22px] font-semibold mb-4 text-brand-primary pr-12">{heading}</h3>
+            <ul class="relative space-y-3">
               {items.map(item => (
-                <li class="flex items-start gap-2 text-base leading-relaxed">
-                  <span class="flex-shrink-0 mt-0.5" style="color: #DCB393;">✦</span>
+                <li class="flex items-start gap-3 leading-relaxed">
+                  <span class="flex-shrink-0 mt-0.5 text-accent">✦</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -70,9 +78,12 @@ const faqs = [
   </section>
 
   <!-- FAQ Accordion -->
-  <section style="background-color: #E5F2EF;" class="py-20">
+  <section class="py-20 bg-brand-primary">
     <div class="max-w-3xl mx-auto px-6">
-      <h2 class="text-2xl font-semibold text-center mb-10 text-brand-primary">Common Questions</h2>
+      <div class="text-center mb-10">
+        <h6 class="justify-center text-white before:bg-white/40 after:bg-white/40">Frequently Asked</h6>
+        <h2 class="text-3xl font-semibold text-white">Common Questions</h2>
+      </div>
       <div x-data="{ open: null }" class="space-y-3">
         {faqs.map(({ q, a }, i) => (
           <div class="bg-white rounded-xl overflow-hidden shadow-sm">

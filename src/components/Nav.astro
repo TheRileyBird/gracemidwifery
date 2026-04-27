@@ -7,6 +7,7 @@ const navLinks = [
   { href: '/', label: 'HOME' },
   { href: '/midwifery-care', label: 'MIDWIFERY CARE' },
   {
+    href: '/birth-doula',
     label: 'DOULA',
     children: [
       { href: '/birth-doula', label: 'BIRTH DOULA' },
@@ -60,17 +61,26 @@ const currentPath = Astro.url.pathname;
                 @mouseenter="doulaOpen = true"
                 @mouseleave="doulaOpen = false"
               >
-                <button
-                  type="button"
-                  class="flex items-center gap-2 font-semibold tracking-widest transition-colors duration-200"
-                  style={link.children.some(({ href }) => currentPath === href) ? 'color: #a75c4a;' : 'color: #494f5e;'}
-                  @click="doulaOpen = !doulaOpen"
-                >
-                  {link.label}
-                  <svg class="h-3.5 w-3.5 transition-transform duration-200" :class="doulaOpen ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
+                <div class="flex items-center gap-2">
+                  <a
+                    href={link.href}
+                    class="font-semibold tracking-widest transition-colors duration-200"
+                    style={link.children.some(({ href }) => currentPath === href) ? 'color: #a75c4a;' : 'color: #494f5e;'}
+                  >
+                    {link.label}
+                  </a>
+                  <button
+                    type="button"
+                    class="flex items-center transition-colors duration-200"
+                    style={link.children.some(({ href }) => currentPath === href) ? 'color: #a75c4a;' : 'color: #494f5e;'}
+                    @click="doulaOpen = !doulaOpen"
+                    aria-label="Toggle doula menu"
+                  >
+                    <svg class="h-3.5 w-3.5 transition-transform duration-200" :class="doulaOpen ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                </div>
                 <div
                   x-show="doulaOpen"
                   x-transition
@@ -135,16 +145,24 @@ const currentPath = Astro.url.pathname;
         <li class="border-b border-gray-50">
           {link.children ? (
             <div class="py-1">
-              <button
-                type="button"
-                @click="mobileDoulaOpen = !mobileDoulaOpen"
-                class="flex w-full items-center justify-between py-3 font-semibold tracking-widest text-contrast-2 transition-colors"
-              >
-                <span>{link.label}</span>
-                <svg class="h-4 w-4 transition-transform duration-200" :class="mobileDoulaOpen ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
+              <div class="flex items-center justify-between gap-4">
+                <a
+                  href={link.href}
+                  class="block py-3 font-semibold tracking-widest text-contrast-2 transition-colors"
+                >
+                  {link.label}
+                </a>
+                <button
+                  type="button"
+                  @click="mobileDoulaOpen = !mobileDoulaOpen"
+                  class="flex items-center py-3 text-contrast-2 transition-colors"
+                  aria-label="Toggle doula menu"
+                >
+                  <svg class="h-4 w-4 transition-transform duration-200" :class="mobileDoulaOpen ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
               <div x-show="mobileDoulaOpen" x-transition x-cloak class="pb-3 pl-4">
                 {link.children.map(({ href, label }) => (
                   <a
