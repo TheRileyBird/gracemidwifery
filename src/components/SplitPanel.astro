@@ -25,7 +25,7 @@ const {
 } = Astro.props;
 
 const textColClass = [
-  sticky ? 'px-10 lg:px-16 py-20 w-full' : 'px-10 lg:px-16 py-32 w-full',
+  sticky ? 'px-10 lg:px-16 py-20 w-full' : 'px-10 lg:px-16 py-16 lg:py-32 w-full',
   justify === 'center' ? 'flex flex-col justify-center' : '',
   imageLeft ? 'md:order-last' : '',
 ].filter(Boolean).join(' ');

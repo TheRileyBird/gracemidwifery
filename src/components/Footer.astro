@@ -51,18 +51,20 @@ const socials = [
       src={mom}
       alt=""
       aria-hidden="true"
-      class="absolute -bottom-10 -right-10 w-80 pointer-events-none select-none"
+      class="absolute -bottom-10 -right-10 w-36 lg:w-80 pointer-events-none select-none"
       style="filter: brightness(0) invert(1); opacity: 0.2;"
   />
 
   <div class="relative z-10 max-w-4xl mx-auto px-6 py-14 text-center">
     <!-- Full text logo -->
-    <Image
-      src={logo}
-      alt="Grace Midwifery Collective"
-      class="mx-auto mb-8 w-96"
-      style="filter: brightness(0) invert(1);"
-    />
+    <a href="/" class="inline-block">
+      <Image
+        src={logo}
+        alt="Grace Midwifery Collective"
+        class="mx-auto mb-8 w-96"
+        style="filter: brightness(0) invert(1);"
+      />
+    </a>
 
     <!-- Nav links -->
     <nav class="flex flex-wrap justify-center gap-5 mb-8">

@@ -64,6 +64,8 @@ const doulas = [
   {
     name: 'Hannah Hollis',
     image: hannahImg,
+    imageClass: 'object-cover',
+    modalImageClass: 'object-cover object-center',
     teaser: 'Mother of five and dedicated birth doula serving families along the Gulf Coast with empowering, evidence-based support.',
     body: [
       'Hi, I’m Hannah—a mom to five wonderful tiny humans and a dedicated birth doula serving families along the Gulf Coast.',
@@ -76,6 +78,8 @@ const doulas = [
   {
     name: 'Lekeisha Neitzel',
     image: lekeishaImg,
+    imageClass: 'object-cover object-top',
+    modalImageClass: 'object-cover object-top',
     teaser: 'Birth doula support grounded in evidence-based education, hands-on comfort measures, and preparation for both the desired and unexpected.',
     body: [
       'Embrace birth and wellness, support families throughout pregnancy, labor, birth and early parenthood.',
@@ -88,6 +92,8 @@ const doulas = [
   {
     name: 'Therese Fread',
     image: thereseImg,
+    imageClass: 'object-cover',
+    modalImageClass: 'object-cover object-center',
     teaser: 'A traditional birthworker and doula with more than three decades of experience in pregnancy, birth, newborn care, lactation, and postpartum healing.',
     body: [
       'Therese Fread has been providing pregnancy, birth, newborn care, and lactation services to women and families across the United States and internationally for over three decades. A traditional birthworker since 1987 and a doula since 1993, Therese brings a rare depth of experience rooted in cultural immersion, hands-on care, and lifelong devotion to birth work.',
@@ -99,6 +105,9 @@ const doulas = [
     ],
   },
 ];
+
+const openDoulaModal = (index: number) => `document.body.style.overflow='hidden';document.documentElement.style.overflow='hidden';document.getElementById('doula-modal-${index}')?.showModal()`;
+const closeDoulaModal = (index: number) => `document.body.style.overflow='';document.documentElement.style.overflow='';document.getElementById('doula-modal-${index}')?.close()`;
 ---
 
 <BaseLayout title="Birth Doula | Grace Midwifery Collective" description="Supportive, evidence-based birth doula care in Louisiana and Mississippi.">
@@ -144,7 +153,7 @@ const doulas = [
     </div>
   </section>
 
-  <section x-data="{ activeDoula: null }" class="py-24 relative overflow-hidden" style="background-color: #fef4f3;">
+  <section class="py-24 relative overflow-hidden" style="background-color: #fef4f3;">
         <div class="max-w-6xl mx-auto px-6">
           <div class="text-center mb-14">
             <h6 class="justify-center">Experienced Support</h6>
@@ -156,79 +165,78 @@ const doulas = [
 
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {doulas.map((doula, i) => (
-                <div class="group block bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 h-full">
-                  <div class="overflow-hidden h-56">
+                <article
+                  class="group relative block cursor-pointer bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 h-full"
+                  role="button"
+                  tabindex="0"
+                  onclick={openDoulaModal(i)}
+                  onkeydown={`if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); ${openDoulaModal(i)} }`}
+                >
+                  <div class="relative overflow-hidden h-96">
                     <Image
                         src={doula.image}
                         alt={doula.name}
                         width={600}
                         height={500}
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        class:list={['w-full h-full group-hover:scale-105 transition-transform duration-500', doula.imageClass]}
                     />
                   </div>
                   <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
                     <h3 class="font-serif text-xl text-sage-900 mb-3">{doula.name}</h3>
                     <p class="text-sm text-warm-500 leading-relaxed mb-5">{doula.teaser}</p>
-                    <button
-                        type="button"
-                        @click={`activeDoula = ${i}`}
-                        class="mt-auto inline-flex items-center gap-1 text-sm text-brand-primary font-medium group-hover:gap-2 transition-all"
-                    >
+                    <span class="inline-flex items-center gap-1 text-sm text-brand-primary font-medium transition-all duration-300 group-hover:gap-2 group-hover:translate-x-1">
                       Read more
                       <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                       </svg>
-                    </button>
+                    </span>
                   </div>
-                </div>
+                </article>
             ))}
           </div>
         </div>
 
-        <div
-            x-show="activeDoula !== null"
-            x-transition.opacity
-            x-cloak
-            class="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 px-4 py-6"
-            @click.self="activeDoula = null"
-            @keydown.escape.window="activeDoula = null"
-        >
-          <div class="relative w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-3xl bg-white shadow-2xl">
-            <button
-                type="button"
-                class="absolute right-4 top-4 z-10 rounded-full bg-white/90 p-2 text-brand-primary shadow"
-                @click="activeDoula = null"
-                aria-label="Close biography"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+        {doulas.map((doula, i) => (
+          <dialog
+            id={`doula-modal-${i}`}
+            class="w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-3xl bg-transparent p-0 shadow-2xl backdrop:bg-black/60"
+            onclick={`if (event.target === event.currentTarget) { ${closeDoulaModal(i)} }`}
+          >
+            <div class="relative max-h-[90vh] bg-white md:h-[90vh]">
+              <button
+                  type="button"
+                  class="absolute right-4 top-4 z-10 rounded-full bg-white/90 p-2 text-brand-primary shadow"
+                  onclick={closeDoulaModal(i)}
+                  aria-label="Close biography"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
 
-            {doulas.map((doula, i) => (
-                <div x-show={`activeDoula === ${i}`} x-transition class="grid md:grid-cols-12 max-h-[90vh]" x-cloak>
-                  <div class="md:col-span-5 bg-brand-light min-h-72 md:min-h-[90vh]">
-                    <Image
-                        src={doula.image}
-                        alt={doula.name}
-                        width={900}
-                        height={1200}
-                        class="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div class="md:col-span-7 overflow-y-auto px-8 py-10 md:px-10 md:py-12">
-                    <h6>{doula.name}</h6>
-                    <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-brand-primary">Birth Doula Biography</h2>
-                    <div class="space-y-4">
-                      {doula.body.map(paragraph => (
-                          <p class="leading-relaxed">{paragraph}</p>
-                      ))}
-                    </div>
+              <div class="grid max-h-[90vh] md:h-full md:grid-cols-12">
+                <div class="hidden md:flex md:col-span-5 bg-brand-light h-full items-center justify-center overflow-hidden">
+                  <Image
+                      src={doula.image}
+                      alt={doula.name}
+                      width={900}
+                      height={1200}
+                      class:list={['w-full h-full', doula.modalImageClass]}
+                  />
+                </div>
+                <div class="md:col-span-7 max-h-[90vh] overflow-y-auto px-8 py-10 md:h-full md:px-10 md:py-12">
+                  <h6>Birth Doula</h6>
+                  <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-brand-primary">{doula.name}</h2>
+                  <div class="space-y-4">
+                    {doula.body.map(paragraph => (
+                        <p class="leading-relaxed">{paragraph}</p>
+                    ))}
                   </div>
                 </div>
-            ))}
-          </div>
-        </div>
+              </div>
+            </div>
+          </dialog>
+        ))}
       </section>
 
   <!--<section class="py-20 bg-white">-->
@@ -269,7 +277,7 @@ const doulas = [
     <div class="grid sm:grid-cols-2 gap-5 mb-10">
       {matchingPoints.map((item, i) => (
         <div class="relative overflow-hidden rounded-2xl border border-brand-primary/10 bg-brand-light p-6 shadow-sm">
-          <span class="absolute right-3 top-2 text-8xl font-semibold leading-none text-brand-primary/10" aria-hidden="true">
+          <span class="absolute right-3 top-1/2 -translate-y-1/2 sm:top-2 sm:translate-y-0 text-6xl sm:text-7xl lg:text-8xl font-semibold leading-none text-brand-primary/10" aria-hidden="true">
             {i + 1}
           </span>
           <p class="relative m-0 pr-10 leading-relaxed">{item}</p>
@@ -285,7 +293,7 @@ const doulas = [
         src={flowers}
         alt=""
         aria-hidden="true"
-        class="absolute -bottom-10 right-5 w-80 md:w-96 pointer-events-none select-none"
+        class="hidden lg:block absolute -bottom-10 right-5 w-80 md:w-96 pointer-events-none select-none"
         style="filter: brightness(0) invert(1); opacity: 0.1;"
     />
     <div class="max-w-5xl mx-auto px-6">
@@ -337,7 +345,7 @@ const doulas = [
     <div class="max-w-2xl mx-auto px-6">
       <h6 class="justify-center">Next Steps</h6>
       <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Want to Talk?</h2>
-      <p class="leading-relaxed mb-8">Reach out to learn more about current doula availability, support options, and which doula may be the best fit for your family. Phone: 985-773-0449. Email: info@midwifegrace.com.</p>
+      <p class="leading-relaxed mb-8">Reach out to learn more about current doula availability, support options, and which doula may be the best fit for your family.</p>
       <a href="/contact" class="inline-block text-base font-semibold tracking-widest uppercase text-white px-8 py-3 rounded-full bg-brand-primary">
         Contact Us Today
       </a>
