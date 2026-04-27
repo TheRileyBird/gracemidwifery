@@ -34,6 +34,31 @@ const supportCards = [
   },
 ];
 
+const supportList = [
+  'Prenatal education and birth planning',
+  'Emotional reassurance and encouragement',
+  'Comfort measures during labor (positioning, breathing, massage)',
+  'Advocacy and informed decision-making support',
+  'Continuous presence throughout labor and birth',
+  'Early postpartum support',
+];
+
+const supportAudience = [
+  'First-time parents',
+  'Families planning unmedicated, medicated, or cesarean births',
+  'VBAC journeys',
+  'Hospital, birth center, and home births',
+  'Single parents, partners, and growing families',
+  'All families are welcome.',
+];
+
+const matchingPoints = [
+  'Your birth preferences and vision',
+  'Medical, emotional, or situational needs',
+  'Personality, communication style, and comfort level',
+  'Desired level of support and involvement',
+];
+
 const doulas = [
   {
     name: 'Hannah Hollis',
@@ -90,15 +115,15 @@ const doulas = [
     <div class="max-w-5xl mx-auto px-6">
       <div class="text-center mb-14">
         <h6 class="justify-center">What Doula Support Can Look Like</h6>
-        <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Calm Guidance, Practical Comfort, Trusted Presence</h2>
+        <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Guidance, Comfort, & Trusted Presence</h2>
         <p class="leading-relaxed max-w-3xl mx-auto">
-          Birth doula care is designed to help families feel more prepared before labor and more supported during it. This page is structured for easy reading now, and can take brochure-specific package details as soon as they are provided.
+          Birth doula care is designed to help families feel more prepared before labor and more supported during it. Doulas work alongside midwives, nurses, and physicians to help families feel confident, supported, and empowered in their birth experience.
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {supportCards.map(({ img, title, description }) => (
-          <div class="group block bg-white rounded-2xl overflow-hidden shadow-card h-full">
+          <div class="group block bg-[#E5F2EF5e] shadow-sm rounded-2xl overflow-hidden shadow-card h-full">
             <div class="overflow-hidden h-48">
               <Image
                 src={img}
@@ -119,88 +144,183 @@ const doulas = [
   </section>
 
   <section x-data="{ activeDoula: null }" class="py-24 relative overflow-hidden" style="background-color: #fef4f3;">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-14">
-        <h6 class="justify-center">Meet Our Doulas</h6>
-        <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Experienced Support With Distinct Strengths</h2>
-        <p class="leading-relaxed max-w-3xl mx-auto">
-          Each doula brings her own experience, training, and presence to birth work. Read more to get a fuller sense of each provider.
-        </p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {doulas.map((doula, i) => (
-          <div class="group block bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 h-full">
-            <div class="overflow-hidden h-56">
-              <Image
-                src={doula.image}
-                alt={doula.name}
-                width={600}
-                height={500}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
-              <h3 class="font-serif text-xl text-sage-900 mb-3">{doula.name}</h3>
-              <p class="text-sm text-warm-500 leading-relaxed mb-5">{doula.teaser}</p>
-              <button
-                type="button"
-                @click={`activeDoula = ${i}`}
-                class="mt-auto inline-flex items-center gap-1 text-sm text-brand-primary font-medium group-hover:gap-2 transition-all"
-              >
-                Read more
-                <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="text-center mb-14">
+            <h6 class="justify-center">Experienced Support</h6>
+            <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Meet Our Doulas</h2>
+            <p class="leading-relaxed max-w-3xl mx-auto">
+              A birth doula is a trained professional who provides emotional, physical, and informational support before, during, and shortly after childbirth. Each doula brings her own experience, training, and presence to birth work.
+            </p>
           </div>
-        ))}
-      </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {doulas.map((doula, i) => (
+                <div class="group block bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 h-full">
+                  <div class="overflow-hidden h-56">
+                    <Image
+                        src={doula.image}
+                        alt={doula.name}
+                        width={600}
+                        height={500}
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+                    <h3 class="font-serif text-xl text-sage-900 mb-3">{doula.name}</h3>
+                    <p class="text-sm text-warm-500 leading-relaxed mb-5">{doula.teaser}</p>
+                    <button
+                        type="button"
+                        @click={`activeDoula = ${i}`}
+                        class="mt-auto inline-flex items-center gap-1 text-sm text-brand-primary font-medium group-hover:gap-2 transition-all"
+                    >
+                      Read more
+                      <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+            ))}
+          </div>
+        </div>
+
+        <div
+            x-show="activeDoula !== null"
+            x-transition.opacity
+            x-cloak
+            class="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 px-4 py-6"
+            @click.self="activeDoula = null"
+            @keydown.escape.window="activeDoula = null"
+        >
+          <div class="relative w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-3xl bg-white shadow-2xl">
+            <button
+                type="button"
+                class="absolute right-4 top-4 z-10 rounded-full bg-white/90 p-2 text-brand-primary shadow"
+                @click="activeDoula = null"
+                aria-label="Close biography"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {doulas.map((doula, i) => (
+                <div x-show={`activeDoula === ${i}`} x-transition class="grid md:grid-cols-12 max-h-[90vh]" x-cloak>
+                  <div class="md:col-span-5 bg-brand-light min-h-72 md:min-h-[90vh]">
+                    <Image
+                        src={doula.image}
+                        alt={doula.name}
+                        width={900}
+                        height={1200}
+                        class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="md:col-span-7 overflow-y-auto px-8 py-10 md:px-10 md:py-12">
+                    <h6>{doula.name}</h6>
+                    <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-brand-primary">Birth Doula Biography</h2>
+                    <div class="space-y-4">
+                      {doula.body.map(paragraph => (
+                          <p class="leading-relaxed">{paragraph}</p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+  <!--<section class="py-20 bg-white">-->
+  <!--    <div class="grid lg:grid-cols-2 gap-8 items-start">-->
+  <!--      <div class="bg-surface rounded-2xl p-8 shadow-sm">-->
+  <!--        <h3 class="font-serif text-2xl text-sage-900 mb-4">What Is a Birth Doula?</h3>-->
+  <!--        <p class="leading-relaxed text-sm mb-6">A birth doula is a trained professional who provides emotional, physical, and informational support before, during, and shortly after childbirth.</p>-->
+  <!--        <ul class="space-y-3">-->
+  <!--          {supportList.map(item => (-->
+  <!--            <li class="flex items-start gap-3 leading-relaxed">-->
+  <!--              <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>-->
+  <!--              <span>{item}</span>-->
+  <!--            </li>-->
+  <!--          ))}-->
+  <!--        </ul>-->
+  <!--      </div>-->
+
+  <!--      <div class="bg-brand-light rounded-2xl p-8 shadow-sm">-->
+  <!--        <h3 class="font-serif text-2xl text-sage-900 mb-4">Who We Support</h3>-->
+  <!--        <ul class="space-y-3">-->
+  <!--          {supportAudience.map(item => (-->
+  <!--            <li class="flex items-start gap-3 leading-relaxed">-->
+  <!--              <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✦</span>-->
+  <!--              <span>{item}</span>-->
+  <!--            </li>-->
+  <!--          ))}-->
+  <!--        </ul>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--</section>-->
+
+  <SplitPanel sticky={true} imageLeft={true} image={homebirthTeamImg} imageAlt="Birth doula support at a home birth" bg="#ffffff">
+    <h6>A Thoughtful Matching Process</h6>
+    <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Finding the Right Doula Matters</h2>
+    <p class="leading-relaxed mb-4">Choosing the right doula is deeply personal. You are not expected to sort through that decision alone.</p>
+    <p class="leading-relaxed mb-10">Midwife Grace Jackson personally meets with each expectant mother or family to understand what kind of support will feel most aligned, useful, and grounding for their birth. From there, Grace carefully matches you with a doula whose experience, approach, and personality best complement your family.</p>
+
+    <div class="grid sm:grid-cols-2 gap-5 mb-10">
+      {matchingPoints.map((item, i) => (
+        <div class="relative overflow-hidden rounded-2xl border border-brand-primary/10 bg-brand-light p-6 shadow-sm">
+          <span class="absolute right-3 top-2 text-8xl font-semibold leading-none text-brand-primary/10" aria-hidden="true">
+            {i + 1}
+          </span>
+          <p class="relative m-0 pr-10 leading-relaxed">{item}</p>
+        </div>
+      ))}
     </div>
 
-    <div
-      x-show="activeDoula !== null"
-      x-transition.opacity
-      x-cloak
-      class="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 px-4 py-6"
-      @click.self="activeDoula = null"
-      @keydown.escape.window="activeDoula = null"
-    >
-      <div class="relative w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-3xl bg-white shadow-2xl">
-        <button
-          type="button"
-          class="absolute right-4 top-4 z-10 rounded-full bg-white/90 p-2 text-brand-primary shadow"
-          @click="activeDoula = null"
-          aria-label="Close biography"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+    <p class="m-0 leading-relaxed">This matching process is designed to make support feel relational, not transactional, so your doula is not just available, but genuinely suited to your needs, communication style, and birth vision.</p>
+  </SplitPanel>
 
-        {doulas.map((doula, i) => (
-          <div x-show={`activeDoula === ${i}`} x-transition class="grid md:grid-cols-12 max-h-[90vh]" x-cloak>
-            <div class="md:col-span-5 bg-brand-light min-h-72 md:min-h-[90vh]">
-              <Image
-                src={doula.image}
-                alt={doula.name}
-                width={900}
-                height={1200}
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div class="md:col-span-7 overflow-y-auto px-8 py-10 md:px-10 md:py-12">
-              <h6>{doula.name}</h6>
-              <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-brand-primary">Birth Doula Biography</h2>
-              <div class="space-y-4">
-                {doula.body.map(paragraph => (
-                  <p class="leading-relaxed">{paragraph}</p>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
+  <section class="py-24 bg-brand-primary">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <h6 class="justify-center text-white before:bg-white/40 after:bg-white/40">Doula Packages</h6>
+        <h2 class="text-4xl font-semibold mb-6 text-white">Birth Doula Support Options</h2>
+        <p class="leading-relaxed max-w-3xl mx-auto text-white/85">If you’re interested in working with a birth doula through Grace Midwifery Collective, reach out to schedule a consultation and we’ll help you find the right support for your birth.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white/95 rounded-2xl p-8 shadow-card">
+          <h3 class="font-serif text-2xl text-sage-900 mb-4">Full Birth Package</h3>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3 leading-relaxed">
+              <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
+              <span>Two prenatal visits</span>
+            </li>
+            <li class="flex items-start gap-3 leading-relaxed">
+              <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
+              <span>Labor/Birth</span>
+            </li>
+            <li class="flex items-start gap-3 leading-relaxed">
+              <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
+              <span>One postpartum visit</span>
+            </li>
+          </ul>
+          <p class="font-semibold text-3xl text-brand-primary m-0">$1200</p>
+        </div>
+
+        <div class="bg-white/95 rounded-2xl p-8 shadow-card">
+          <h3 class="font-serif text-2xl text-sage-900 mb-4">Basic Birth Doula Package</h3>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3 leading-relaxed">
+              <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
+              <span>Labor/Birth</span>
+            </li>
+            <li class="flex items-start gap-3 leading-relaxed">
+              <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
+              <span>One postpartum visit</span>
+            </li>
+          </ul>
+          <p class="font-semibold text-3xl text-brand-primary m-0">$800</p>
+        </div>
       </div>
     </div>
   </section>
@@ -208,8 +328,8 @@ const doulas = [
   <section class="py-20 bg-white text-center">
     <div class="max-w-2xl mx-auto px-6">
       <h6 class="justify-center">Next Steps</h6>
-      <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Want to Talk Through Birth Doula Support?</h2>
-      <p class="leading-relaxed mb-8">Reach out to learn more about current doula availability, support options, and which doula may be the best fit for your family.</p>
+      <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Want to Talk?</h2>
+      <p class="leading-relaxed mb-8">Reach out to learn more about current doula availability, support options, and which doula may be the best fit for your family. Phone: 985-773-0449. Email: info@midwifegrace.com.</p>
       <a href="/contact" class="inline-block text-base font-semibold tracking-widest uppercase text-white px-8 py-3 rounded-full bg-brand-primary">
         Contact Us Today
       </a>
