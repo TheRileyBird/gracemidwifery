@@ -11,6 +11,8 @@ import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
 import img0223 from '../assets/images/img0223.jpg';
 import img6328 from '../assets/images/img6328.jpeg';
 import babyImg from '../assets/images/baby.png';
+import tubImg from '../assets/images/tub.jpg';
+import postImg from '../assets/images/bed.jpg';
 import flowers from '../assets/images/flowers-1.png';
 ---
 
@@ -27,7 +29,7 @@ import flowers from '../assets/images/flowers-1.png';
   </SplitPanel>
 
   <!-- Comfort of Home -->
-  <section class="py-20 bg-white relative overflow-hidden">
+  <section class="py-28 bg-white relative overflow-hidden">
     <Image
         src={flowers}
         alt=""
@@ -66,7 +68,7 @@ import flowers from '../assets/images/flowers-1.png';
     />
     <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/95 via-brand-primary/80 to-black/60"></div>
     <div class="relative z-10 mx-auto max-w-5xl px-6">
-      <div class="max-w-3xl text-white text-center mx-auto">
+      <div class="max-w-3xl text-white text-center mx-auto" style="text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);">
         <blockquote class="text-3xl md:text-4xl font-semibold leading-tight">
           Birth is sacred, powerful, and deeply personal. My role is to protect your space, support your instincts, and walk beside you as you bring new life into the world calmly, safely, and with intention.
         </blockquote>
@@ -74,129 +76,104 @@ import flowers from '../assets/images/flowers-1.png';
     </div>
   </section>
 
-  <section class="py-20 relative overflow-hidden" style="background-color: #fef4f3;">
+  <section class="py-24 md:py-28 relative overflow-hidden" style="background-color: #fef4f3;">
     <div class="max-w-5xl mx-auto px-6 relative z-10">
-      <div class="max-w-3xl mb-12">
-        <h6>Rooted in Relationship</h6>
-        <h2 class="text-3xl md:text-4xl font-semibold mb-5 text-brand-primary">The Midwifery Model of Care</h2>
-        <p class="leading-relaxed">
+      <div class="max-w-3xl mb-14 text-center mx-auto">
+        <h6 class="justify-center">
+            Rooted in Relationship
+        </h6>
+        <h2 class="text-4xl md:text-5xl font-semibold mb-6 text-brand-primary leading-tight">The Midwifery Model of Care</h2>
+        <p class="leading-relaxed text-lg mb-4">
           Midwifery care centers the whole person, supporting birth as a normal life event while staying attentive to changing needs with skilled, individualized care.
         </p>
+        <p class="leading-relaxed text-lg">
+          The application of this model of care has been proven to reduce the incidence of birth injury, trauma, and cesarean section.
+        </p>
       </div>
-      <div class="grid sm:grid-cols-2 gap-4 text-left mb-10">
+      <div class="grid sm:grid-cols-2 gap-5 text-left mb-12">
         {[
           'Monitoring the physical, psychological, and social well-being of the birther and baby',
           'Providing the birther with individualized education, counseling, and continuous hands-on assistance during labor and delivery',
           'Minimizing technological interventions',
           'Identifying and referring women who require obstetrical attention when needed',
         ].map(item => (
-          <div class="flex items-start gap-3 bg-surface rounded-lg p-4 shadow-sm">
-            <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
-            <p class="leading-relaxed m-0">{item}</p>
+          <div class="flex items-start gap-4 rounded-2xl border border-brand-primary/10 bg-white/80 p-5 shadow-sm backdrop-blur-sm">
+            <span class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-primary text-sm font-bold text-white shadow-sm">✓</span>
+            <p class="text-sm text-warm-500 leading-relaxed">{item}</p>
           </div>
         ))}
       </div>
-      <p class="italic mb-8 max-w-3xl">
-        "The application of this model of care has been proven to reduce the incidence of birth injury, trauma, and cesarean section."
-      </p>
-      <blockquote class="text-xl font-light italic text-brand-primary max-w-3xl">
-        "The first intervention in birth is leaving your own front door." — Michel Odent
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- Three cards: Prenatal / Birth / Postpartum -->
-  <section class="py-20 bg-surface">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-        {[
-          {
-            img: img0223,
-            label: 'Prenatal',
-            desc: 'Visits at three convenient office locations. 45–60 minute appointments covering genetic screening, nutritional counseling, and more — every 4 weeks to 28 weeks, then more frequently as your due date approaches.',
-          },
-          {
-            img: homebirthTeamImg,
-            label: 'Birth',
-            desc: 'Grace arrives in active labor and stays through the immediate postpartum period. Typically 8–16+ hours of attentive, hands-on care — with a birth assistant, emergency equipment, and a professional birth pool.',
-          },
-          {
-            img: img6328,
-            label: 'Postpartum',
-            desc: 'Home visits at 24 hours, 3 days, and 1 week. Clinic visits at 2–3 weeks and 6 weeks. Complete well-child care for birthing person and newborn through the childbearing year.',
-          },
-        ].map(({ img, label, desc }) => (
-          <a href="/contact" class="group block bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-            <div class="h-48 overflow-hidden">
-              <Image src={img} alt={label} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            </div>
-            <div class="p-6">
-              <h3 class="font-semibold text-lg tracking-widest uppercase mb-3 text-contrast">{label}</h3>
-              <p class="leading-relaxed mb-5">{desc}</p>
-              <span class="inline-flex items-center gap-1 font-semibold text-brand-primary group-hover:gap-2 transition-all">
-                Book Now
-                <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </div>
-          </a>
-        ))}
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {[
-        {
-          img: '/images/midwifery.jpg',
-          title: 'Midwifery Care',
-          description: 'The Midwifery model of care is built on the understanding that pregnancy and birth are normal life events, not medical emergencies. Care is individualized and centered on informed choice, safety and trust.',
-          href: '/midwifery-care',
-          accent: 'border-sage-400',
-        },
-        {
-          img: '/images/img0223.jpg',
-          title: 'Lactation',
-          description: 'Lactation assistance is included in our midwifery package. An International Board Certified Lactation Counselor visits your home at the 3 day visit to assist with a successful start to your breast feeding journey.',
-          href: '/doula-support',
-          accent: 'border-blush-400',
-        },
-        {
-          img: '/images/doula.jpeg',
-          title: 'Doula Support',
-          description: 'Doulas are an integral part of birth support. We are excited to announce a special opportunity to offer doulas as part of the Grace Midwifery Collective.',
-          href: '/doula-support',
-          accent: 'border-blush-400',
-        },
-      ].map(({ img, title, description, href, accent }, i) => (
-          <div
-              x-data="{ visible: false }"
-              x-intersect.once="visible = true"
-              :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
-              class="transition-all duration-700 ease-out"
-              style={`transition-delay: ${i * 100}ms`}
-          >
-            <a href={href} class="group block bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 h-full">
-              <div class="overflow-hidden h-48">
-                <img
-                    src={img}
-                    alt={title}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div class="p-6">
-                <h3 class="font-serif text-xl text-sage-900 mb-3">{title}</h3>
-                <p class="text-sm text-warm-500 leading-relaxed mb-4">{description}</p>
-                <span class="inline-flex items-center gap-1 text-sm text-brand-primary font-medium group-hover:gap-2 transition-all">
+      <div class="max-w-5xl mx-auto px-6 mb-12">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            {
+              img: img0223,
+              title: 'Prenatal',
+              description: 'Visits at three convenient office locations. 45–60 minute appointments covering genetic screening, nutritional counseling, and more — every 4 weeks to 28 weeks, then more frequently as your due date approaches.',
+              href: '/contact',
+              accent: 'border-sage-400',
+            },
+            {
+              img: homebirthTeamImg,
+              title: 'Birth',
+              description: 'Grace arrives in active labor and stays through the immediate postpartum period. Typically 8–16+ hours of attentive, hands-on care — with a birth assistant, emergency equipment, and a professional birth pool.',
+              href: '/contact',
+              accent: 'border-blush-400',
+            },
+            {
+              img: img6328,
+              title: 'Postpartum',
+              description: 'Home visits at 24 hours, 3 days, and 1 week. Clinic visits at 2–3 weeks and 6 weeks. Complete well-child care for birthing person and newborn through the childbearing year.',
+              href: '/contact',
+              accent: 'border-blush-400',
+            },
+          ].map(({ img, title, description, href, accent }, i) => (
+              <div
+                  x-data="{ visible: false }"
+                  x-intersect.once="visible = true"
+                  :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+                  class="transition-all duration-700 ease-out"
+                  style={`transition-delay: ${i * 100}ms`}
+              >
+                <a href={href} class="group block bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 h-full">
+                  <div class="overflow-hidden h-48">
+                    <Image
+                        src={img}
+                        alt={title}
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div class="p-6">
+                    <h3 class="font-serif text-xl text-sage-900 mb-3">{title}</h3>
+                    <p class="text-sm text-warm-500 leading-relaxed mb-4">{description}</p>
+                    <span class="inline-flex items-center gap-1 text-sm text-brand-primary font-medium group-hover:gap-2 transition-all">
                   Learn more
                   <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                   </svg>
                 </span>
+                  </div>
+                </a>
               </div>
-            </a>
-          </div>
-      ))}
+          ))}
+        </div>
+      </div>
     </div>
+  </section>
+
+  <section class="relative overflow-hidden py-24 md:py-32">
+    <Image
+        src={postImg}
+        alt="Swaddled newborn resting in supportive hands"
+        class="absolute inset-0 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-brand-primary/80 to-brand-primary/95"></div>
+    <div class="relative z-10 mx-auto max-w-5xl px-6">
+      <div class="max-w-3xl text-white text-center mx-auto" style="text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);">
+        <blockquote class="text-3xl md:text-4xl font-semibold leading-tight">
+          "The first intervention in birth is leaving your own front door." <br>— Michel Odent
+        </blockquote>
+      </div>
     </div>
   </section>
 
@@ -268,6 +245,22 @@ import flowers from '../assets/images/flowers-1.png';
     </div>
   </section>
 
+  <section class="relative overflow-hidden py-24 md:py-32">
+    <Image
+        src={tubImg}
+        alt="Swaddled newborn resting in supportive hands"
+        class="absolute inset-0 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/95 via-brand-primary/80 to-black/60"></div>
+    <div class="relative z-10 mx-auto max-w-5xl px-6">
+      <div class="max-w-3xl text-white text-center mx-auto" style="text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);">
+        <blockquote class="text-3xl md:text-4xl font-semibold leading-tight">
+          "We have the births we need to have to teach us what we need to know about ourselves, to take us to the next place on our life journey, our journey to wholeness."<br>— Jane Hardwicke Collings
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
   <!-- Licensed Midwives -->
   <section class="py-20 bg-white">
     <div class="max-w-3xl mx-auto px-6 text-center">
@@ -275,9 +268,6 @@ import flowers from '../assets/images/flowers-1.png';
       <h2 class="text-3xl font-semibold mb-6 text-brand-primary">Licensed Midwives</h2>
       <p class="leading-relaxed mb-5">In the state of Louisiana, midwives carry a license from the state board of medical examiners. This allows midwives to carry and administer medication, process birth certificates, and more. It also means there are rules and regulations that must be followed — including required testing, risk assessments, and procedures for care.</p>
       <p class="leading-relaxed mb-10">In the state of Mississippi, the CPM credential is recognized and there is not currently any regulation in effect.</p>
-      <blockquote class="italic text-lg font-light leading-relaxed text-brand-primary">
-        "We have the births we need to have to teach us what we need to know about ourselves, to take us to the next place on our life journey, our journey to wholeness." — Jane Hardwicke Collings
-      </blockquote>
     </div>
   </section>
 

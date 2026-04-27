@@ -36,7 +36,7 @@ const imageColClass = [
 ].filter(Boolean).join(' ');
 ---
 
-<section class="overflow-hidden" style={`background-color: ${bg};`}>
+<section class={sticky ? 'overflow-visible' : 'overflow-hidden'} style={`background-color: ${bg};`}>
   <div class={`grid md:grid-cols-2 ${sticky ? 'items-start' : ''}`}>
     <div class={textColClass}>
       <div class="max-w-2xl mx-auto">

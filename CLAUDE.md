@@ -46,6 +46,7 @@ Defined in `BaseLayout.astro` as `<style is:global>`:
 
 - `p` — `color: #494F5E`, `font-size: clamp(14px, …, 20px)`, `line-height: 1.57`
 - `h6` — serif, uppercase, `#DCB393`, with `::before`/`::after` decorative lines. Add `class="justify-center"` to center an h6 with its lines.
+- `blockquote` — do not use italics; use `font-semibold` unless there is a specific exception called for in the design.
 
 ## Reusable Components
 
