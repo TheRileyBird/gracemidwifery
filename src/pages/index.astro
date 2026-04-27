@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import SplitPanel from '../components/SplitPanel.astro';
+import OfficeMap from '../components/OfficeMap.astro';
 import { Image } from 'astro:assets';
 
 import bannerImg from '../assets/images/banner-1.png';
@@ -103,20 +104,9 @@ const testimonials = [
         Midwife Grace serves many communities within southeast Louisiana and southwest Mississippi. We offer home birth within a <strong class="font-semibold" style="color: #121111;">1hr and 10 min radius</strong> of Madisonville. Offering prenatal care conveniently located to your home, with offices in Madisonville, Slidell and New Orleans.
       </p>
 
-      <!-- Map -->
-      <div class="w-full mb-14 rounded-lg overflow-hidden bg-gray-100" style="height: 300px;">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110305.22!2d-90.15!3d30.42!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620b34f!2sMadisonville%2C+LA!5e0!3m2!1sen!2sus!4v1234567890"
-          width="100%"
-          height="300"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Grace Midwifery service area"
-        ></iframe>
+      <div class="mb-14">
+        <OfficeMap />
       </div>
-
 
     </div>
   </section>

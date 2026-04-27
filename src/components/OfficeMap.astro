@@ -1,0 +1,70 @@
+---
+const locations = [
+  {
+    id: 1,
+    name: 'Slidell Office',
+    addressLines: ['340 Brakefield Street', 'Slidell, LA 70458'],
+  },
+  {
+    id: 2,
+    name: 'Madisonville Office',
+    addressLines: ['407 Main Street', 'Madisonville, LA 70447'],
+  },
+  {
+    id: 3,
+    name: 'New Orleans Office',
+    addressLines: ['223 N. Rendon', 'New Orleans, LA 70119'],
+  },
+].map((location) => {
+  const query = location.addressLines.join(', ');
+  return {
+    ...location,
+    embedUrl: `https://www.google.com/maps?q=${encodeURIComponent(query)}&z=15&output=embed`,
+    mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`,
+  };
+});
+---
+
+<div class="space-y-6">
+  <div class="grid gap-6 lg:grid-cols-3">
+    {locations.map((location) => (
+      <article class="overflow-hidden rounded-[28px] border border-stone-200 bg-white shadow-sm">
+        <div class="border-b border-stone-200 bg-brand-light px-5 py-4 text-left">
+          <div class="flex items-center gap-3">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full bg-brand-primary text-sm font-semibold text-white">
+              {location.id}
+            </span>
+            <h3 class="text-lg font-semibold text-brand-primary">{location.name}</h3>
+          </div>
+        </div>
+
+        <div class="bg-stone-100">
+          <iframe
+            src={location.embedUrl}
+            width="100%"
+            height="280"
+            style="border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title={`${location.name} map`}
+          ></iframe>
+        </div>
+
+        <div class="p-5 text-left">
+          <p class="mb-3 leading-relaxed text-base">
+            {location.addressLines[0]}<br />
+            {location.addressLines[1]}
+          </p>
+          <a
+            href={location.mapsUrl}
+            target="_blank"
+            rel="noreferrer"
+            class="text-sm font-medium text-brand-primary underline-offset-4 hover:underline"
+          >
+            Open in Google Maps
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+</div>

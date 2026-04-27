@@ -64,14 +64,14 @@ const currentPath = Astro.url.pathname;
                 <div class="flex items-center gap-2">
                   <a
                     href={link.href}
-                    class="font-semibold tracking-widest transition-colors duration-200"
+                    class="font-serif text-sm font-semibold tracking-widest transition-colors duration-200"
                     style={link.children.some(({ href }) => currentPath === href) ? 'color: #a75c4a;' : 'color: #494f5e;'}
                   >
                     {link.label}
                   </a>
                   <button
                     type="button"
-                    class="flex items-center transition-colors duration-200"
+                    class="flex items-center font-serif transition-colors duration-200"
                     style={link.children.some(({ href }) => currentPath === href) ? 'color: #a75c4a;' : 'color: #494f5e;'}
                     @click="doulaOpen = !doulaOpen"
                     aria-label="Toggle doula menu"
@@ -85,23 +85,25 @@ const currentPath = Astro.url.pathname;
                   x-show="doulaOpen"
                   x-transition
                   x-cloak
-                  class="absolute left-0 top-full mt-3 min-w-[240px] rounded-2xl border border-gray-100 bg-white p-3 shadow-lg"
+                  class="absolute left-0 top-full min-w-[240px] pt-3"
                 >
-                  {link.children.map(({ href, label }) => (
-                    <a
-                      href={href}
-                      class="block rounded-xl px-4 py-3 text-sm font-semibold tracking-widest transition-colors duration-200 hover:bg-brand-light"
-                      style={currentPath === href ? 'color: #a75c4a;' : 'color: #494f5e;'}
-                    >
-                      {label}
-                    </a>
-                  ))}
+                  <div class="rounded-2xl border border-gray-100 bg-white p-3 shadow-lg">
+                    {link.children.map(({ href, label }) => (
+                      <a
+                        href={href}
+                        class="block rounded-xl px-4 py-3 text-sm font-serif font-semibold tracking-widest transition-colors duration-200 hover:bg-brand-light"
+                        style={currentPath === href ? 'color: #a75c4a;' : 'color: #494f5e;'}
+                      >
+                        {label}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
             ) : (
               <a
                 href={link.href}
-                class="font-semibold tracking-widest transition-colors duration-200"
+                class="font-serif font-semibold text-sm tracking-widest transition-colors duration-200"
                 style={currentPath === link.href ? 'color: #a75c4a;' : 'color: #494f5e;'}
               >
                 {link.label}
@@ -112,7 +114,7 @@ const currentPath = Astro.url.pathname;
       </ul>
       <a
         href="/contact"
-        class="font-semibold tracking-widest text-white px-5 py-2 rounded-full transition-opacity hover:opacity-90 bg-brand-primary"
+        class="font-serif font-semibold text-sm tracking-widest text-white px-5 py-2 rounded-full transition-opacity hover:opacity-90 bg-brand-primary"
       >
         CONTACT
       </a>
@@ -148,7 +150,7 @@ const currentPath = Astro.url.pathname;
               {link.children.map(({ href, label }) => (
                 <a
                   href={href}
-                  class="block py-3 font-semibold tracking-widest transition-colors"
+                  class="block py-3 font-serif font-semibold tracking-widest transition-colors"
                   style={currentPath === href ? 'color: #a75c4a;' : 'color: #494f5e;'}
                 >
                   {label}
@@ -158,7 +160,7 @@ const currentPath = Astro.url.pathname;
           ) : (
             <a
               href={link.href}
-              class="block py-3 font-semibold tracking-widest text-contrast-2 hover:text-accent-dark transition-colors"
+              class="block py-3 font-serif font-semibold tracking-widest text-contrast-2 hover:text-accent-dark transition-colors"
             >
               {link.label}
             </a>
@@ -168,7 +170,7 @@ const currentPath = Astro.url.pathname;
       <li class="pt-4">
         <a
           href="/contact"
-          class="inline-block font-semibold tracking-widest text-white px-5 py-2 rounded-full bg-brand-primary"
+          class="inline-block font-serif font-semibold tracking-widest text-white px-5 py-2 rounded-full bg-brand-primary"
         >
           CONTACT
         </a>
