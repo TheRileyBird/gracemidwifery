@@ -31,7 +31,7 @@ const testimonials = [
   <Nav />
 
   <!-- ── HERO: image only, 20px side margins, no text ── -->
-  <div class="mx-5 mb-5">
+  <div class="md:mx-5 md:mb-5">
     <Image
       src={bannerImg}
       alt="Grace Midwifery Collective"
@@ -41,7 +41,7 @@ const testimonials = [
   </div>
 
   <!-- ── TRUST BAR ── -->
-  <section class="py-5 text-white bg-brand-primary">
+  <section class="hidden lg:block py-5 text-white bg-brand-primary">
     <div class="w-full px-8">
       <div class="flex flex-wrap justify-center gap-x-10 gap-y-3 text-white/80">
         {['Licensed CPM, LM in Louisiana', '7+ Years of Home Births', 'Three Office Locations', '24/7 On-Call Support', 'Insurance Accepted'].map(item => (
@@ -54,7 +54,7 @@ const testimonials = [
   </section>
 
   <!-- ── OUR MISSION ── -->
-  <section class="py-32 bg-white relative overflow-hidden">
+  <section class="py-14 lg:py-32 bg-white relative overflow-hidden">
     <Image
       src={flowers}
       alt=""
@@ -79,11 +79,23 @@ const testimonials = [
     </div>
   </section>
 
-  <!-- ── ABOUT GRACE ── -->
+  <!-- ── TRUST BAR ── -->
+  <section class="block lg:hidden py-5 text-white bg-brand-primary">
+    <div class="w-full px-8">
+      <div class="flex flex-wrap justify-center gap-x-10 gap-y-3 text-white/80">
+        {['Licensed CPM, LM in Louisiana', '7+ Years of Home Births', 'Three Office Locations', '24/7 On-Call Support', 'Insurance Accepted'].map(item => (
+            <span class="flex items-center gap-2">
+            <span style="color: #DCB393;">✦</span> {item}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
 
+  <!-- ── ABOUT GRACE ── -->
   <SplitPanel bg="#e5f2ef2b" image={homebirthTeamImg} imageAlt="Grace Midwifery team at a home birth">
     <h6>about me and my vision</h6>
-    <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-8 text-brand-primary">
+    <h2 class="text-4xl text-center lg:text-left font-bold mb-8 text-brand-primary">
       Grace Jackson CPM, LM
     </h2>
     <p class="leading-relaxed mb-5">
@@ -95,7 +107,7 @@ const testimonials = [
   </SplitPanel>
 
   <!-- ── SERVING YOUR COMMUNITY + MAP + TESTIMONIALS ── -->
-  <section class="py-20 bg-white">
+  <section class="py-14 lg:py-20 bg-white">
     <div class="max-w-6xl mx-auto px-6 text-center">
       <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-brand-primary">
         Serving Your Community
@@ -104,7 +116,7 @@ const testimonials = [
         Midwife Grace serves many communities within southeast Louisiana and southwest Mississippi. We offer home birth within a <strong class="font-semibold" style="color: #121111;">1hr and 10 min radius</strong> of Madisonville. Offering prenatal care conveniently located to your home, with offices in Madisonville, Slidell and New Orleans.
       </p>
 
-      <div class="mb-14">
+      <div>
         <OfficeMap />
       </div>
 
@@ -112,7 +124,7 @@ const testimonials = [
   </section>
 
   <!-- ── SERVICES ── -->
-  <section class="py-24 lg:py-32 relative overflow-hidden" style="background-color: #e5f2ef2b;">
+  <section class="py-14 lg:py-32 relative overflow-hidden" style="background-color: #e5f2ef2b;">
 
     <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-16">
@@ -198,36 +210,39 @@ const testimonials = [
   </section>
 
   <!-- ── TESTIMONIALS ── -->
-  <section class="py-24" style="background-color: #fff;">
-    <div class="w-full px-8">
-      <div class="text-center mb-16">
+  <section class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-brand-light to-white">
+    <div class="w-full px-5 lg:px-8">
+      <div class="text-center mb-10 lg:mb-16">
         <h6 class="justify-center mb-4">In Their Own Words</h6>
         <h2 class="text-4xl text-brand-primary lg:text-5xl font-semibold">Stories From Our Families</h2>
       </div>
 
-      <div x-data={`{ active: 0, count: ${testimonials.length} }`} class="max-w-3xl mx-auto">
+      <div x-data={`{ active: 0, count: ${testimonials.length} }`} class="relative max-w-4xl mx-auto">
 
         <!-- All cards stacked in the same grid cell — height locks to tallest -->
         <div class="grid">
           {testimonials.map(({ quote, author }, i) => (
             <figure
-              style="background-color: #fef4f3;"
-              class="[grid-area:1/1] rounded-2xl p-10 shadow-sm flex flex-col items-center justify-center text-center transition-opacity duration-500"
+              class="[grid-area:1/1] relative overflow-hidden rounded-[28px] border border-white/70 bg-white/90 px-5 pb-6 pt-10 sm:px-8 sm:pb-8 sm:pt-12 lg:px-12 lg:pb-10 lg:pt-14 shadow-[0_18px_45px_rgba(167,92,74,0.12)] backdrop-blur-sm flex flex-col items-center justify-center text-center transition-opacity duration-500"
               :class={`active === ${i} ? 'opacity-100' : 'opacity-0 pointer-events-none'`}
             >
-              <blockquote class="mb-6" style="color: #121111; font-size: 1.5rem; line-height: 1.6;">
+              <blockquote class="relative mb-5 max-w-2xl text-lg leading-8 text-[#121111] sm:mb-6 sm:text-[1.35rem] sm:leading-9 lg:text-[1.5rem] lg:leading-[1.6]">
                 "{quote}"
               </blockquote>
-              <figcaption class="font-semibold text-brand-primary">— {author}</figcaption>
+              <figcaption class="relative inline-flex items-center gap-3 rounded-full bg-[#f8ece7] px-4 py-2 text-xs font-semibold tracking-[0.22em] text-brand-primary uppercase sm:text-sm">
+                <span class="h-px w-5 bg-[#DCB393]"></span>
+                {author}
+                <span class="h-px w-5 bg-[#DCB393]"></span>
+              </figcaption>
             </figure>
           ))}
         </div>
 
         <!-- Prev · dots · Next -->
-        <div class="flex items-center justify-center gap-4 mt-8">
+        <div class="flex items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
           <button
             @click="active = (active - 1 + count) % count"
-            class="w-8 h-8 rounded-full border flex items-center justify-center transition-colors hover:bg-brand-primary hover:text-white"
+            class="h-9 w-9 sm:h-10 sm:w-10 rounded-full border flex items-center justify-center transition-colors hover:bg-brand-primary hover:text-white"
             style="border-color: #DCB393; color: #DCB393;"
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -247,7 +262,7 @@ const testimonials = [
 
           <button
             @click="active = (active + 1) % count"
-            class="w-8 h-8 rounded-full border flex items-center justify-center transition-colors hover:bg-brand-primary hover:text-white"
+            class="h-9 w-9 sm:h-10 sm:w-10 rounded-full border flex items-center justify-center transition-colors hover:bg-brand-primary hover:text-white"
             style="border-color: #DCB393; color: #DCB393;"
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

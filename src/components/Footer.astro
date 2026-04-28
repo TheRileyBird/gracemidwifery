@@ -55,7 +55,7 @@ const socials = [
       style="filter: brightness(0) invert(1); opacity: 0.2;"
   />
 
-  <div class="relative z-10 max-w-4xl mx-auto px-6 py-14 text-center">
+  <div class="relative z-10 max-w-4xl mx-auto px-6 py-14 text-center flex flex-col">
     <!-- Full text logo -->
     <a href="/" class="inline-block">
       <Image
@@ -66,8 +66,21 @@ const socials = [
       />
     </a>
 
+    <!-- Social icons -->
+    <div class="order-1 mb-8 flex justify-center gap-3 lg:order-2 lg:mb-0">
+      {socials.map(({ label, href, svg }) => (
+        <a
+          href={href}
+          aria-label={label}
+          class="h-10 w-10 rounded-full border border-white/25 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" set:html={svg} />
+        </a>
+      ))}
+    </div>
+
     <!-- Nav links -->
-    <nav class="flex flex-wrap justify-center gap-5 mb-8">
+    <nav class="order-2 mb-0 flex flex-col items-center gap-4 lg:order-1 lg:mb-8 lg:flex-row lg:flex-wrap lg:justify-center lg:gap-5">
       {navLinks.map(({ href, label }) => (
         <a
           href={href}
@@ -77,18 +90,5 @@ const socials = [
         </a>
       ))}
     </nav>
-
-    <!-- Social icons -->
-    <div class="flex justify-center gap-3">
-      {socials.map(({ label, href, svg }) => (
-        <a
-          href={href}
-          aria-label={label}
-          class="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-colors"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" set:html={svg} />
-        </a>
-      ))}
-    </div>
   </div>
 </footer>

@@ -24,19 +24,17 @@ const currentPath = Astro.url.pathname;
 <header
   x-data="{ open: false, scrolled: false, doulaOpen: false, mobileDoulaOpen: false }"
   @scroll.window="scrolled = window.scrollY > 24"
-  :class="scrolled ? 'shadow-md' : ''"
-  :style="scrolled ? 'height:60px' : 'height:88px'"
+  :class="scrolled ? 'shadow-md h-[56px] lg:h-[60px]' : 'h-[76px] lg:h-[88px]'"
   class="bg-white w-full sticky top-0 z-50 transition-all duration-300 ease-in-out"
 >
-  <nav class="w-full px-8 flex items-center justify-between h-full">
+  <nav class="w-full px-5 lg:px-8 flex items-center justify-between h-full">
     <!-- Logo -->
     <div class="flex items-center gap-3 flex-shrink-0">
       <a href="/">
         <Image
           src={icon}
           alt="Grace Midwifery Collective"
-          style="height:56px"
-          :style="scrolled ? 'height:36px' : 'height:56px'"
+          :class="scrolled ? 'h-[22px] lg:h-[36px]' : 'h-[30px] lg:h-[56px]'"
           class="w-auto transition-all duration-300 ease-in-out"
         />
       </a>
@@ -44,8 +42,7 @@ const currentPath = Astro.url.pathname;
         <Image
           src={logo}
           alt="Grace Midwifery Collective"
-          style="height:28px"
-          :style="scrolled ? 'height:20px' : 'height:28px'"
+          :class="scrolled ? 'h-[16px] lg:h-[20px]' : 'h-[22px] lg:h-[28px]'"
           class="w-auto transition-all duration-300 ease-in-out"
         />
       </a>
