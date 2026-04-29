@@ -54,23 +54,6 @@ const ogImageAlt = 'Grace Midwifery Collective banner';
 </html>
 
 <style is:global>
-  @view-transition {
-    navigation: auto;
-  }
-
-  ::view-transition-old(root) {
-    animation: 500ms ease-in both fade-out;
-  }
-  ::view-transition-new(root) {
-    animation: 500ms ease-out both fade-in;
-  }
-  @keyframes fade-out {
-    to { opacity: 0; }
-  }
-  @keyframes fade-in {
-    from { opacity: 0; }
-  }
-
   [x-cloak] { display: none !important; }
 
   * { font-family: 'Poppins', system-ui, sans-serif; }
