@@ -11,7 +11,7 @@ const navLinks = [
     label: 'DOULA',
     children: [
       { href: '/birth-doula', label: 'BIRTH DOULA' },
-      { href: '/doula-support', label: 'POSTPARTUM DOULA' },
+      { href: '/postpartum-support', label: 'POSTPARTUM DOULA' },
     ],
   },
   { href: '/education', label: 'EDUCATION' },
@@ -34,16 +34,18 @@ const currentPath = Astro.url.pathname;
         <Image
           src={icon}
           alt="Grace Midwifery Collective"
-          :class="scrolled ? 'h-[22px] lg:h-[36px]' : 'h-[30px] lg:h-[56px]'"
           class="w-auto transition-all duration-300 ease-in-out"
+          style="height: clamp(30px, 6vw, 56px);"
+          x-bind:style="scrolled ? 'height: clamp(22px, 4vw, 36px);' : 'height: clamp(30px, 6vw, 56px);'"
         />
       </a>
       <a href="/">
         <Image
           src={logo}
           alt="Grace Midwifery Collective"
-          :class="scrolled ? 'h-[16px] lg:h-[20px]' : 'h-[22px] lg:h-[28px]'"
           class="w-auto transition-all duration-300 ease-in-out"
+          style="height: clamp(22px, 3vw, 28px);"
+          x-bind:style="scrolled ? 'height: clamp(16px, 2.4vw, 20px);' : 'height: clamp(22px, 3vw, 28px);'"
         />
       </a>
     </div>

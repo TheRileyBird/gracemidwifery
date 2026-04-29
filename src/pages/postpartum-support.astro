@@ -8,14 +8,14 @@ import { Image } from 'astro:assets';
 
 import doulaImg from '../assets/images/adele.jpeg';
 import img0223 from '../assets/images/doula.jpeg';
-import img6328 from '../assets/images/img6328.jpeg';
+import img6328 from '../assets/images/postpartum.jpg';
 import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
 ---
 
-<BaseLayout title="Doula Support | Grace Midwifery Collective" description="Compassionate postpartum doula support in Louisiana and Mississippi.">
+<BaseLayout title="Postpartum Support | Grace Midwifery Collective" description="Compassionate postpartum doula support in Louisiana and Mississippi.">
   <Nav />
 
-  <SplitPanel image={doulaImg} bg="#E5F2EF" imageAlt="Postpartum doula support" minHeight="70vh" justify="center">
+  <SplitPanel image={doulaImg} bg="#E5F2EF" imageAlt="Postpartum doula support" imagePosition="top"  minHeight="70vh" justify="center">
     <h6>Information &amp; Support</h6>
     <h1 class="text-5xl font-semibold mb-6 text-brand-primary">Postpartum Doula</h1>
     <p class="leading-relaxed mb-4">Welcoming a new baby into the world is a profound transition—one that brings joy, exhaustion, and a landscape of new experiences and responsibilities. For many families, the support of a postpartum doula offers a compassionate bridge between newborn arrival and confident parenthood. But what does a postpartum doula care plan truly look like?</p>
@@ -134,7 +134,7 @@ import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
     </div>
   </section>
 
-  <SplitPanel image={img6328} bg="#E5F2EF" imageAlt="Postpartum doula care" minHeight="70vh" justify="center" imageLeft={true}>
+  <SplitPanel image={img6328} bg="#E5F2EF" imageAlt="Postpartum doula care" imagePosition="100% 37%" minHeight="70vh" justify="center" imageLeft={true}>
     <h6>Meet Your Doula</h6>
     <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Adele Willman BSN RN</h2>
     <p class="leading-relaxed mb-4">With over 30 years of experience as a dedicated maternal/child registered nurse, Adele brings deep clinical knowledge and steady, compassionate care to postpartum support.</p>
