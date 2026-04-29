@@ -12,7 +12,7 @@ import kissImg from '../assets/images/imgi_35_serving-families.jpg';
 
   <SplitPanel image={kissImg} bg="#E5F2EF" imageAlt="Parents embracing with newborn" minHeight="70vh" justify="center">
     <h6>We'd Love to Hear from You</h6>
-    <h1 class="text-5xl font-semibold mb-6 leading-tight text-brand-primary">Schedule a Consultation</h1>
+    <h1 class="text-5xl font-semibold mb-6 text-brand-primary">Schedule a Consultation</h1>
     <p class="leading-relaxed mb-4">If you are exploring midwifery care, doula support, postpartum services, or childbirth education, this is the best place to begin. Share a little about what you are looking for and we will follow up with the next steps.</p>
     <p class="leading-relaxed">We serve families in Madisonville, Slidell, and New Orleans and are happy to talk through your individual situation.</p>
   </SplitPanel>
@@ -53,13 +53,13 @@ import kissImg from '../assets/images/imgi_35_serving-families.jpg';
 
           <!-- Email + Due Date -->
           <div class="grid sm:grid-cols-2 gap-5">
-            <div>
+            <div class="min-w-0">
               <label class="block text-base font-bold tracking-widest uppercase mb-2 text-brand-primary">Email</label>
               <input type="email" name="email" required class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none transition-colors" style="color: #494F5E;" />
             </div>
-            <div>
+            <div class="min-w-0">
               <label class="block text-base font-bold tracking-widest uppercase mb-2 text-brand-primary">Estimated Due Date</label>
-              <input type="date" name="due_date" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none transition-colors" style="color: #494F5E;" />
+              <input type="date" name="due_date" class="w-full min-w-0 max-w-full appearance-none border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none transition-colors" style="color: #494F5E;" />
             </div>
           </div>
 

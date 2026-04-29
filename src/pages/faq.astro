@@ -43,7 +43,7 @@ const faqs = [
 
   <SplitPanel image={postImg} bg="#E5F2EF" imageAlt="Parent and baby resting together" minHeight="70vh" justify="center">
     <h6>Got Questions?</h6>
-    <h1 class="text-5xl font-semibold mb-6 leading-tight text-brand-primary">Frequently Asked Questions</h1>
+    <h1 class="text-5xl font-semibold mb-6 text-brand-primary">Frequently Asked Questions</h1>
     <p class="leading-relaxed mb-4">Answers to the questions families most often ask about home birth midwifery care, safety, logistics, postpartum support, and what care with Grace Midwifery Collective actually looks like.</p>
     <p class="leading-relaxed">If you do not see your question here, reach out. We are happy to talk through your individual situation.</p>
   </SplitPanel>
@@ -94,7 +94,7 @@ const faqs = [
               </svg>
             </button>
             <div x-show={`open === ${i}`} x-transition class="px-6 pb-6" x-cloak>
-              <p class="leading-relaxed">{a}</p>
+              <p class="leading-relaxed text-base">{a}</p>
             </div>
           </div>
         ))}

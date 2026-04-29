@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import SplitPanel from '../components/SplitPanel.astro';
 import { Image } from 'astro:assets';
 
-import doulaImg from '../assets/images/postpartum.jpg';
+import doulaImg from '../assets/images/adele.jpeg';
 import img0223 from '../assets/images/doula.jpeg';
 import img6328 from '../assets/images/img6328.jpeg';
 import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
@@ -17,9 +17,14 @@ import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
 
   <SplitPanel image={doulaImg} bg="#E5F2EF" imageAlt="Postpartum doula support" minHeight="70vh" justify="center">
     <h6>Information &amp; Support</h6>
-    <h1 class="text-5xl font-semibold mb-6 leading-tight text-brand-primary">Postpartum Doula</h1>
+    <h1 class="text-5xl font-semibold mb-6 text-brand-primary">Postpartum Doula</h1>
     <p class="leading-relaxed mb-4">Welcoming a new baby into the world is a profound transition—one that brings joy, exhaustion, and a landscape of new experiences and responsibilities. For many families, the support of a postpartum doula offers a compassionate bridge between newborn arrival and confident parenthood. But what does a postpartum doula care plan truly look like?</p>
-    <p class="leading-relaxed">Contact us for package options that best fit your needs.</p>
+    <p class="leading-relaxed">Learn more about options that best fit your needs.</p>
+    <div class="mt-8">
+      <a href="#packages" class="inline-block text-base font-semibold tracking-widest uppercase text-white px-8 py-3 rounded-full bg-brand-primary">
+      Pricing Options
+    </a>
+    </div>
   </SplitPanel>
 
   <!-- Postpartum Care Plan -->
@@ -137,7 +142,7 @@ import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
     <p class="leading-relaxed">Contact Adele directly at <a href="mailto:adele@midwifegrace.com" class="text-brand-primary hover:underline">adele@midwifegrace.com</a> or <a href="tel:9858889355" class="text-brand-primary hover:underline">985-888-9355</a>.</p>
   </SplitPanel>
 
-  <section class="py-24 bg-gradient-to-b from-brand-light to-white">
+  <section id="packages" class="py-24 bg-gradient-to-b from-brand-light to-white">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-14">
         <h6 class="justify-center">Postpartum Packages</h6>

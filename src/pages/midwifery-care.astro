@@ -22,7 +22,7 @@ import flowers from '../assets/images/flowers-1.png';
 
   <SplitPanel image={midwiferyImg} bg="#fef4f3" imageAlt="Home birth" minHeight="70vh" justify="center" imagePosition="top">
     <h6>Your Wellness, Your Way</h6>
-    <h1 class="text-5xl font-semibold mb-6 leading-tight text-brand-primary">Home Birth</h1>
+    <h1 class="text-5xl font-semibold mb-6 text-brand-primary">Home Birth</h1>
     <p class="leading-relaxed mb-4">Choosing a home birth with a Certified Professional Midwife (CPM) offers a safe, personalized, and empowering experience. CPMs provide individualized care, continuous support, and attentive presence, allowing families to birth in the comfort and familiarity of their own home — free from unnecessary interventions and rushed decision making.</p>
     <p class="leading-relaxed mb-4">Research shows that planned home births for low-risk pregnancies are safe under the care of skilled midwives. The practice blends time-honored natural approaches with modern medical knowledge and essential tools to ensure both safety and peace of mind.</p>
     <p class="leading-relaxed mb-8">Services include comprehensive prenatal care, unhurried birth support, and gentle postpartum follow-up, with a goal of helping clients feel seen, supported, and confident every step of the way.</p>
@@ -105,7 +105,7 @@ import flowers from '../assets/images/flowers-1.png';
           </div>
         ))}
       </div>
-      <div class="max-w-5xl mx-auto px-6 mb-12">
+      <div class="max-w-5xl mx-auto lg:px-6 mb-12">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
@@ -232,14 +232,14 @@ import flowers from '../assets/images/flowers-1.png';
           { q: 'Do you accept healthshare / costshare?', a: 'YES! Christian cost-share plans usually pay 100% of our care plan. We create a detailed invoice that is used for payment of care from your costshare plan.' },
         ].map(({ q, a }, i) => (
           <div class="bg-white rounded-xl overflow-hidden shadow-sm">
-            <button @click={`open = open === ${i} ? null : ${i}`} class="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition-colors">
-              <span class="font-medium" style="color: #121111;">{q}</span>
+            <button @click={`open = open === ${i} ? null : ${i}`} class="w-full flex items-center justify-between px-6 py-5 text-left">
+              <span class="font-medium text-base pr-4" style="color: #121111;">{q}</span>
               <svg :class={`open === ${i} ? 'rotate-180' : ''`} class="h-4 w-4 flex-shrink-0 transition-transform duration-300 text-brand-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div x-show={`open === ${i}`} x-transition class="px-6 pb-5" x-cloak>
-              <p class="leading-relaxed">{a}</p>
+            <div x-show={`open === ${i}`} x-transition class="px-6 pb-6" x-cloak>
+              <p class="leading-relaxed text-base">{a}</p>
             </div>
           </div>
         ))}
