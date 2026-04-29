@@ -52,7 +52,8 @@
             {['Monday', 'Tuesday', 'Wed', 'Thurs', 'Friday'].map(day => (
               <li class="flex justify-between gap-8">
                 <span>{day}:</span>
-                <span>9:00 AM – 5:00 PM</span>
+                <span class="lg:hidden">9AM - 5PM</span>
+                <span class="hidden lg:inline">9:00 AM – 5:00 PM</span>
               </li>
             ))}
           </ul>
