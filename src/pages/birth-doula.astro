@@ -186,7 +186,7 @@ const closeDoulaModal = (index: number) => `document.body.style.overflow='';docu
                   onclick={openDoulaModal(i)}
                   onkeydown={`if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); ${openDoulaModal(i)} }`}
                 >
-                  <div class="relative overflow-hidden h-96">
+                  <div class="relative overflow-hidden h-96 lg:h-[44rem]">
                     <Image
                         src={doula.image}
                         alt={doula.name}
