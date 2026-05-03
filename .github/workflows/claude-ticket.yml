@@ -28,6 +28,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: '--dangerously-skip-permissions'
           prompt: |
             Mode: ${{ github.event.client_payload.is_followup && 'FOLLOW-UP' || 'NEW' }}
             Branch: ticket/${{ github.event.client_payload.ticket_id }}
