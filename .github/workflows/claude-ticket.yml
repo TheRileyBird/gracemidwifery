@@ -15,14 +15,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Check out existing branch (follow-up only)
-        if: ${{ github.event.client_payload.is_followup }}
-        env:
-          BRANCH: ticket/${{ github.event.client_payload.ticket_id }}
-        run: |
-          git fetch origin "$BRANCH":"$BRANCH" || true
-          git checkout "$BRANCH"
+          ref: ticket/${{ github.event.client_payload.ticket_id }}
 
       - name: Run Claude
         uses: anthropics/claude-code-action@v1
@@ -41,12 +34,19 @@ jobs:
             Messages:
             ${{ github.event.client_payload.description }}
 
-            If Mode is FOLLOW-UP: the branch above is already checked out and contains
-            your prior changes. Build on top — do NOT start from scratch. The messages
+            The ticket branch is already checked out for you.
+
+            Binary attachments (images, etc.) referenced in the messages above have been
+            staged at `.tickets/${{ github.event.client_payload.ticket_id }}/`. Move them
+            to their final destinations in the repo, then DELETE the `.tickets/` folder
+            in the same commit so it doesn't end up in the PR.
+
+            If Mode is FOLLOW-UP: this branch already contains your prior changes from
+            an earlier round. Build on top — do NOT start from scratch. The messages
             above are NEW since the last round; treat them as the delta to address.
             Push commits to the same branch; the PR auto-updates.
 
-            If Mode is NEW: create the branch and open a PR to the default branch.
+            If Mode is NEW: open a PR from this branch to the default branch.
 
             Engineering principles (apply throughout):
             1. Don't assume. Don't hide confusion. Surface tradeoffs.
