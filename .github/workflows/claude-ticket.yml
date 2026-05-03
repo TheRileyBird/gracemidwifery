@@ -13,30 +13,51 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check out existing branch (follow-up only)
+        if: ${{ github.event.client_payload.is_followup }}
+        env:
+          BRANCH: ticket/${{ github.event.client_payload.ticket_id }}
+        run: |
+          git fetch origin "$BRANCH":"$BRANCH" || true
+          git checkout "$BRANCH"
 
       - name: Run Claude
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
-            A client emailed in this request. Implement the change and open a PR.
+            Mode: ${{ github.event.client_payload.is_followup && 'FOLLOW-UP' || 'NEW' }}
+            Branch: ticket/${{ github.event.client_payload.ticket_id }}
+            Prior PR: ${{ github.event.client_payload.prior_pr_url }}
+            Email thread: ${{ github.event.client_payload.thread_url }}
 
-            From: ${{ github.event.client_payload.from }}
             Subject: ${{ github.event.client_payload.title }}
+            From: ${{ github.event.client_payload.from }}
 
-            Body:
+            Messages:
             ${{ github.event.client_payload.description }}
 
-            Requirements:
-            - Create a branch named EXACTLY: ticket/${{ github.event.client_payload.ticket_id }}
-            - Open a PR from that branch to the default branch.
+            If Mode is FOLLOW-UP: the branch above is already checked out and contains
+            your prior changes. Build on top — do NOT start from scratch. The messages
+            above are NEW since the last round; treat them as the delta to address.
+            Push commits to the same branch; the PR auto-updates.
+
+            If Mode is NEW: create the branch and open a PR to the default branch.
+
+            Engineering principles (apply throughout):
+            1. Don't assume. Don't hide confusion. Surface tradeoffs.
+            2. Minimum code that solves the problem. Nothing speculative.
+            3. Touch only what you must. Clean up only your own mess.
+            4. Define success criteria. Loop until verified.
+
+            Output requirements:
+            - Branch name MUST be exactly: ticket/${{ github.event.client_payload.ticket_id }}
             - PR title: short summary of the change.
-            - In the PR body, include a link back to the email thread:
-              ${{ github.event.client_payload.thread_url }}
-            - Keep the diff minimal and focused on the request.
-            - If the request is genuinely ambiguous, do NOT guess. Open the PR with no
-              code changes and explain the ambiguity in the PR body so Joshua can
-              clarify and re-tag.
+            - PR body: link the email thread (${{ github.event.client_payload.thread_url }}).
+            - On NEW: open the PR. On FOLLOW-UP: do not open a second PR; push to the existing one.
 
       - name: Inject Netlify preview URL into PR body
         if: success()
@@ -50,6 +71,9 @@ jobs:
           if [ -n "$NUM" ]; then
             BODY=$(echo "$PR_JSON" | jq -r '.[0].body // ""')
             PREVIEW="https://deploy-preview-${NUM}--${SLUG}.netlify.app"
-            printf "%s\n\n---\nPreview: %s\n" "$BODY" "$PREVIEW" > /tmp/body.md
-            gh pr edit "$NUM" --body-file /tmp/body.md
+            # Only append the preview line if it isn't already present.
+            if ! echo "$BODY" | grep -q "deploy-preview-${NUM}--"; then
+              printf "%s\n\n---\nPreview: %s\n" "$BODY" "$PREVIEW" > /tmp/body.md
+              gh pr edit "$NUM" --body-file /tmp/body.md
+            fi
           fi
