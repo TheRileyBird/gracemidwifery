@@ -60,6 +60,12 @@ jobs:
             - PR body: link the email thread (${{ github.event.client_payload.thread_url }}).
             - On NEW: open the PR. On FOLLOW-UP: do not open a second PR; push to the existing one.
 
+            Content sanitization:
+            - When transcribing copy from attachments (Word/PDF) into source code,
+              normalize curly quotes to straight ASCII: ' ' → ' ; " " → " ; – — → -
+              Smart quotes break JS/TS/Astro parsing.
+            - Strip non-breaking spaces (U+00A0) and replace with regular spaces.
+
       - name: Inject Netlify preview URL into PR body
         if: success()
         env:
