@@ -1,0 +1,54 @@
+name: Claude Ticket
+
+on:
+  repository_dispatch:
+    types: [claude-ticket]
+
+jobs:
+  work:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Claude
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            A client emailed in this request. Implement the change and open a PR.
+
+            From: ${{ github.event.client_payload.from }}
+            Subject: ${{ github.event.client_payload.title }}
+
+            Body:
+            ${{ github.event.client_payload.description }}
+
+            Requirements:
+            - Create a branch named EXACTLY: ticket/${{ github.event.client_payload.ticket_id }}
+            - Open a PR from that branch to the default branch.
+            - PR title: short summary of the change.
+            - In the PR body, include a link back to the email thread:
+              ${{ github.event.client_payload.thread_url }}
+            - Keep the diff minimal and focused on the request.
+            - If the request is genuinely ambiguous, do NOT guess. Open the PR with no
+              code changes and explain the ambiguity in the PR body so Joshua can
+              clarify and re-tag.
+
+      - name: Inject Netlify preview URL into PR body
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLUG: ${{ vars.NETLIFY_SITE_SLUG }}
+          BRANCH: ticket/${{ github.event.client_payload.ticket_id }}
+        run: |
+          PR_JSON=$(gh pr list --head "$BRANCH" --json number,body --limit 1)
+          NUM=$(echo "$PR_JSON" | jq -r '.[0].number // empty')
+          if [ -n "$NUM" ]; then
+            BODY=$(echo "$PR_JSON" | jq -r '.[0].body // ""')
+            PREVIEW="https://deploy-preview-${NUM}--${SLUG}.netlify.app"
+            printf "%s\n\n---\nPreview: %s\n" "$BODY" "$PREVIEW" > /tmp/body.md
+            gh pr edit "$NUM" --body-file /tmp/body.md
+          fi
