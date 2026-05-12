@@ -8,7 +8,7 @@ import { Image } from 'astro:assets';
 import img0223 from '../assets/images/momma.jpg';
 import img6328 from '../assets/images/img6328.jpeg';
 import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
-import babyImg from '../assets/images/baby.png';
+import continuousLaborSupportImg from '../assets/images/continuous-labor-support.jpg';
 
 import doulaImg from '../assets/images/doula.jpeg';
 
@@ -16,12 +16,13 @@ import hannahImg from '../assets/images/Hannah.jpg';
 import lekeishaImg from '../assets/images/Lekeisha.png';
 import thereseImg from '../assets/images/Therese.jpg';
 import jnaiImg from '../assets/images/jnai-areana.png';
+import graceCookseyImg from '../assets/images/grace-cooksey.jpeg';
 import flowers from "../assets/images/flowers-5.png";
 
 
 const supportCards = [
   {
-    img: babyImg,
+    img: continuousLaborSupportImg,
     title: 'Continuous Labor Support',
     description: 'Steady emotional and physical support through labor, birth, and those first immediate postpartum moments.',
   },
@@ -116,6 +117,18 @@ const doulas = [
       `I believe that birth is one of the most magnificent and magical experiences a woman can have. My goal is to be your "Birth Sherpa"—a steady guide on your climb to parenthood who helps navigate the natural anxieties of the birthing experience and transforms them into a journey of empowerment and joy.`,
       "Having birthed two of my own three children, I've experienced firsthand how monumental it feels to take charge of your own journey. I'll never forget the moment I was the first to reach down and touch my son; to catch him as he entered the world. That sense of strength and relief is exactly what I want to help every mother find within herself.",
       "I love moms, I love pregnancy, and I love babies. I am a hands-on, adaptable partner who is there to be who you need in the moment—whether that's a coach in the thick of it or a quiet presence that lets you breathe a sigh of relief. Together with Grace, I am dedicated to educating and empowering you to ensure you and your baby have the best, healthiest start possible, because children are our future.",
+    ],
+  },
+  {
+    name: 'Grace Cooksey',
+    image: graceCookseyImg,
+    imageClass: 'object-cover object-top',
+    modalImageClass: 'object-cover object-top',
+    teaser: "Texas-born, Louisiana-based birth doula certified by AWomanWhoServes, drawing on a lifelong love of big families and natural living.",
+    body: [
+      "Hi, my name is Grace Cooksey! I was born in Texas and was welcomed into the world by my six older siblings. We have lived in Oregon and New Mexico, and now in Louisiana.",
+      "Growing up, my church was full of big families just like mine. During prayer time I would always raise my hand and ask if we could pray for expectant mamas. Then I would write \"pregnencys\" on my prayer list.",
+      "My fascination with health, birth, and living life naturally grew as my sisters had children. Now I'm an aunt to 14+ nieces and nephews. I received my Birth Doula Certification from AWomanWhoServes - and that's exactly what I'm here to do.",
     ],
   },
 ];
@@ -291,7 +304,7 @@ const closeDoulaModal = (index: number) => `document.body.style.overflow='';docu
   <SplitPanel sticky={true} imageLeft={true} image={homebirthTeamImg} imageAlt="Birth doula support at a home birth" bg="#ffffff">
     <h6>Choosing Your Doula</h6>
     <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Finding the Right Fit</h2>
-    <p class="leading-relaxed mb-4">Choosing a doula is a personal decision. We invite you to read about each doula in our collective and reach out to whomever feels like the right fit for your family.</p>
+    <p class="leading-relaxed mb-4">Choosing a doula is a personal decision. Read about each doula in our collective and let us know who feels like the right fit for your family - we'll reach out to your chosen doula, confirm availability, and facilitate the introduction.</p>
     <p class="leading-relaxed mb-10">If you would like assistance narrowing the choice, an experienced birthworker in our practice is happy to help with matching on request. A few things we consider:</p>
 
     <div class="grid sm:grid-cols-2 gap-5 mb-10">
@@ -305,7 +318,7 @@ const closeDoulaModal = (index: number) => `document.body.style.overflow='';docu
       ))}
     </div>
 
-    <p class="m-0 leading-relaxed">However you find your doula, our goal is the same: support that feels relational, with a doula genuinely suited to your needs, communication style, and birth vision.</p>
+    <p class="m-0 leading-relaxed">However you arrive at your choice, our goal is the same: support that feels relational, with a doula genuinely suited to your needs, communication style, and birth vision.</p>
   </SplitPanel>
 
   <section class="py-24 bg-brand-primary relative">
