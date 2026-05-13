@@ -122,8 +122,8 @@ const doulas = [
   {
     name: 'Grace Cooksey',
     image: graceCookseyImg,
-    imageClass: 'object-cover object-top',
-    modalImageClass: 'object-cover object-top',
+    imageClass: 'object-cover object-[22%_50%]',
+    modalImageClass: 'object-cover object-[35%_50%]',
     teaser: "Texas-born, Louisiana-based birth doula certified by AWomanWhoServes, drawing on a lifelong love of big families and natural living.",
     body: [
       "Hi, my name is Grace Cooksey! I was born in Texas and was welcomed into the world by my six older siblings. We have lived in Oregon and New Mexico, and now in Louisiana.",
@@ -190,7 +190,7 @@ const closeDoulaModal = (index: number) => `document.body.style.overflow='';docu
             </p>
           </div>
 
-          <div class="grid sm:grid-cols-2 gap-8">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {doulas.map((doula, i) => (
                 <article
                   class="group relative block cursor-pointer bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 h-full"
@@ -199,7 +199,7 @@ const closeDoulaModal = (index: number) => `document.body.style.overflow='';docu
                   onclick={openDoulaModal(i)}
                   onkeydown={`if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); ${openDoulaModal(i)} }`}
                 >
-                  <div class="relative overflow-hidden h-96 lg:h-[44rem]">
+                  <div class="relative overflow-hidden h-96 lg:h-96">
                     <Image
                         src={doula.image}
                         alt={doula.name}
@@ -304,8 +304,8 @@ const closeDoulaModal = (index: number) => `document.body.style.overflow='';docu
   <SplitPanel sticky={true} imageLeft={true} image={homebirthTeamImg} imageAlt="Birth doula support at a home birth" bg="#ffffff">
     <h6>Choosing Your Doula</h6>
     <h2 class="text-4xl font-semibold mb-6 text-brand-primary">Finding the Right Fit</h2>
-    <p class="leading-relaxed mb-4">Choosing a doula is a personal decision. Read about each doula in our collective and let us know who feels like the right fit for your family - we'll reach out to your chosen doula, confirm availability, and facilitate the introduction.</p>
-    <p class="leading-relaxed mb-10">If you would like assistance narrowing the choice, an experienced birthworker in our practice is happy to help with matching on request. A few things we consider:</p>
+    <p class="leading-relaxed mb-4">Browse our doula collective and let us know who resonates with your family. We'll reach out to your chosen doula, confirm availability, and facilitate the introduction — all contracting and pairing is handled through Grace Midwifery Collective.</p>
+    <p class="leading-relaxed mb-10">If you'd like help narrowing the choice, an experienced birthworker in our practice is happy to assist with matching. A few things we consider:</p>
 
     <div class="grid sm:grid-cols-2 gap-5 mb-10">
       {matchingPoints.map((item, i) => (
