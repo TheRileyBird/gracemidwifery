@@ -1,4 +1,6 @@
 ---
+import FlyerPopup from '../components/FlyerPopup.astro';
+
 export interface Props {
   title?: string;
   description?: string;
@@ -50,6 +52,7 @@ const ogImageAlt = 'Grace Midwifery Collective banner';
   </head>
   <body class="bg-surface text-contrast font-sans antialiased">
     <slot />
+    <FlyerPopup />
   </body>
 </html>
 
