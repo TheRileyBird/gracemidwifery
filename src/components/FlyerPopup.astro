@@ -36,7 +36,7 @@ import flyerLandscape from '../assets/images/flyer-horizontal.png';
   @keydown.escape.window="close()"
 >
   <div
-    class="relative max-h-full w-full max-w-[min(92vw,28rem)] md:max-w-[min(88vw,58rem)]"
+    class="relative flex max-h-full w-full max-w-[min(92vw,28rem)] flex-col items-center gap-4 md:max-w-[min(88vw,58rem)]"
     role="dialog"
     aria-modal="true"
     aria-label="Grace Midwifery Collective flyer"
@@ -51,21 +51,30 @@ import flyerLandscape from '../assets/images/flyer-horizontal.png';
       <X class="h-5 w-5" aria-hidden="true" />
     </button>
 
-    <Image
-      src={flyerPortrait}
-      alt="Grace Midwifery Collective flyer"
-      width={1054}
-      height={1492}
-      class="block max-h-[88vh] w-full rounded-lg object-contain shadow-2xl md:hidden"
-      loading="eager"
-    />
-    <Image
-      src={flyerLandscape}
-      alt="Grace Midwifery Collective flyer"
-      width={1491}
-      height={1055}
-      class="hidden max-h-[88vh] w-full rounded-lg object-contain shadow-2xl md:block"
-      loading="eager"
-    />
+    <a href="/contact" class="block w-full" aria-label="Contact Grace Midwifery Collective">
+      <Image
+        src={flyerPortrait}
+        alt="Grace Midwifery Collective flyer"
+        width={1054}
+        height={1492}
+        class="block max-h-[80vh] w-full rounded-lg object-contain shadow-2xl md:hidden"
+        loading="eager"
+      />
+      <Image
+        src={flyerLandscape}
+        alt="Grace Midwifery Collective flyer"
+        width={1491}
+        height={1055}
+        class="hidden max-h-[78vh] w-full rounded-lg object-contain shadow-2xl md:block"
+        loading="eager"
+      />
+    </a>
+
+    <a
+      href="/contact"
+      class="inline-flex min-h-12 items-center justify-center rounded-full bg-brand-primary px-8 py-3 text-base font-semibold text-white shadow-lg transition hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-primary"
+    >
+      Reserve now
+    </a>
   </div>
 </div>
