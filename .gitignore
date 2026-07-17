@@ -24,8 +24,3 @@ crew/
 
 # Claude Code local overrides (project settings.json is tracked)
 .claude/settings.local.json
-
-# Dolt / Beads runtime files
-.dolt/
-*.db
-.beads/dolt-server.activity
