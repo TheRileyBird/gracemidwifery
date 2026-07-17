@@ -8,6 +8,7 @@ import flyerLandscape from '../assets/images/flyer-horizontal.png';
 
 <div
   x-data="{
+    isPopupEnabled: false,
     isOpen: false,
     storageKey: 'grace-midwifery-flyer-dismissed-at',
     weekInMs: 7 * 24 * 60 * 60 * 1000,
@@ -27,7 +28,7 @@ import flyerLandscape from '../assets/images/flyer-horizontal.png';
       } catch {}
     },
   }"
-  x-show="isOpen"
+  x-show="isPopupEnabled && isOpen"
   x-cloak
   x-transition.opacity.duration.200ms
   class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 py-6 sm:px-6"
