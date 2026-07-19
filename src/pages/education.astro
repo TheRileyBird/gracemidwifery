@@ -34,12 +34,12 @@ import adeleImg from '../assets/images/adele.jpeg';
           { session: 'Session Three', topics: ['The labor journey in depth', 'Anatomy & physiology part 2', 'Laboring & pushing positions', 'Immediate postpartum care', 'The placenta'] },
           { session: 'Session Four',  topics: ["Baby's first moments & the golden hour", 'Breastfeeding initiation', 'Newborn care', 'Postpartum healing', 'Non-birthing partner support'] },
         ].map(({ session, topics }) => (
-          <div class="bg-white rounded-xl p-6 shadow-sm">
+          <div class="bg-white rounded-xl p-6 shadow-xs">
             <h3 class="font-semibold mb-4 text-brand-primary">{session}</h3>
             <ul class="space-y-2">
               {topics.map(t => (
                 <li class="flex items-start gap-2 text-base leading-relaxed">
-                  <span class="flex-shrink-0 font-bold mt-0.5" style="color: #DCB393;">✦</span>
+                  <span class="shrink-0 font-bold mt-0.5" style="color: #DCB393;">✦</span>
                   <span>{t}</span>
                 </li>
               ))}
@@ -61,7 +61,7 @@ import adeleImg from '../assets/images/adele.jpeg';
           <ul class="space-y-2">
             {['Latch technique', 'Troubleshooting common issues', 'Pumping', 'Bottle introduction', 'Weaning'].map(t => (
               <li class="flex items-start gap-3 text-base leading-relaxed">
-                <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
+                <span class="shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
                 <span>{t}</span>
               </li>
             ))}
@@ -72,7 +72,7 @@ import adeleImg from '../assets/images/adele.jpeg';
           <ul class="space-y-3 mb-6">
             {['Four 2-hour in-person sessions', 'Two participants included in price', 'Course journal', 'Prepared Feeding online course (Amanda Devereux RN, IBCLC)'].map(item => (
               <li class="flex items-start gap-3 text-base">
-                <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
+                <span class="shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
                 <span>{item}</span>
               </li>
             ))}
@@ -101,7 +101,7 @@ import adeleImg from '../assets/images/adele.jpeg';
           { term: 'October 2026', dates: ['October 6', 'October 13', 'October 20', 'October 27'] },
           { term: 'January 2027', dates: ['January 5', 'January 12', 'January 19', 'January 26'] },
         ].map(({ term, dates }) => (
-          <div class="bg-white rounded-xl p-5 shadow-sm text-center">
+          <div class="bg-white rounded-xl p-5 shadow-xs text-center">
             <h3 class="font-semibold text-base mb-3 text-brand-primary">{term}</h3>
             <ul class="space-y-1.5 text-base">
               {dates.map(d => <li>{d}</li>)}
@@ -109,7 +109,7 @@ import adeleImg from '../assets/images/adele.jpeg';
           </div>
         ))}
       </div>
-      <div class="bg-white rounded-xl p-8 shadow-sm text-center">
+      <div class="bg-white rounded-xl p-8 shadow-xs text-center">
         <h3 class="font-semibold text-lg mb-3" style="color: #121111;">Register Now</h3>
         <p class="leading-relaxed mb-5">To register or ask questions, contact Adele directly:</p>
         <a href="tel:9858889355" class="text-2xl font-semibold block mb-2 text-brand-primary">985.888.9355</a>

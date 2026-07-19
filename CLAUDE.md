@@ -1,8 +1,8 @@
 # Grace Midwifery Collective — Project Rules
 
 ## Stack
-- **Astro 5** static site generator
-- **Tailwind CSS v3** via `@astrojs/tailwind`
+- **Astro 7** static site generator
+- **Tailwind CSS v4** via `@tailwindcss/vite` (Vite plugin — not an Astro integration)
 - **Alpine.js** for interactivity (scroll, sliders, accordions, mobile menu)
 - Deployed to **Netlify**
 
@@ -25,7 +25,7 @@ The `public/` folder is only for assets that need a stable public URL (favicon, 
 
 ## Design Tokens
 
-Custom colors are defined in `tailwind.config.mjs`. Always use these tokens — never hardcode hex values in class attributes.
+Custom colors are defined as `@theme` CSS variables in `src/styles/global.css` (there is no `tailwind.config.mjs` — Tailwind v4 uses CSS-based configuration). Always use these tokens — never hardcode hex values in class attributes.
 
 | Token | Value | Use |
 |---|---|---|

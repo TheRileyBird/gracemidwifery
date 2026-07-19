@@ -58,7 +58,7 @@ const faqs = [
       </div>
       <div class="grid sm:grid-cols-2 gap-6">
         {whatToExpect.map(({ heading, items }, i) => (
-          <div class="relative overflow-hidden rounded-2xl border border-brand-primary/10 bg-white p-7 shadow-sm">
+          <div class="relative overflow-hidden rounded-2xl border border-brand-primary/10 bg-white p-7 shadow-xs">
             <span class="absolute right-4 top-3 text-7xl font-semibold leading-none text-brand-light opacity-60" aria-hidden="true">
               {i + 1}
             </span>
@@ -66,7 +66,7 @@ const faqs = [
             <ul class="relative space-y-3">
               {items.map(item => (
                 <li class="flex items-start gap-3 leading-relaxed">
-                  <span class="flex-shrink-0 mt-0.5 text-accent">✦</span>
+                  <span class="shrink-0 mt-0.5 text-accent">✦</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -86,10 +86,10 @@ const faqs = [
       </div>
       <div x-data="{ open: null }" class="space-y-3">
         {faqs.map(({ q, a }, i) => (
-          <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+          <div class="bg-white rounded-xl overflow-hidden shadow-xs">
             <button @click={`open = open === ${i} ? null : ${i}`} class="w-full flex items-center justify-between px-6 py-5 text-left">
               <span class="font-medium text-base pr-4" style="color: #121111;">{q}</span>
-              <svg :class={`open === ${i} ? 'rotate-180' : ''`} class="h-4 w-4 flex-shrink-0 transition-transform duration-300 text-brand-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg :class={`open === ${i} ? 'rotate-180' : ''`} class="h-4 w-4 shrink-0 transition-transform duration-300 text-brand-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>

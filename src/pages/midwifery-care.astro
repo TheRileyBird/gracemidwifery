@@ -54,7 +54,7 @@ import flowers from '../assets/images/flowers-1.png';
           'Cleaning supplies',
         ].map(item => (
           <li class="flex items-start gap-2 leading-relaxed mb-2 break-inside-avoid">
-            <span class="flex-shrink-0 mt-0.5 text-brand-primary">•</span>
+            <span class="shrink-0 mt-0.5 text-brand-primary">•</span>
             <span>{item}</span>
           </li>
         ))}
@@ -99,8 +99,8 @@ import flowers from '../assets/images/flowers-1.png';
           'Minimizing technological interventions',
           'Identifying and referring women who require obstetrical attention when needed',
         ].map(item => (
-          <div class="flex items-start gap-4 rounded-2xl border border-brand-primary/10 bg-white/80 p-5 shadow-sm backdrop-blur-sm">
-            <span class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-primary text-sm font-bold text-white shadow-sm">✓</span>
+          <div class="flex items-start gap-4 rounded-2xl border border-brand-primary/10 bg-white/80 p-5 shadow-xs backdrop-blur-xs">
+            <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-primary text-sm font-bold text-white shadow-xs">✓</span>
             <p class="text-sm text-warm-500 leading-relaxed">{item}</p>
           </div>
         ))}
@@ -205,7 +205,7 @@ import flowers from '../assets/images/flowers-1.png';
         'Total time spent face-to-face with the midwife/midwife team: approximately 28–40 hours, or longer as needed. No time limit.',
       ].map(item => (
         <li class="flex items-start gap-3 leading-relaxed">
-          <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
+          <span class="shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
           <span>{item}</span>
         </li>
       ))}
@@ -231,10 +231,10 @@ import flowers from '../assets/images/flowers-1.png';
           { q: 'Do you take insurance?',                 a: 'At this time, licensed certified professional midwives are out-of-network providers for most insurance plans. We offer a complimentary verification of benefits (VOB) to check eligibility, as covered items are always changing. If a reimbursement is paid after delivery, you will receive those funds less 10% to cover the cost of the biller.' },
           { q: 'Do you accept healthshare / costshare?', a: 'YES! Christian cost-share plans usually pay 100% of our care plan. We create a detailed invoice that is used for payment of care from your costshare plan.' },
         ].map(({ q, a }, i) => (
-          <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+          <div class="bg-white rounded-xl overflow-hidden shadow-xs">
             <button @click={`open = open === ${i} ? null : ${i}`} class="w-full flex items-center justify-between px-6 py-5 text-left">
               <span class="font-medium text-base pr-4" style="color: #121111;">{q}</span>
-              <svg :class={`open === ${i} ? 'rotate-180' : ''`} class="h-4 w-4 flex-shrink-0 transition-transform duration-300 text-brand-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg :class={`open === ${i} ? 'rotate-180' : ''`} class="h-4 w-4 shrink-0 transition-transform duration-300 text-brand-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>

@@ -108,13 +108,13 @@ import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
             ],
           },
         ].map(({ title, desc, items }) => (
-          <div class="bg-brand-light rounded-xl overflow-hidden shadow-sm">
+          <div class="bg-brand-light rounded-xl overflow-hidden shadow-xs">
             <button @click={`open = open === '${title}' ? null : '${title}'`} class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left transition-colors">
               <div>
                 <h3 class="font-semibold mb-2 text-brand-primary" style="font-size: 22px;">{title}</h3>
                 <p class="m-0">{desc}</p>
               </div>
-              <svg :class={`open === '${title}' ? 'rotate-180' : ''`} class="h-4 w-4 flex-shrink-0 transition-transform duration-300 text-brand-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg :class={`open === '${title}' ? 'rotate-180' : ''`} class="h-4 w-4 shrink-0 transition-transform duration-300 text-brand-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
@@ -122,7 +122,7 @@ import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
               <ul class="space-y-2">
                 {items.map(item => (
                   <li class="flex items-start gap-3 leading-relaxed">
-                    <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
+                    <span class="shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
                     <p class="m-0">{item}</p>
                   </li>
                 ))}
@@ -176,7 +176,7 @@ import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
             <ul class="space-y-2 mb-6">
               {items.map(item => (
                 <li class="flex items-start gap-2 text-sm leading-relaxed">
-                  <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
+                  <span class="shrink-0 font-bold mt-0.5 text-brand-primary">✓</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -187,24 +187,24 @@ import homebirthTeamImg from '../assets/images/homebirth-team.jpeg';
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white/80 rounded-2xl p-6 shadow-sm">
+        <div class="bg-white/80 rounded-2xl p-6 shadow-xs">
           <h3 class="font-semibold mb-3 text-brand-primary">Add-ons</h3>
           <ul class="space-y-2">
             <li class="flex items-start gap-2 leading-relaxed">
-              <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">•</span>
+              <span class="shrink-0 font-bold mt-0.5 text-brand-primary">•</span>
               <span>Placenta Encapsulation: $250</span>
             </li>
             <li class="flex items-start gap-2 leading-relaxed">
-              <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">•</span>
+              <span class="shrink-0 font-bold mt-0.5 text-brand-primary">•</span>
               <span>Lactation focused visit: $150</span>
             </li>
             <li class="flex items-start gap-2 leading-relaxed">
-              <span class="flex-shrink-0 font-bold mt-0.5 text-brand-primary">•</span>
+              <span class="shrink-0 font-bold mt-0.5 text-brand-primary">•</span>
               <span>Extra hours: $55</span>
             </li>
           </ul>
         </div>
-        <div class="bg-white/80 rounded-2xl p-6 shadow-sm md:col-span-2">
+        <div class="bg-white/80 rounded-2xl p-6 shadow-xs md:col-span-2">
           <h3 class="font-semibold mb-3 text-brand-primary">Gift Certificates</h3>
           <p class="leading-relaxed m-0">Postpartum doula care makes an excellent gift for an expecting family and offers practical support exactly when it is needed most.</p>
         </div>

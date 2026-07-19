@@ -32,7 +32,7 @@ import kissImg from '../assets/images/imgi_35_serving-families.jpg';
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {['Midwifery Care', 'Doula Support', 'Postpartum Services', 'Childbirth Education', 'Other'].map(service => (
                 <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" name="services" value={service} class="w-4 h-4 rounded border-gray-300" style="accent-color: #a75c4a;" />
+                  <input type="checkbox" name="services" value={service} class="w-4 h-4 rounded-sm border-gray-300" style="accent-color: #a75c4a;" />
                   <span class="text-base" style="color: #494F5E;">{service}</span>
                 </label>
               ))}
@@ -43,11 +43,11 @@ import kissImg from '../assets/images/imgi_35_serving-families.jpg';
           <div class="grid sm:grid-cols-2 gap-5">
             <div>
               <label class="block text-base font-bold tracking-widest uppercase mb-2 text-brand-primary">Name</label>
-              <input type="text" name="name" required class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none transition-colors" style="color: #494F5E;" />
+              <input type="text" name="name" required class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-hidden transition-colors" style="color: #494F5E;" />
             </div>
             <div>
               <label class="block text-base font-bold tracking-widest uppercase mb-2 text-brand-primary">Cell Phone</label>
-              <input type="tel" name="phone" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none transition-colors" style="color: #494F5E;" />
+              <input type="tel" name="phone" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-hidden transition-colors" style="color: #494F5E;" />
             </div>
           </div>
 
@@ -55,29 +55,29 @@ import kissImg from '../assets/images/imgi_35_serving-families.jpg';
           <div class="grid sm:grid-cols-2 gap-5">
             <div class="min-w-0">
               <label class="block text-base font-bold tracking-widest uppercase mb-2 text-brand-primary">Email</label>
-              <input type="email" name="email" required class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none transition-colors" style="color: #494F5E;" />
+              <input type="email" name="email" required class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-hidden transition-colors" style="color: #494F5E;" />
             </div>
             <div class="min-w-0">
               <label class="block text-base font-bold tracking-widest uppercase mb-2 text-brand-primary">Estimated Due Date</label>
-              <input type="date" name="due_date" class="w-full min-w-0 max-w-full appearance-none border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none transition-colors" style="color: #494F5E;" />
+              <input type="date" name="due_date" class="w-full min-w-0 max-w-full appearance-none border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-hidden transition-colors" style="color: #494F5E;" />
             </div>
           </div>
 
           <!-- Address -->
           <div>
             <label class="block text-base font-bold tracking-widest uppercase mb-2 text-brand-primary">Street Address</label>
-            <input type="text" name="street" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base mb-3 focus:outline-none transition-colors" style="color: #494F5E;" />
+            <input type="text" name="street" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base mb-3 focus:outline-hidden transition-colors" style="color: #494F5E;" />
             <div class="grid grid-cols-3 gap-3">
-              <input type="text" name="city" placeholder="City" class="border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none" style="color: #494F5E;" />
-              <input type="text" name="state" placeholder="State" class="border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none" style="color: #494F5E;" />
-              <input type="text" name="zip" placeholder="ZIP" class="border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none" style="color: #494F5E;" />
+              <input type="text" name="city" placeholder="City" class="border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-hidden" style="color: #494F5E;" />
+              <input type="text" name="state" placeholder="State" class="border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-hidden" style="color: #494F5E;" />
+              <input type="text" name="zip" placeholder="ZIP" class="border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-hidden" style="color: #494F5E;" />
             </div>
           </div>
 
           <!-- Message -->
           <div>
             <label class="block text-base font-bold tracking-widest uppercase mb-2 text-brand-primary">What has led you to seek our services?</label>
-            <textarea name="message" rows="5" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none resize-none" style="color: #494F5E;"></textarea>
+            <textarea name="message" rows="5" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-hidden resize-none" style="color: #494F5E;"></textarea>
           </div>
 
           <button type="submit" class="w-full text-base font-semibold tracking-widest uppercase text-white py-4 rounded-full hover:opacity-90 transition-opacity bg-brand-primary">

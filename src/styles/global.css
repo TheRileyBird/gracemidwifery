@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-surface: #f8fafc;
+  --color-surface-2: #ffffff;
+  --color-contrast: #121111;
+  --color-contrast-2: #494f5e;
+  --color-contrast-3: #c4bdbd;
+  --color-accent: #dcb393;
+  --color-accent-dark: #a75c4a;
+  --color-brand-primary: #a75c4a;
+  --color-brand-light: #fef4f3;
+  --color-brand-green: #e5f2ef;
+  --color-accent-green: #aab79b;
+  --color-accent-light: #fff4f3;
+  --color-accent-teal: #e5f2ef;
+
+  --font-sans: 'Poppins', system-ui, sans-serif;
+  --font-serif: 'Libre Baskerville', Georgia, serif;
+}
+
+/* Tailwind v3 compatibility: v4 changed the default border/divide color from
+   gray-200 to currentColor. The site uses bare `border`/`divide-*` classes,
+   so keep the v3 default to preserve the existing design. */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+/* Tailwind v3 compatibility: keep the v3 placeholder color (gray-400) instead
+   of v4's default (current color at 50% opacity). */
+@layer base {
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-gray-400);
+  }
+}
